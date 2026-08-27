@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buscar academias y centros deportivos | UNE Sports</title>
+<meta name="description" content="Filtra academias, escuelas y centros deportivos formativos del Perú por región, tipo, precio, valoración y servicios. Resultados en lista o mapa.">
+<link rel="canonical" href="https://www.unesports.pe/buscar.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23FF8300'/%3E%3Cpath d='M11 14v8a9 9 0 0018 0v-8' stroke='%23fff' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='29' cy='11' r='3.4' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="UNE Sports - Inicio">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FF8300"/><path d="M11 14v8a9 9 0 0018 0v-8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="29" cy="11" r="3.4" fill="#fff"/></svg>
+      <span class="logo-text">UNE <span>sports</span></span>
+    </a>
+    <nav class="main-nav" data-main-nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="buscar.html">Buscar</a></li>
+        <li><a href="registrar.html">Registrar</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="header-actions">
+        <a href="registrar.html" class="btn btn-primary btn-sm">Inscríbete hoy</a>
+      </div>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-banner">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span>/</span><span>Buscar</span></nav>
+      <h1>Buscar academias y centros deportivos</h1>
+      <p>Filtra por región, tipo de disciplina, precio, valoración y servicios para encontrar la opción ideal.</p>
+    </div>
+  </div>
+
+  <section style="padding-top: var(--space-lg)">
+    <div class="container">
+      <div class="search-layout">
+        <aside class="filters-panel">
+          <h2>Filtros <button class="btn btn-ghost btn-sm" id="clearFilters" type="button">Limpiar</button></h2>
+
+          <details class="filter-group" open>
+            <summary>Ubicación</summary>
+            <div class="filter-options">
+              <select class="select-field" id="filterRegion" aria-label="Filtrar por región">
+                <option value="">Todas las regiones</option>
+              </select>
+            </div>
+          </details>
+
+          <details class="filter-group" open>
+            <summary>Tipo de negocio</summary>
+            <div class="filter-options" id="filterTipoOptions"></div>
+          </details>
+
+          <details class="filter-group">
+            <summary>Precio</summary>
+            <div class="price-options" id="filterPrecioOptions">
+              <label><input type="radio" name="precio" value="" checked><span>Todos</span></label>
+              <label><input type="radio" name="precio" value="$"><span>$</span></label>
+              <label><input type="radio" name="precio" value="$$"><span>$$</span></label>
+              <label><input type="radio" name="precio" value="$$$"><span>$$$</span></label>
+            </div>
+          </details>
+
+          <details class="filter-group">
+            <summary>Valoración mínima</summary>
+            <div class="rating-filter" id="filterRatingOptions">
+              <label><input type="radio" name="rating" value="0" checked> Cualquier valoración</label>
+              <label><input type="radio" name="rating" value="4.5"> 4.5 o más</label>
+              <label><input type="radio" name="rating" value="4"> 4.0 o más</label>
+              <label><input type="radio" name="rating" value="3"> 3.0 o más</label>
+            </div>
+          </details>
+
+          <details class="filter-group">
+            <summary>Servicios</summary>
+            <div class="filter-options" id="filterServiciosOptions"></div>
+          </details>
+        </aside>
+
+        <div>
+          <div class="results-toolbar">
+            <span class="results-count" id="resultsCount">Cargando resultados…</span>
+            <div class="toolbar-right">
+              <select class="select-field" id="sortSelect" aria-label="Ordenar resultados">
+                <option value="relevancia">Ordenar por: Relevancia</option>
+                <option value="valoracion">Mejor valorados</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="distancia">Más cercanos</option>
+              </select>
+              <div class="view-toggle">
+                <button class="is-active" id="viewListBtn" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h16"/></svg> Lista
+                </button>
+                <button id="viewMapBtn" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3z"/></svg> Mapa
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="listView">
+            <div class="results-list" id="resultsList">
+              <div class="skeleton" style="height:170px;"></div>
+              <div class="skeleton" style="height:170px;"></div>
+              <div class="skeleton" style="height:170px;"></div>
+            </div>
+            <div class="pagination" id="pagination"></div>
+          </div>
+
+          <div id="mapView" style="display:none;">
+            <div class="results-map-wrap">
+              <div id="resultsMap" class="map-embed"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:1rem">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FF8300"/><path d="M11 14v8a9 9 0 0018 0v-8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="29" cy="11" r="3.4" fill="#fff"/></svg>
+          <span class="logo-text">UNE <span>sports</span></span>
+        </a>
+        <p>El directorio N.º 1 de academias, escuelas y centros deportivos formativos del Perú.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46h1.6V4.3C16.3 4.2 15.3 4 14.2 4c-2.3 0-3.9 1.4-3.9 4v2.5H7.8v3h2.5V21h3.2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.4 2 1.9 3.4 4 3.6v2.7c-1.4 0-2.8-.4-4-1.2v6.2a5.2 5.2 0 11-5.2-5.2c.3 0 .6 0 .9.07v2.8a2.4 2.4 0 102 2.36V3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <ul class="footer-links">
+          <li><a href="buscar.html">Buscar academias</a></li>
+          <li><a href="registrar.html">Registrar mi negocio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categorías</h4>
+        <ul class="footer-links">
+          <li><a href="buscar.html?tipo=academia-futbol">Academias de fútbol</a></li>
+          <li><a href="buscar.html?tipo=escuela-natacion">Escuelas de natación</a></li>
+          <li><a href="buscar.html?tipo=rehabilitacion">Rehabilitación deportiva</a></li>
+          <li><a href="buscar.html?tipo=psicologia">Psicología deportiva</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-11.5A7 7 0 105 9.5C5 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Av. Javier Prado Este 123, San Isidro, Lima</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.4 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg>+51 987 654 321</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hola@unesports.pe</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-current-year></span> UNE Sports. Todos los derechos reservados.</span>
+      <span><a href="#">Términos y condiciones</a> · <a href="#">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script src="js/buscar.js"></script>
+</body>
+</html>

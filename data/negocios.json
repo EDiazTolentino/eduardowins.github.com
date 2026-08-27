@@ -1,0 +1,566 @@
+[
+  {
+    "id": 1,
+    "slug": "academia-gol-de-oro",
+    "nombre": "Academia Gol de Oro",
+    "tipo": "academia-futbol",
+    "tipoLabel": "Academia de Fútbol",
+    "region": "Lima",
+    "provincia": "Lima",
+    "distrito": "Miraflores",
+    "direccion": "Av. Angamos Oeste 456, Miraflores",
+    "telefono": "+51 1 445 2201",
+    "whatsapp": "51987654321",
+    "email": "contacto@goldeoro.pe",
+    "precio": "$$",
+    "valoracion": 4.8,
+    "numResenas": 132,
+    "destacado": true,
+    "verificado": true,
+    "lat": -12.1211,
+    "lng": -77.0296,
+    "descripcion": "Formamos futbolistas desde los 4 hasta los 17 años con metodología certificada por la Federación Peruana de Fútbol. Contamos con cancha de grass sintético FIFA Quality, preparadores físicos y psicólogo deportivo permanente.",
+    "servicios": ["Menores de 4 a 17 años", "Cancha de grass sintético", "Torneos internos", "Preparación física", "Escuela de porteros", "Uniforme incluido"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "15:00 - 20:00" },
+      { "dia": "Sábados", "hora": "08:00 - 13:00" },
+      { "dia": "Domingos", "hora": "Cerrado" }
+    ],
+    "contacto": { "nombre": "Renzo Aguilar", "cargo": "Director Deportivo", "foto": "https://i.pravatar.cc/100?img=12" },
+    "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Academia+Gol+de+Oro",
+    "galeria": [
+      "https://placehold.co/900x650/1A365D/FFFFFF?text=Academia+Gol+de+Oro",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Entrenamiento",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Cancha+Sintetica",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Torneo+Interno",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Equipo+Tecnico"
+    ],
+    "resenas": [
+      { "autor": "Marisol Chávez", "avatar": "https://i.pravatar.cc/100?img=32", "valoracion": 5, "fecha": "2026-06-14", "comentario": "Mi hijo entró tímido y en un año ya es capitán de su categoría. Los profesores son muy pacientes con los más chicos." },
+      { "autor": "Jorge Ríos", "avatar": "https://i.pravatar.cc/100?img=15", "valoracion": 5, "fecha": "2026-05-02", "comentario": "Excelente infraestructura y puntualidad. Se nota la organización de cada práctica." },
+      { "autor": "Diana Paredes", "avatar": "https://i.pravatar.cc/100?img=45", "valoracion": 4, "fecha": "2026-03-20", "comentario": "Muy buena academia, solo sugiero más horarios los fines de semana." }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "delfines-natacion-club",
+    "nombre": "Delfines Natación Club",
+    "tipo": "escuela-natacion",
+    "tipoLabel": "Escuela de Natación",
+    "region": "Lima",
+    "provincia": "Lima",
+    "distrito": "San Borja",
+    "direccion": "Jr. Los Cedros 220, San Borja",
+    "telefono": "+51 1 224 8890",
+    "whatsapp": "51987001122",
+    "email": "info@delfinesnatacion.pe",
+    "precio": "$$$",
+    "valoracion": 4.9,
+    "numResenas": 98,
+    "destacado": true,
+    "verificado": true,
+    "lat": -12.1017,
+    "lng": -76.9980,
+    "descripcion": "Piscina climatizada semiolímpica con instructores certificados por la Federación Deportiva Peruana de Natación. Programas desde bebés (natación infantil) hasta preparación competitiva federada.",
+    "servicios": ["Piscina climatizada", "Natación para bebés", "Nivel competitivo", "Clases particulares", "Aqua-terapia", "Casilleros y duchas"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "06:00 - 21:00" },
+      { "dia": "Sábados", "hora": "07:00 - 15:00" },
+      { "dia": "Domingos", "hora": "08:00 - 12:00" }
+    ],
+    "contacto": { "nombre": "Claudia Injoque", "cargo": "Coordinadora Académica", "foto": "https://i.pravatar.cc/100?img=47" },
+    "imagenPrincipal": "https://placehold.co/900x650/2C5282/FFFFFF?text=Delfines+Natacion",
+    "galeria": [
+      "https://placehold.co/900x650/2C5282/FFFFFF?text=Delfines+Natacion",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Piscina+Climatizada",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Clase+Infantil",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Entrenamiento+Competitivo"
+    ],
+    "resenas": [
+      { "autor": "Fabiola Ugarte", "avatar": "https://i.pravatar.cc/100?img=21", "valoracion": 5, "fecha": "2026-07-01", "comentario": "El programa para bebés es espectacular, mi hija perdió el miedo al agua en tres semanas." },
+      { "autor": "Luis Bendezú", "avatar": "https://i.pravatar.cc/100?img=8", "valoracion": 5, "fecha": "2026-04-18", "comentario": "Instructores muy profesionales y la piscina siempre impecable." }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "voley-peru-academy",
+    "nombre": "Vóley Perú Academy",
+    "tipo": "academia-voley",
+    "tipoLabel": "Academia de Vóley",
+    "region": "Lima",
+    "provincia": "Lima",
+    "distrito": "La Molina",
+    "direccion": "Av. La Molina 1180, La Molina",
+    "telefono": "+51 1 348 7712",
+    "whatsapp": "51988112233",
+    "email": "hola@voleyperu.pe",
+    "precio": "$$",
+    "valoracion": 4.6,
+    "numResenas": 74,
+    "destacado": false,
+    "verificado": true,
+    "lat": -12.0868,
+    "lng": -76.9451,
+    "descripcion": "Escuela formativa de vóley con ex jugadoras de la selección nacional como entrenadoras. Trabajamos técnica, táctica y valores dentro y fuera de la cancha.",
+    "servicios": ["Categorías mini, sub-14 y sub-17", "Entrenadoras ex seleccionadas", "Ligas escolares", "Vóley playa (temporada)", "Preparación física"],
+    "horario": [
+      { "dia": "Martes y Jueves", "hora": "16:00 - 19:00" },
+      { "dia": "Sábados", "hora": "09:00 - 12:00" }
+    ],
+    "contacto": { "nombre": "Katherine Salas", "cargo": "Entrenadora Principal", "foto": "https://i.pravatar.cc/100?img=29" },
+    "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Voley+Peru+Academy",
+    "galeria": [
+      "https://placehold.co/900x650/FF8300/FFFFFF?text=Voley+Peru+Academy",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Entrenamiento+Tecnico",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Liga+Escolar"
+    ],
+    "resenas": [
+      { "autor": "Pamela Ortiz", "avatar": "https://i.pravatar.cc/100?img=36", "valoracion": 5, "fecha": "2026-06-02", "comentario": "El nivel de las entrenadoras es altísimo, mi hija mejoró muchísimo su saque." },
+      { "autor": "Gonzalo Prado", "avatar": "https://i.pravatar.cc/100?img=14", "valoracion": 4, "fecha": "2026-02-11", "comentario": "Buena academia, el único punto es que se llena rápido los sábados." }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "dojo-samurai-peru",
+    "nombre": "Dojo Samurai Perú",
+    "tipo": "artes-marciales",
+    "tipoLabel": "Centro de Artes Marciales",
+    "region": "Arequipa",
+    "provincia": "Arequipa",
+    "distrito": "Cercado",
+    "direccion": "Calle Mercaderes 315, Cercado",
+    "telefono": "+51 54 223 4477",
+    "whatsapp": "51954112200",
+    "email": "info@dojosamurai.pe",
+    "precio": "$",
+    "valoracion": 4.7,
+    "numResenas": 156,
+    "destacado": true,
+    "verificado": true,
+    "lat": -16.3989,
+    "lng": -71.5350,
+    "descripcion": "Más de 20 años formando cinturones negros en karate, taekwondo y defensa personal. Trabajamos disciplina, respeto y confianza en niños, jóvenes y adultos.",
+    "servicios": ["Karate infantil", "Taekwondo competitivo", "Defensa personal", "Exámenes de grado", "Clases para adultos"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "16:00 - 21:00" },
+      { "dia": "Sábados", "hora": "09:00 - 13:00" }
+    ],
+    "contacto": { "nombre": "Sensei Hugo Talavera", "cargo": "Instructor Principal (5to Dan)", "foto": "https://i.pravatar.cc/100?img=51" },
+    "imagenPrincipal": "https://placehold.co/900x650/2D3748/FFFFFF?text=Dojo+Samurai+Peru",
+    "galeria": [
+      "https://placehold.co/900x650/2D3748/FFFFFF?text=Dojo+Samurai+Peru",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Examen+de+Grado",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Clase+Infantil",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Torneo+Regional"
+    ],
+    "resenas": [
+      { "autor": "Andrea Vilca", "avatar": "https://i.pravatar.cc/100?img=24", "valoracion": 5, "fecha": "2026-05-29", "comentario": "El sensei tiene una paciencia enorme con los niños. Mi hijo ya es cinturón amarillo y encantado." },
+      { "autor": "Manuel Cárdenas", "avatar": "https://i.pravatar.cc/100?img=6", "valoracion": 5, "fecha": "2026-01-15", "comentario": "Un dojo con historia y disciplina real, se los recomiendo a cualquier padre." }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "canasta-basket-academy",
+    "nombre": "Canasta Basket Academy",
+    "tipo": "academia-basquet",
+    "tipoLabel": "Academia de Básquet",
+    "region": "La Libertad",
+    "provincia": "Trujillo",
+    "distrito": "Trujillo",
+    "direccion": "Av. Húsares de Junín 540, Trujillo",
+    "telefono": "+51 44 291 3345",
+    "whatsapp": "51944556677",
+    "email": "contacto@canastabasket.pe",
+    "precio": "$$",
+    "valoracion": 4.5,
+    "numResenas": 61,
+    "destacado": false,
+    "verificado": false,
+    "lat": -8.1116,
+    "lng": -79.0288,
+    "descripcion": "Academia formativa de básquet con losa techada propia. Fundamentos técnicos, trabajo en equipo y participación en torneos interescolares de La Libertad.",
+    "servicios": ["Categorías 6 a 16 años", "Losa techada propia", "Torneos interescolares", "Campamentos de verano"],
+    "horario": [
+      { "dia": "Lunes, Miércoles y Viernes", "hora": "17:00 - 19:30" },
+      { "dia": "Sábados", "hora": "10:00 - 13:00" }
+    ],
+    "contacto": { "nombre": "Piero Zavaleta", "cargo": "Director Técnico", "foto": "https://i.pravatar.cc/100?img=33" },
+    "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Canasta+Basket+Academy",
+    "galeria": [
+      "https://placehold.co/900x650/1A365D/FFFFFF?text=Canasta+Basket+Academy",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Losa+Techada",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Torneo+Interescolar"
+    ],
+    "resenas": [
+      { "autor": "Ximena Rodríguez", "avatar": "https://i.pravatar.cc/100?img=39", "valoracion": 4, "fecha": "2026-04-09", "comentario": "Buen ambiente y profesores comprometidos, la losa techada ayuda mucho en época de lluvias." }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "crd-revital",
+    "nombre": "CRD ReVital - Centro de Rehabilitación Deportiva",
+    "tipo": "rehabilitacion",
+    "tipoLabel": "Centro de Rehabilitación Deportiva",
+    "region": "Lima",
+    "provincia": "Lima",
+    "distrito": "San Isidro",
+    "direccion": "Av. Camino Real 815, San Isidro",
+    "telefono": "+51 1 421 6650",
+    "whatsapp": "51999887766",
+    "email": "citas@crdrevital.pe",
+    "precio": "$$$",
+    "valoracion": 4.9,
+    "numResenas": 87,
+    "destacado": true,
+    "verificado": true,
+    "lat": -12.0970,
+    "lng": -77.0365,
+    "descripcion": "Equipo multidisciplinario de fisioterapeutas y médicos deportólogos especializados en la recuperación de lesiones deportivas en niños, jóvenes y atletas de alto rendimiento.",
+    "servicios": ["Fisioterapia deportiva", "Evaluación biomecánica", "Recuperación post-lesión", "Terapia de fortalecimiento", "Medicina deportiva"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "07:00 - 20:00" },
+      { "dia": "Sábados", "hora": "08:00 - 14:00" }
+    ],
+    "contacto": { "nombre": "Dra. Valeria Ponce", "cargo": "Médico Deportóloga", "foto": "https://i.pravatar.cc/100?img=44" },
+    "imagenPrincipal": "https://placehold.co/900x650/2F855A/FFFFFF?text=CRD+ReVital",
+    "galeria": [
+      "https://placehold.co/900x650/2F855A/FFFFFF?text=CRD+ReVital",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Sala+de+Terapia",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Evaluacion+Biomecanica",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Equipo+Medico"
+    ],
+    "resenas": [
+      { "autor": "Sebastián Loayza", "avatar": "https://i.pravatar.cc/100?img=17", "valoracion": 5, "fecha": "2026-06-25", "comentario": "Me recuperé de una lesión de rodilla en tiempo récord gracias al plan personalizado que me hicieron." },
+      { "autor": "Carla Núñez", "avatar": "https://i.pravatar.cc/100?img=48", "valoracion": 5, "fecha": "2026-03-30", "comentario": "Trato humano excelente y resultados visibles desde las primeras sesiones." }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "mente-ganadora-psicologia-deportiva",
+    "nombre": "Mente Ganadora - Psicología Deportiva",
+    "tipo": "psicologia",
+    "tipoLabel": "Psicología Deportiva",
+    "region": "Lima",
+    "provincia": "Lima",
+    "distrito": "Miraflores",
+    "direccion": "Calle Schell 275, Miraflores",
+    "telefono": "+51 1 447 9021",
+    "whatsapp": "51977123456",
+    "email": "hola@menteganadora.pe",
+    "precio": "$$",
+    "valoracion": 4.8,
+    "numResenas": 53,
+    "destacado": true,
+    "verificado": true,
+    "lat": -12.1235,
+    "lng": -77.0280,
+    "descripcion": "Consultorio especializado en psicología del deporte para niños y jóvenes atletas: manejo de ansiedad competitiva, motivación, concentración y trabajo con padres y entrenadores.",
+    "servicios": ["Sesiones individuales", "Talleres para equipos", "Manejo de ansiedad competitiva", "Escuela para padres", "Evaluación psicodeportiva"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "09:00 - 19:00" },
+      { "dia": "Sábados", "hora": "09:00 - 12:00" }
+    ],
+    "contacto": { "nombre": "Ps. Daniela Farfán", "cargo": "Psicóloga Deportiva Colegiada", "foto": "https://i.pravatar.cc/100?img=41" },
+    "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Mente+Ganadora",
+    "galeria": [
+      "https://placehold.co/900x650/FF8300/FFFFFF?text=Mente+Ganadora",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Sesion+Individual",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Taller+de+Equipo"
+    ],
+    "resenas": [
+      { "autor": "Rosa Elguera", "avatar": "https://i.pravatar.cc/100?img=23", "valoracion": 5, "fecha": "2026-07-10", "comentario": "Ayudó muchísimo a mi hijo a controlar los nervios antes de las competencias de natación." },
+      { "autor": "Iván Chumpitaz", "avatar": "https://i.pravatar.cc/100?img=3", "valoracion": 4, "fecha": "2026-05-05", "comentario": "Profesional muy preparada, se nota la experiencia trabajando con deportistas jóvenes." }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "ace-tenis-club-cusco",
+    "nombre": "Ace Tenis Club Cusco",
+    "tipo": "academia-tenis",
+    "tipoLabel": "Academia de Tenis",
+    "region": "Cusco",
+    "provincia": "Cusco",
+    "distrito": "Wanchaq",
+    "direccion": "Av. La Cultura 1450, Wanchaq",
+    "telefono": "+51 84 235 9910",
+    "whatsapp": "51984223311",
+    "email": "info@acetenis.pe",
+    "precio": "$$$",
+    "valoracion": 4.6,
+    "numResenas": 39,
+    "destacado": false,
+    "verificado": true,
+    "lat": -13.5319,
+    "lng": -71.9675,
+    "descripcion": "Canchas de polvo de ladrillo y entrenadores certificados ITF. Programas de iniciación, competitivo y clases particulares para toda la familia.",
+    "servicios": ["Canchas de polvo de ladrillo", "Entrenador certificado ITF", "Clases particulares", "Alquiler de equipos", "Torneos internos"],
+    "horario": [
+      { "dia": "Lunes a Sábado", "hora": "07:00 - 20:00" },
+      { "dia": "Domingos", "hora": "08:00 - 13:00" }
+    ],
+    "contacto": { "nombre": "Christian Béjar", "cargo": "Head Coach", "foto": "https://i.pravatar.cc/100?img=52" },
+    "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Ace+Tenis+Club",
+    "galeria": [
+      "https://placehold.co/900x650/1A365D/FFFFFF?text=Ace+Tenis+Club",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Cancha+de+Polvo",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Clase+Particular"
+    ],
+    "resenas": [
+      { "autor": "Fiorella Zúñiga", "avatar": "https://i.pravatar.cc/100?img=27", "valoracion": 5, "fecha": "2026-04-22", "comentario": "Las canchas están en muy buen estado y el coach explica muy bien la técnica." }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "atletas-del-sur-tacna",
+    "nombre": "Atletas del Sur",
+    "tipo": "atletismo",
+    "tipoLabel": "Escuela de Atletismo",
+    "region": "Tacna",
+    "provincia": "Tacna",
+    "distrito": "Tacna",
+    "direccion": "Av. Bolognesi 780, Tacna",
+    "telefono": "+51 52 241 7788",
+    "whatsapp": "51968334455",
+    "email": "contacto@atletasdelsur.pe",
+    "precio": "$",
+    "valoracion": 4.4,
+    "numResenas": 28,
+    "destacado": false,
+    "verificado": false,
+    "lat": -18.0146,
+    "lng": -70.2536,
+    "descripcion": "Escuela formativa de atletismo en pista oficial: velocidad, fondo, saltos y lanzamientos, con entrenadores egresados del IPD.",
+    "servicios": ["Pista oficial de 400m", "Velocidad y fondo", "Saltos y lanzamientos", "Preparación para juegos escolares"],
+    "horario": [
+      { "dia": "Martes, Jueves y Sábado", "hora": "07:00 - 09:30" }
+    ],
+    "contacto": { "nombre": "Prof. Édgar Mamani", "cargo": "Entrenador Principal", "foto": "https://i.pravatar.cc/100?img=54" },
+    "imagenPrincipal": "https://placehold.co/900x650/2D3748/FFFFFF?text=Atletas+del+Sur",
+    "galeria": [
+      "https://placehold.co/900x650/2D3748/FFFFFF?text=Atletas+del+Sur",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Pista+Oficial",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Entrenamiento+de+Fondo"
+    ],
+    "resenas": [
+      { "autor": "Katherine Flores", "avatar": "https://i.pravatar.cc/100?img=19", "valoracion": 4, "fecha": "2026-02-27", "comentario": "Muy buena disciplina y horarios tempranos que se respetan siempre." }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "fuerza-total-chiclayo",
+    "nombre": "Fuerza Total - Preparación Física",
+    "tipo": "preparacion-fisica",
+    "tipoLabel": "Centro de Preparación Física",
+    "region": "Lambayeque",
+    "provincia": "Chiclayo",
+    "distrito": "Chiclayo",
+    "direccion": "Av. Balta 990, Chiclayo",
+    "telefono": "+51 74 220 4456",
+    "whatsapp": "51978445566",
+    "email": "info@fuerzatotal.pe",
+    "precio": "$$",
+    "valoracion": 4.5,
+    "numResenas": 44,
+    "destacado": false,
+    "verificado": true,
+    "lat": -6.7714,
+    "lng": -79.8409,
+    "descripcion": "Centro especializado en preparación física para deportistas juveniles: fuerza, velocidad, agilidad y prevención de lesiones con seguimiento personalizado.",
+    "servicios": ["Evaluación física inicial", "Programas de fuerza y velocidad", "Prevención de lesiones", "Trabajo funcional"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "15:00 - 20:00" },
+      { "dia": "Sábados", "hora": "09:00 - 12:00" }
+    ],
+    "contacto": { "nombre": "Marco Delgado", "cargo": "Preparador Físico", "foto": "https://i.pravatar.cc/100?img=59" },
+    "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Fuerza+Total",
+    "galeria": [
+      "https://placehold.co/900x650/FF8300/FFFFFF?text=Fuerza+Total",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Entrenamiento+Funcional",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Evaluacion+Fisica"
+    ],
+    "resenas": [
+      { "autor": "Anthony Vega", "avatar": "https://i.pravatar.cc/100?img=9", "valoracion": 5, "fecha": "2026-05-16", "comentario": "Noté una mejora enorme en mi rendimiento en solo dos meses de entrenamiento." }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "academia-futbol-base-piura",
+    "nombre": "Academia Fútbol Base Piura",
+    "tipo": "academia-futbol",
+    "tipoLabel": "Academia de Fútbol",
+    "region": "Piura",
+    "provincia": "Piura",
+    "distrito": "Piura",
+    "direccion": "Av. Grau 1120, Piura",
+    "telefono": "+51 73 309 2214",
+    "whatsapp": "51969112233",
+    "email": "contacto@futbolbasepiura.pe",
+    "precio": "$",
+    "valoracion": 4.3,
+    "numResenas": 35,
+    "destacado": false,
+    "verificado": false,
+    "lat": -5.1945,
+    "lng": -80.6328,
+    "descripcion": "Academia formativa de fútbol base para niños de 5 a 15 años, con enfoque en técnica individual y valores deportivos.",
+    "servicios": ["Categorías 5 a 15 años", "Técnica individual", "Ligas locales", "Uniforme y balón incluidos"],
+    "horario": [
+      { "dia": "Lunes, Miércoles y Viernes", "hora": "16:00 - 18:30" },
+      { "dia": "Sábados", "hora": "08:00 - 11:00" }
+    ],
+    "contacto": { "nombre": "Willy Chunga", "cargo": "Director de Academia", "foto": "https://i.pravatar.cc/100?img=61" },
+    "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Futbol+Base+Piura",
+    "galeria": [
+      "https://placehold.co/900x650/1A365D/FFFFFF?text=Futbol+Base+Piura",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Entrenamiento+Tecnico",
+      "https://placehold.co/700x500/2D3748/FFFFFF?text=Liga+Local"
+    ],
+    "resenas": [
+      { "autor": "Milagros Neyra", "avatar": "https://i.pravatar.cc/100?img=25", "valoracion": 4, "fecha": "2026-03-11", "comentario": "Precios accesibles y buen trato a los niños, recomendable para empezar en el fútbol." }
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "sirenas-natacion-huancayo",
+    "nombre": "Sirenas Natación Huancayo",
+    "tipo": "escuela-natacion",
+    "tipoLabel": "Escuela de Natación",
+    "region": "Junín",
+    "provincia": "Huancayo",
+    "distrito": "El Tambo",
+    "direccion": "Jr. Amazonas 640, El Tambo",
+    "telefono": "+51 64 231 8890",
+    "whatsapp": "51966889900",
+    "email": "info@sirenashuancayo.pe",
+    "precio": "$$",
+    "valoracion": 4.6,
+    "numResenas": 41,
+    "destacado": false,
+    "verificado": true,
+    "lat": -12.0651,
+    "lng": -75.2049,
+    "descripcion": "Piscina temperada en altura con instructores especializados en técnica de los cuatro estilos, para niños desde los 3 años.",
+    "servicios": ["Piscina temperada", "Natación desde los 3 años", "Los cuatro estilos", "Clases grupales y particulares"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "08:00 - 19:00" },
+      { "dia": "Sábados", "hora": "08:00 - 13:00" }
+    ],
+    "contacto": { "nombre": "Yesenia Camayo", "cargo": "Coordinadora", "foto": "https://i.pravatar.cc/100?img=63" },
+    "imagenPrincipal": "https://placehold.co/900x650/2C5282/FFFFFF?text=Sirenas+Natacion",
+    "galeria": [
+      "https://placehold.co/900x650/2C5282/FFFFFF?text=Sirenas+Natacion",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Piscina+Temperada",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Clase+Grupal"
+    ],
+    "resenas": [
+      { "autor": "Herbert Quispe", "avatar": "https://i.pravatar.cc/100?img=11", "valoracion": 5, "fecha": "2026-06-08", "comentario": "El agua siempre está a buena temperatura, ideal para el clima de Huancayo." }
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "kickboxing-center-ica",
+    "nombre": "Kickboxing Center Ica",
+    "tipo": "artes-marciales",
+    "tipoLabel": "Centro de Artes Marciales",
+    "region": "Ica",
+    "provincia": "Ica",
+    "distrito": "Ica",
+    "direccion": "Calle Lima 233, Ica",
+    "telefono": "+51 56 223 5567",
+    "whatsapp": "51955667788",
+    "email": "info@kickboxingica.pe",
+    "precio": "$",
+    "valoracion": 4.4,
+    "numResenas": 22,
+    "destacado": false,
+    "verificado": false,
+    "lat": -14.0678,
+    "lng": -75.7286,
+    "descripcion": "Escuela de kickboxing y muay thai para jóvenes, con enfoque en disciplina, acondicionamiento físico y defensa personal.",
+    "servicios": ["Kickboxing juvenil", "Muay thai", "Acondicionamiento físico", "Sparring controlado"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "17:00 - 21:00" }
+    ],
+    "contacto": { "nombre": "Coach Bryan Ochoa", "cargo": "Instructor Principal", "foto": "https://i.pravatar.cc/100?img=65" },
+    "imagenPrincipal": "https://placehold.co/900x650/2D3748/FFFFFF?text=Kickboxing+Center+Ica",
+    "galeria": [
+      "https://placehold.co/900x650/2D3748/FFFFFF?text=Kickboxing+Center+Ica",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Entrenamiento+de+Sparring",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Clase+Juvenil"
+    ],
+    "resenas": [
+      { "autor": "Josué Palomino", "avatar": "https://i.pravatar.cc/100?img=7", "valoracion": 4, "fecha": "2026-01-30", "comentario": "Buen ambiente para empezar en las artes marciales, coach muy atento con los novatos." }
+    ]
+  },
+  {
+    "id": 14,
+    "slug": "psicodeporte-iquitos",
+    "nombre": "Psicodeporte Iquitos",
+    "tipo": "psicologia",
+    "tipoLabel": "Psicología Deportiva",
+    "region": "Loreto",
+    "provincia": "Maynas",
+    "distrito": "Iquitos",
+    "direccion": "Jr. Próspero 412, Iquitos",
+    "telefono": "+51 65 223 1145",
+    "whatsapp": "51945223311",
+    "email": "contacto@psicodeporteiquitos.pe",
+    "precio": "$$",
+    "valoracion": 4.7,
+    "numResenas": 19,
+    "destacado": false,
+    "verificado": true,
+    "lat": -3.7491,
+    "lng": -73.2538,
+    "descripcion": "Atención psicológica especializada para deportistas escolares y federados de la región Loreto, con enfoque en motivación y manejo emocional.",
+    "servicios": ["Sesiones individuales", "Evaluación psicodeportiva", "Talleres para entrenadores", "Manejo del estrés competitivo"],
+    "horario": [
+      { "dia": "Lunes a Viernes", "hora": "09:00 - 18:00" }
+    ],
+    "contacto": { "nombre": "Ps. Rosmery Tuesta", "cargo": "Psicóloga Deportiva", "foto": "https://i.pravatar.cc/100?img=42" },
+    "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Psicodeporte+Iquitos",
+    "galeria": [
+      "https://placehold.co/900x650/FF8300/FFFFFF?text=Psicodeporte+Iquitos",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Sesion+Individual"
+    ],
+    "resenas": [
+      { "autor": "Elvis Ríos", "avatar": "https://i.pravatar.cc/100?img=5", "valoracion": 5, "fecha": "2026-05-19", "comentario": "Ayudó mucho a mi sobrino a manejar la presión antes de los juegos nacionales escolares." }
+    ]
+  },
+  {
+    "id": 15,
+    "slug": "rehab-sport-huaraz",
+    "nombre": "Rehab Sport Huaraz",
+    "tipo": "rehabilitacion",
+    "tipoLabel": "Centro de Rehabilitación Deportiva",
+    "region": "Áncash",
+    "provincia": "Huaraz",
+    "distrito": "Huaraz",
+    "direccion": "Av. Confraternidad Internacional 350, Huaraz",
+    "telefono": "+51 43 242 6690",
+    "whatsapp": "51934556677",
+    "email": "citas@rehabsporthuaraz.pe",
+    "precio": "$$",
+    "valoracion": 4.5,
+    "numResenas": 17,
+    "destacado": false,
+    "verificado": false,
+    "lat": -9.5277,
+    "lng": -77.5279,
+    "descripcion": "Centro de fisioterapia y rehabilitación deportiva para atletas de montaña, ciclistas y deportistas escolares de la región Áncash.",
+    "servicios": ["Fisioterapia deportiva", "Rehabilitación de rodilla y tobillo", "Terapia de altura", "Vendaje neuromuscular"],
+    "horario": [
+      { "dia": "Lunes a Sábado", "hora": "08:00 - 19:00" }
+    ],
+    "contacto": { "nombre": "Lic. Óscar Ponte", "cargo": "Fisioterapeuta Deportivo", "foto": "https://i.pravatar.cc/100?img=67" },
+    "imagenPrincipal": "https://placehold.co/900x650/2F855A/FFFFFF?text=Rehab+Sport+Huaraz",
+    "galeria": [
+      "https://placehold.co/900x650/2F855A/FFFFFF?text=Rehab+Sport+Huaraz",
+      "https://placehold.co/700x500/1A365D/FFFFFF?text=Sala+de+Terapia",
+      "https://placehold.co/700x500/FF8300/FFFFFF?text=Vendaje+Neuromuscular"
+    ],
+    "resenas": [
+      { "autor": "Yolanda Camones", "avatar": "https://i.pravatar.cc/100?img=31", "valoracion": 4, "fecha": "2026-04-02", "comentario": "Buen trato y resultados, aunque hay que sacar cita con unos días de anticipación." }
+    ]
+  }
+]

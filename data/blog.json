@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "slug": "beneficios-deporte-formativo-en-ninos",
+    "titulo": "7 beneficios del deporte formativo en niños y adolescentes",
+    "categoria": "Deporte Formativo",
+    "resumen": "Más allá de lo físico: cómo la práctica deportiva organizada impacta la disciplina, la autoestima y el rendimiento escolar de los más pequeños.",
+    "imagen": "https://placehold.co/1000x600/1A365D/FFFFFF?text=Deporte+Formativo",
+    "autor": "Equipo UNE Sports",
+    "autorFoto": "https://i.pravatar.cc/100?img=68",
+    "fecha": "2026-08-10",
+    "tiempoLectura": "5 min",
+    "contenido": [
+      { "tipo": "parrafo", "texto": "El deporte formativo —aquel que se practica en academias y escuelas deportivas orientadas al desarrollo integral, y no solo a la competencia— es una de las herramientas más poderosas para el crecimiento de niños y adolescentes. En el Perú, cada vez más familias buscan alternativas cercanas y confiables donde sus hijos puedan iniciarse en una disciplina deportiva." },
+      { "tipo": "titulo", "texto": "1. Disciplina y manejo del tiempo" },
+      { "tipo": "parrafo", "texto": "Asistir a entrenamientos regulares enseña a los niños a organizar su tiempo entre el colegio, las tareas y el deporte, una habilidad que los acompañará toda la vida." },
+      { "tipo": "titulo", "texto": "2. Autoestima y confianza" },
+      { "tipo": "parrafo", "texto": "Superar retos técnicos, como aprender una nueva jugada o mejorar un tiempo en la piscina, refuerza la confianza en las propias capacidades." },
+      { "tipo": "cita", "texto": "Un niño que se siente capaz en la cancha, suele trasladar esa confianza a otras áreas de su vida, incluida el aula." },
+      { "tipo": "titulo", "texto": "3. Trabajo en equipo" },
+      { "tipo": "parrafo", "texto": "Deportes como el fútbol o el vóley enseñan a colaborar, comunicarse y resolver conflictos con pares, habilidades sociales clave para la vida adulta." },
+      { "tipo": "titulo", "texto": "4. Salud física y prevención" },
+      { "tipo": "parrafo", "texto": "La actividad física regular reduce el riesgo de sobrepeso infantil y fortalece el sistema cardiovascular desde edades tempranas." },
+      { "tipo": "lista", "items": ["Mejora la coordinación motora", "Fortalece huesos y articulaciones en desarrollo", "Reduce el sedentarismo asociado a las pantallas", "Favorece hábitos de alimentación saludable"] },
+      { "tipo": "titulo", "texto": "5. Manejo emocional" },
+      { "tipo": "parrafo", "texto": "Ganar, perder y competir con respeto son lecciones emocionales que un buen entrenador sabe transmitir a través del deporte formativo." },
+      { "tipo": "titulo", "texto": "¿Cómo elegir la academia correcta?" },
+      { "tipo": "parrafo", "texto": "Verifica que los instructores estén certificados, que existan protocolos de seguridad y que el enfoque esté centrado en el desarrollo del niño y no solo en el resultado deportivo. En UNE Sports puedes filtrar academias por región, tipo de disciplina y valoraciones de otras familias para tomar la mejor decisión." }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "como-elegir-academia-de-futbol-para-tu-hijo",
+    "titulo": "Guía práctica: cómo elegir la academia de fútbol ideal para tu hijo",
+    "categoria": "Fútbol Formativo",
+    "resumen": "Infraestructura, ratio de alumnos por entrenador, metodología y seguridad: los puntos clave antes de matricular a tu hijo en una academia de fútbol.",
+    "imagen": "https://placehold.co/1000x600/FF8300/FFFFFF?text=Futbol+Formativo",
+    "autor": "Renzo Aguilar",
+    "autorFoto": "https://i.pravatar.cc/100?img=12",
+    "fecha": "2026-07-22",
+    "tiempoLectura": "6 min",
+    "contenido": [
+      { "tipo": "parrafo", "texto": "El fútbol sigue siendo el deporte más popular entre los niños peruanos, y con esa popularidad ha crecido también la oferta de academias formativas en todo el país. Elegir bien marca la diferencia entre una experiencia que enamora del deporte y una que lo aleja de él." },
+      { "tipo": "titulo", "texto": "Revisa la infraestructura" },
+      { "tipo": "parrafo", "texto": "Una cancha en buen estado, con superficie adecuada y medidas de seguridad (mallas, iluminación, primeros auxilios) reduce el riesgo de lesiones y mejora la calidad del entrenamiento." },
+      { "tipo": "titulo", "texto": "Ratio entrenador-alumno" },
+      { "tipo": "parrafo", "texto": "Lo ideal es no superar los 12 a 15 niños por entrenador en categorías menores, para garantizar atención personalizada en la técnica individual." },
+      { "tipo": "titulo", "texto": "Metodología por edades" },
+      { "tipo": "parrafo", "texto": "Las academias serias trabajan con una progresión pedagógica clara: en las categorías más pequeñas priorizan el juego y la coordinación, y recién en la adolescencia introducen exigencia táctica y física." },
+      { "tipo": "lista", "items": ["Solicita ver una clase de prueba antes de matricular", "Pregunta por el protocolo ante lesiones", "Revisa las valoraciones y comentarios de otros padres", "Confirma si el precio incluye uniforme y torneos"] },
+      { "tipo": "parrafo", "texto": "En UNE Sports puedes comparar varias academias de fútbol de tu distrito, revisar sus valoraciones reales y contactarlas directamente por WhatsApp antes de decidir." }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "psicologia-deportiva-infantil-ansiedad-competitiva",
+    "titulo": "Psicología deportiva infantil: cómo manejar la ansiedad antes de competir",
+    "categoria": "Psicología Deportiva",
+    "resumen": "Los nervios antes de una competencia son normales, pero cuando se vuelven un obstáculo, la psicología deportiva puede ayudar. Conversamos con especialistas peruanas sobre el tema.",
+    "imagen": "https://placehold.co/1000x600/2C5282/FFFFFF?text=Psicologia+Deportiva",
+    "autor": "Ps. Daniela Farfán",
+    "autorFoto": "https://i.pravatar.cc/100?img=41",
+    "fecha": "2026-07-05",
+    "tiempoLectura": "4 min",
+    "contenido": [
+      { "tipo": "parrafo", "texto": "Es común que niños y adolescentes sientan nervios antes de una competencia. El problema aparece cuando esa ansiedad les impide disfrutar o rendir en lo que tanto han entrenado." },
+      { "tipo": "titulo", "texto": "Señales para prestar atención" },
+      { "tipo": "lista", "items": ["Dolores de estómago o de cabeza antes de competir", "Dificultad para dormir la noche previa", "Pensamientos catastróficos sobre el resultado", "Evitar la competencia o inventar excusas para no asistir"] },
+      { "tipo": "titulo", "texto": "Estrategias que funcionan" },
+      { "tipo": "parrafo", "texto": "La respiración consciente, las rutinas previas a la competencia y el enfoque en el proceso (y no solo en el resultado) son herramientas simples que un psicólogo deportivo puede enseñar tanto al niño como a sus padres." },
+      { "tipo": "cita", "texto": "El objetivo no es eliminar los nervios, sino aprender a competir con ellos." },
+      { "tipo": "titulo", "texto": "El rol de los padres y entrenadores" },
+      { "tipo": "parrafo", "texto": "Evitar comparaciones, celebrar el esfuerzo más que el resultado y mantener un lenguaje positivo antes y después de competir son claves para que el niño construya una relación sana con la competencia." }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "natacion-infantil-edad-ideal-para-empezar",
+    "titulo": "Natación infantil: ¿cuál es la edad ideal para empezar?",
+    "categoria": "Natación",
+    "resumen": "Desde la adaptación acuática en bebés hasta el nivel competitivo: te contamos las etapas del aprendizaje de la natación en niños.",
+    "imagen": "https://placehold.co/1000x600/1A365D/FFFFFF?text=Natacion+Infantil",
+    "autor": "Claudia Injoque",
+    "autorFoto": "https://i.pravatar.cc/100?img=47",
+    "fecha": "2026-06-18",
+    "tiempoLectura": "5 min",
+    "contenido": [
+      { "tipo": "parrafo", "texto": "La natación es uno de los deportes más completos para el desarrollo físico infantil, y también uno de los que genera más dudas sobre cuándo empezar." },
+      { "tipo": "titulo", "texto": "De 6 meses a 3 años: adaptación acuática" },
+      { "tipo": "parrafo", "texto": "En esta etapa el objetivo no es 'nadar', sino perder el miedo al agua y desarrollar reflejos básicos de flotación, siempre acompañados de un adulto dentro de la piscina." },
+      { "tipo": "titulo", "texto": "De 4 a 6 años: aprendizaje técnico inicial" },
+      { "tipo": "parrafo", "texto": "Es la edad ideal para empezar clases estructuradas sin acompañante en el agua, donde se introducen los primeros movimientos de los estilos crol y espalda." },
+      { "tipo": "titulo", "texto": "De 7 años en adelante: perfeccionamiento y nivel competitivo" },
+      { "tipo": "parrafo", "texto": "A partir de esta edad los niños con buena base técnica pueden optar por un camino más competitivo, incorporando los cuatro estilos y entrenamiento de resistencia." },
+      { "tipo": "parrafo", "texto": "Sea cual sea la edad de inicio, lo más importante es elegir una escuela con instructores certificados y piscinas con buen mantenimiento del agua." }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "nutricion-para-jovenes-deportistas",
+    "titulo": "Nutrición básica para jóvenes deportistas: lo que todo padre debería saber",
+    "categoria": "Nutrición Deportiva",
+    "resumen": "Qué comer antes y después de entrenar, la importancia de la hidratación y errores comunes en la alimentación de niños que practican deporte de forma regular.",
+    "imagen": "https://placehold.co/1000x600/FF8300/FFFFFF?text=Nutricion+Deportiva",
+    "autor": "Equipo UNE Sports",
+    "autorFoto": "https://i.pravatar.cc/100?img=68",
+    "fecha": "2026-05-30",
+    "tiempoLectura": "4 min",
+    "contenido": [
+      { "tipo": "parrafo", "texto": "Un niño que entrena varias veces por semana tiene necesidades nutricionales distintas a uno sedentario, aunque esto no significa que necesite dietas especiales ni suplementos." },
+      { "tipo": "titulo", "texto": "Antes de entrenar" },
+      { "tipo": "parrafo", "texto": "Una comida ligera rica en carbohidratos, como fruta con avena o pan integral, una o dos horas antes del entrenamiento aporta la energía necesaria sin generar pesadez." },
+      { "tipo": "titulo", "texto": "Después de entrenar" },
+      { "tipo": "parrafo", "texto": "La combinación de proteína y carbohidratos ayuda a la recuperación muscular: por ejemplo, un sándwich de pollo o un yogur con frutas." },
+      { "tipo": "titulo", "texto": "Hidratación, la gran olvidada" },
+      { "tipo": "lista", "items": ["Ofrecer agua antes, durante y después del entrenamiento", "Evitar bebidas azucaradas como reemplazo del agua", "En climas cálidos, aumentar la frecuencia de hidratación", "Las bebidas isotónicas rara vez son necesarias en niños"] },
+      { "tipo": "parrafo", "texto": "Consulta siempre con un nutricionista deportivo antes de hacer cambios significativos en la alimentación de un menor que entrena de forma intensiva." }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "prevencion-lesiones-deportivas-en-ninos",
+    "titulo": "Prevención de lesiones deportivas en niños: la guía de un fisioterapeuta",
+    "categoria": "Rehabilitación",
+    "resumen": "El calentamiento, la progresión de cargas y el descanso son claves para que la práctica deportiva formativa no termine en lesión. Un especialista nos explica cómo prevenir.",
+    "imagen": "https://placehold.co/1000x600/2F855A/FFFFFF?text=Prevencion+de+Lesiones",
+    "autor": "Dra. Valeria Ponce",
+    "autorFoto": "https://i.pravatar.cc/100?img=44",
+    "fecha": "2026-05-12",
+    "tiempoLectura": "5 min",
+    "contenido": [
+      { "tipo": "parrafo", "texto": "El cuerpo de un niño o adolescente sigue en desarrollo, lo que lo hace especialmente sensible a las lesiones por sobreuso cuando el entrenamiento no está bien planificado." },
+      { "tipo": "titulo", "texto": "Calentamiento y estiramiento" },
+      { "tipo": "parrafo", "texto": "Dedicar al menos 10 minutos a un calentamiento dinámico antes de cada entrenamiento reduce significativamente el riesgo de lesiones musculares." },
+      { "tipo": "titulo", "texto": "Progresión gradual de la carga" },
+      { "tipo": "parrafo", "texto": "Aumentar la intensidad o el volumen de entrenamiento de forma abrupta es una de las principales causas de lesión en deportistas jóvenes." },
+      { "tipo": "titulo", "texto": "Señales de alerta que no se deben ignorar" },
+      { "tipo": "lista", "items": ["Dolor que persiste más de dos días", "Cojera o cambios en la forma de caminar", "Hinchazón visible en una articulación", "Dolor que aparece siempre en el mismo punto"] },
+      { "tipo": "cita", "texto": "Ante cualquiera de estas señales, lo recomendable es pausar la actividad y acudir a evaluación con un especialista en rehabilitación deportiva." },
+      { "tipo": "parrafo", "texto": "El descanso también es parte del entrenamiento: dormir bien y respetar al menos un día de descanso a la semana es fundamental para la recuperación muscular en niños y adolescentes." }
+    ]
+  }
+]

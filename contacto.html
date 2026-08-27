@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | UNE Sports</title>
+<meta name="description" content="¿Tienes dudas o quieres publicar tu academia? Contáctanos por WhatsApp, correo o el formulario. Resolvemos tus preguntas frecuentes sobre UNE Sports.">
+<link rel="canonical" href="https://www.unesports.pe/contacto.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23FF8300'/%3E%3Cpath d='M11 14v8a9 9 0 0018 0v-8' stroke='%23fff' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='29' cy='11' r='3.4' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="UNE Sports - Inicio">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FF8300"/><path d="M11 14v8a9 9 0 0018 0v-8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="29" cy="11" r="3.4" fill="#fff"/></svg>
+      <span class="logo-text">UNE <span>sports</span></span>
+    </a>
+    <nav class="main-nav" data-main-nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="buscar.html">Buscar</a></li>
+        <li><a href="registrar.html">Registrar</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contacto.html" class="is-active">Contacto</a></li>
+      </ul>
+      <div class="header-actions">
+        <a href="registrar.html" class="btn btn-primary btn-sm">Inscríbete hoy</a>
+      </div>
+    </nav>
+    <button class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-banner">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span>/</span><span>Contacto</span></nav>
+      <h1>Hablemos</h1>
+      <p>¿Tienes dudas, sugerencias o quieres publicar tu academia? Escríbenos, te respondemos en menos de 24 horas.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="contact-layout">
+        <div>
+          <div class="contact-info-card">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-11.5A7 7 0 105 9.5C5 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
+            <div><h3>Oficina central</h3><p>Av. Javier Prado Este 123, San Isidro, Lima - Perú</p></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.4 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg></div>
+            <div><h3>Teléfono / WhatsApp</h3><p>+51 987 654 321</p></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+            <div><h3>Correo</h3><p>hola@unesports.pe</p></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><h3>Horario de atención</h3><p>Lunes a viernes, 9:00 a.m. - 6:00 p.m.</p></div>
+          </div>
+
+          <div id="contactoMap" class="map-embed" style="height:260px; margin-top: var(--space-md);"></div>
+        </div>
+
+        <div class="form-card">
+          <form id="contactoForm" novalidate>
+            <div class="form-field">
+              <label for="cNombre">Nombre completo *</label>
+              <input type="text" id="cNombre" required>
+              <span class="form-error">Ingresa tu nombre.</span>
+            </div>
+            <div class="form-field">
+              <label for="cEmail">Correo electrónico *</label>
+              <input type="email" id="cEmail" required>
+              <span class="form-error">Ingresa un correo válido.</span>
+            </div>
+            <div class="form-field">
+              <label for="cAsunto">Asunto *</label>
+              <select id="cAsunto" class="select-field" required>
+                <option value="">Selecciona una opción</option>
+                <option>Quiero registrar mi academia</option>
+                <option>Tengo una consulta general</option>
+                <option>Reportar un problema con un perfil</option>
+                <option>Propuesta de alianza o publicidad</option>
+                <option>Otro</option>
+              </select>
+              <span class="form-error">Selecciona un asunto.</span>
+            </div>
+            <div class="form-field">
+              <label for="cMensaje">Mensaje *</label>
+              <textarea id="cMensaje" required placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+              <span class="form-error">Escribe tu mensaje.</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+            <div class="form-success" id="contactoSuccess" style="padding: var(--space-md) 0 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:44px;height:44px;"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              <p style="margin:0;">¡Mensaje enviado! Te responderemos muy pronto.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container" style="max-width: 780px;">
+      <div class="section-head">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>¿Tienes dudas? Aquí te ayudamos</h2>
+      </div>
+
+      <details class="faq-item" open>
+        <summary>¿Cuánto cuesta registrar mi academia en UNE Sports?</summary>
+        <p>Registrar tu negocio en el directorio es completamente gratuito. Ofrecemos planes destacados opcionales para mayor visibilidad.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tarda en publicarse mi perfil?</summary>
+        <p>Nuestro equipo revisa cada registro en un plazo máximo de 48 horas para verificar la información antes de publicarlo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo puedo dejar una reseña sobre una academia?</summary>
+        <p>Ingresa al perfil del negocio y desplázate hasta la sección "Valoraciones y comentarios", ahí encontrarás el formulario para publicar tu reseña.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿UNE Sports cobra comisión por las inscripciones?</summary>
+        <p>No. UNE Sports es un directorio informativo: el contacto y la inscripción se realizan directamente entre la familia y el negocio.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:1rem">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#FF8300"/><path d="M11 14v8a9 9 0 0018 0v-8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="29" cy="11" r="3.4" fill="#fff"/></svg>
+          <span class="logo-text">UNE <span>sports</span></span>
+        </a>
+        <p>El directorio N.º 1 de academias, escuelas y centros deportivos formativos del Perú.</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <ul class="footer-links">
+          <li><a href="buscar.html">Buscar academias</a></li>
+          <li><a href="registrar.html">Registrar mi negocio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categorías</h4>
+        <ul class="footer-links">
+          <li><a href="buscar.html?tipo=academia-futbol">Academias de fútbol</a></li>
+          <li><a href="buscar.html?tipo=escuela-natacion">Escuelas de natación</a></li>
+          <li><a href="buscar.html?tipo=rehabilitacion">Rehabilitación deportiva</a></li>
+          <li><a href="buscar.html?tipo=psicologia">Psicología deportiva</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-11.5A7 7 0 105 9.5C5 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Av. Javier Prado Este 123, San Isidro, Lima</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hola@unesports.pe</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-current-year></span> UNE Sports. Todos los derechos reservados.</span>
+      <span><a href="#">Términos y condiciones</a> · <a href="#">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contacto.js"></script>
+</body>
+</html>
