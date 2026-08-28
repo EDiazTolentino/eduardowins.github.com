@@ -24,6 +24,15 @@
         }
       });
 
+      var etapas = Array.from(document.querySelectorAll('#etapasCheckbox input:checked')).map(function (i) { return i.value; });
+      var etapasWrap = document.getElementById("etapasCheckbox").closest(".form-field");
+      if (!etapas.length) {
+        valid = false;
+        etapasWrap.classList.add("has-error");
+      } else {
+        etapasWrap.classList.remove("has-error");
+      }
+
       if (!valid) {
         UNE.toast("Revisa los campos marcados en rojo.");
         var firstError = form.querySelector(".has-error");
@@ -46,7 +55,8 @@
         horario: document.getElementById("horarioResumen").value.trim(),
         contactoNombre: document.getElementById("contactoNombre").value.trim(),
         descripcion: document.getElementById("descripcion").value.trim(),
-        servicios: servicios
+        servicios: servicios,
+        etapas: etapas
       };
 
       var submitBtn = document.getElementById("submitBtn");

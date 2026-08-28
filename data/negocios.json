@@ -3,8 +3,8 @@
     "id": 1,
     "slug": "academia-gol-de-oro",
     "nombre": "Academia Gol de Oro",
-    "tipo": "academia-futbol",
-    "tipoLabel": "Academia de Fútbol",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "Miraflores",
@@ -20,13 +20,33 @@
     "lat": -12.1211,
     "lng": -77.0296,
     "descripcion": "Formamos futbolistas desde los 4 hasta los 17 años con metodología certificada por la Federación Peruana de Fútbol. Contamos con cancha de grass sintético FIFA Quality, preparadores físicos y psicólogo deportivo permanente.",
-    "servicios": ["Menores de 4 a 17 años", "Cancha de grass sintético", "Torneos internos", "Preparación física", "Escuela de porteros", "Uniforme incluido"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "15:00 - 20:00" },
-      { "dia": "Sábados", "hora": "08:00 - 13:00" },
-      { "dia": "Domingos", "hora": "Cerrado" }
+    "servicios": [
+      "Menores de 4 a 17 años",
+      "Cancha de grass sintético",
+      "Torneos internos",
+      "Preparación física",
+      "Escuela de porteros",
+      "Uniforme incluido"
     ],
-    "contacto": { "nombre": "Renzo Aguilar", "cargo": "Director Deportivo", "foto": "https://i.pravatar.cc/100?img=12" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "15:00 - 20:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "08:00 - 13:00"
+      },
+      {
+        "dia": "Domingos",
+        "hora": "Cerrado"
+      }
+    ],
+    "contacto": {
+      "nombre": "Renzo Aguilar",
+      "cargo": "Director Deportivo",
+      "foto": "https://i.pravatar.cc/100?img=12"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Academia+Gol+de+Oro",
     "galeria": [
       "https://placehold.co/900x650/1A365D/FFFFFF?text=Academia+Gol+de+Oro",
@@ -36,17 +56,42 @@
       "https://placehold.co/700x500/FF8300/FFFFFF?text=Equipo+Tecnico"
     ],
     "resenas": [
-      { "autor": "Marisol Chávez", "avatar": "https://i.pravatar.cc/100?img=32", "valoracion": 5, "fecha": "2026-06-14", "comentario": "Mi hijo entró tímido y en un año ya es capitán de su categoría. Los profesores son muy pacientes con los más chicos." },
-      { "autor": "Jorge Ríos", "avatar": "https://i.pravatar.cc/100?img=15", "valoracion": 5, "fecha": "2026-05-02", "comentario": "Excelente infraestructura y puntualidad. Se nota la organización de cada práctica." },
-      { "autor": "Diana Paredes", "avatar": "https://i.pravatar.cc/100?img=45", "valoracion": 4, "fecha": "2026-03-20", "comentario": "Muy buena academia, solo sugiero más horarios los fines de semana." }
+      {
+        "autor": "Marisol Chávez",
+        "avatar": "https://i.pravatar.cc/100?img=32",
+        "valoracion": 5,
+        "fecha": "2026-06-14",
+        "comentario": "Mi hijo entró tímido y en un año ya es capitán de su categoría. Los profesores son muy pacientes con los más chicos."
+      },
+      {
+        "autor": "Jorge Ríos",
+        "avatar": "https://i.pravatar.cc/100?img=15",
+        "valoracion": 5,
+        "fecha": "2026-05-02",
+        "comentario": "Excelente infraestructura y puntualidad. Se nota la organización de cada práctica."
+      },
+      {
+        "autor": "Diana Paredes",
+        "avatar": "https://i.pravatar.cc/100?img=45",
+        "valoracion": 4,
+        "fecha": "2026-03-20",
+        "comentario": "Muy buena academia, solo sugiero más horarios los fines de semana."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 2,
     "slug": "delfines-natacion-club",
     "nombre": "Delfines Natación Club",
-    "tipo": "escuela-natacion",
-    "tipoLabel": "Escuela de Natación",
+    "tipo": "escuela-deportiva-formativa",
+    "tipoLabel": "Escuela Deportiva Formativa",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "San Borja",
@@ -60,15 +105,35 @@
     "destacado": true,
     "verificado": true,
     "lat": -12.1017,
-    "lng": -76.9980,
+    "lng": -76.998,
     "descripcion": "Piscina climatizada semiolímpica con instructores certificados por la Federación Deportiva Peruana de Natación. Programas desde bebés (natación infantil) hasta preparación competitiva federada.",
-    "servicios": ["Piscina climatizada", "Natación para bebés", "Nivel competitivo", "Clases particulares", "Aqua-terapia", "Casilleros y duchas"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "06:00 - 21:00" },
-      { "dia": "Sábados", "hora": "07:00 - 15:00" },
-      { "dia": "Domingos", "hora": "08:00 - 12:00" }
+    "servicios": [
+      "Piscina climatizada",
+      "Natación para bebés",
+      "Nivel competitivo",
+      "Clases particulares",
+      "Aqua-terapia",
+      "Casilleros y duchas"
     ],
-    "contacto": { "nombre": "Claudia Injoque", "cargo": "Coordinadora Académica", "foto": "https://i.pravatar.cc/100?img=47" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "06:00 - 21:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "07:00 - 15:00"
+      },
+      {
+        "dia": "Domingos",
+        "hora": "08:00 - 12:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Claudia Injoque",
+      "cargo": "Coordinadora Académica",
+      "foto": "https://i.pravatar.cc/100?img=47"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2C5282/FFFFFF?text=Delfines+Natacion",
     "galeria": [
       "https://placehold.co/900x650/2C5282/FFFFFF?text=Delfines+Natacion",
@@ -77,16 +142,35 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Entrenamiento+Competitivo"
     ],
     "resenas": [
-      { "autor": "Fabiola Ugarte", "avatar": "https://i.pravatar.cc/100?img=21", "valoracion": 5, "fecha": "2026-07-01", "comentario": "El programa para bebés es espectacular, mi hija perdió el miedo al agua en tres semanas." },
-      { "autor": "Luis Bendezú", "avatar": "https://i.pravatar.cc/100?img=8", "valoracion": 5, "fecha": "2026-04-18", "comentario": "Instructores muy profesionales y la piscina siempre impecable." }
+      {
+        "autor": "Fabiola Ugarte",
+        "avatar": "https://i.pravatar.cc/100?img=21",
+        "valoracion": 5,
+        "fecha": "2026-07-01",
+        "comentario": "El programa para bebés es espectacular, mi hija perdió el miedo al agua en tres semanas."
+      },
+      {
+        "autor": "Luis Bendezú",
+        "avatar": "https://i.pravatar.cc/100?img=8",
+        "valoracion": 5,
+        "fecha": "2026-04-18",
+        "comentario": "Instructores muy profesionales y la piscina siempre impecable."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 3,
     "slug": "voley-peru-academy",
     "nombre": "Vóley Perú Academy",
-    "tipo": "academia-voley",
-    "tipoLabel": "Academia de Vóley",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "La Molina",
@@ -102,12 +186,28 @@
     "lat": -12.0868,
     "lng": -76.9451,
     "descripcion": "Escuela formativa de vóley con ex jugadoras de la selección nacional como entrenadoras. Trabajamos técnica, táctica y valores dentro y fuera de la cancha.",
-    "servicios": ["Categorías mini, sub-14 y sub-17", "Entrenadoras ex seleccionadas", "Ligas escolares", "Vóley playa (temporada)", "Preparación física"],
-    "horario": [
-      { "dia": "Martes y Jueves", "hora": "16:00 - 19:00" },
-      { "dia": "Sábados", "hora": "09:00 - 12:00" }
+    "servicios": [
+      "Categorías mini, sub-14 y sub-17",
+      "Entrenadoras ex seleccionadas",
+      "Ligas escolares",
+      "Vóley playa (temporada)",
+      "Preparación física"
     ],
-    "contacto": { "nombre": "Katherine Salas", "cargo": "Entrenadora Principal", "foto": "https://i.pravatar.cc/100?img=29" },
+    "horario": [
+      {
+        "dia": "Martes y Jueves",
+        "hora": "16:00 - 19:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "09:00 - 12:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Katherine Salas",
+      "cargo": "Entrenadora Principal",
+      "foto": "https://i.pravatar.cc/100?img=29"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Voley+Peru+Academy",
     "galeria": [
       "https://placehold.co/900x650/FF8300/FFFFFF?text=Voley+Peru+Academy",
@@ -115,16 +215,35 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Liga+Escolar"
     ],
     "resenas": [
-      { "autor": "Pamela Ortiz", "avatar": "https://i.pravatar.cc/100?img=36", "valoracion": 5, "fecha": "2026-06-02", "comentario": "El nivel de las entrenadoras es altísimo, mi hija mejoró muchísimo su saque." },
-      { "autor": "Gonzalo Prado", "avatar": "https://i.pravatar.cc/100?img=14", "valoracion": 4, "fecha": "2026-02-11", "comentario": "Buena academia, el único punto es que se llena rápido los sábados." }
+      {
+        "autor": "Pamela Ortiz",
+        "avatar": "https://i.pravatar.cc/100?img=36",
+        "valoracion": 5,
+        "fecha": "2026-06-02",
+        "comentario": "El nivel de las entrenadoras es altísimo, mi hija mejoró muchísimo su saque."
+      },
+      {
+        "autor": "Gonzalo Prado",
+        "avatar": "https://i.pravatar.cc/100?img=14",
+        "valoracion": 4,
+        "fecha": "2026-02-11",
+        "comentario": "Buena academia, el único punto es que se llena rápido los sábados."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 4,
     "slug": "dojo-samurai-peru",
     "nombre": "Dojo Samurai Perú",
-    "tipo": "artes-marciales",
-    "tipoLabel": "Centro de Artes Marciales",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Arequipa",
     "provincia": "Arequipa",
     "distrito": "Cercado",
@@ -138,14 +257,30 @@
     "destacado": true,
     "verificado": true,
     "lat": -16.3989,
-    "lng": -71.5350,
+    "lng": -71.535,
     "descripcion": "Más de 20 años formando cinturones negros en karate, taekwondo y defensa personal. Trabajamos disciplina, respeto y confianza en niños, jóvenes y adultos.",
-    "servicios": ["Karate infantil", "Taekwondo competitivo", "Defensa personal", "Exámenes de grado", "Clases para adultos"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "16:00 - 21:00" },
-      { "dia": "Sábados", "hora": "09:00 - 13:00" }
+    "servicios": [
+      "Karate infantil",
+      "Taekwondo competitivo",
+      "Defensa personal",
+      "Exámenes de grado",
+      "Clases para adultos"
     ],
-    "contacto": { "nombre": "Sensei Hugo Talavera", "cargo": "Instructor Principal (5to Dan)", "foto": "https://i.pravatar.cc/100?img=51" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "16:00 - 21:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "09:00 - 13:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Sensei Hugo Talavera",
+      "cargo": "Instructor Principal (5to Dan)",
+      "foto": "https://i.pravatar.cc/100?img=51"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2D3748/FFFFFF?text=Dojo+Samurai+Peru",
     "galeria": [
       "https://placehold.co/900x650/2D3748/FFFFFF?text=Dojo+Samurai+Peru",
@@ -154,16 +289,35 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Torneo+Regional"
     ],
     "resenas": [
-      { "autor": "Andrea Vilca", "avatar": "https://i.pravatar.cc/100?img=24", "valoracion": 5, "fecha": "2026-05-29", "comentario": "El sensei tiene una paciencia enorme con los niños. Mi hijo ya es cinturón amarillo y encantado." },
-      { "autor": "Manuel Cárdenas", "avatar": "https://i.pravatar.cc/100?img=6", "valoracion": 5, "fecha": "2026-01-15", "comentario": "Un dojo con historia y disciplina real, se los recomiendo a cualquier padre." }
+      {
+        "autor": "Andrea Vilca",
+        "avatar": "https://i.pravatar.cc/100?img=24",
+        "valoracion": 5,
+        "fecha": "2026-05-29",
+        "comentario": "El sensei tiene una paciencia enorme con los niños. Mi hijo ya es cinturón amarillo y encantado."
+      },
+      {
+        "autor": "Manuel Cárdenas",
+        "avatar": "https://i.pravatar.cc/100?img=6",
+        "valoracion": 5,
+        "fecha": "2026-01-15",
+        "comentario": "Un dojo con historia y disciplina real, se los recomiendo a cualquier padre."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 5,
     "slug": "canasta-basket-academy",
     "nombre": "Canasta Basket Academy",
-    "tipo": "academia-basquet",
-    "tipoLabel": "Academia de Básquet",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "La Libertad",
     "provincia": "Trujillo",
     "distrito": "Trujillo",
@@ -179,12 +333,27 @@
     "lat": -8.1116,
     "lng": -79.0288,
     "descripcion": "Academia formativa de básquet con losa techada propia. Fundamentos técnicos, trabajo en equipo y participación en torneos interescolares de La Libertad.",
-    "servicios": ["Categorías 6 a 16 años", "Losa techada propia", "Torneos interescolares", "Campamentos de verano"],
-    "horario": [
-      { "dia": "Lunes, Miércoles y Viernes", "hora": "17:00 - 19:30" },
-      { "dia": "Sábados", "hora": "10:00 - 13:00" }
+    "servicios": [
+      "Categorías 6 a 16 años",
+      "Losa techada propia",
+      "Torneos interescolares",
+      "Campamentos de verano"
     ],
-    "contacto": { "nombre": "Piero Zavaleta", "cargo": "Director Técnico", "foto": "https://i.pravatar.cc/100?img=33" },
+    "horario": [
+      {
+        "dia": "Lunes, Miércoles y Viernes",
+        "hora": "17:00 - 19:30"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "10:00 - 13:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Piero Zavaleta",
+      "cargo": "Director Técnico",
+      "foto": "https://i.pravatar.cc/100?img=33"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Canasta+Basket+Academy",
     "galeria": [
       "https://placehold.co/900x650/1A365D/FFFFFF?text=Canasta+Basket+Academy",
@@ -192,15 +361,27 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Torneo+Interescolar"
     ],
     "resenas": [
-      { "autor": "Ximena Rodríguez", "avatar": "https://i.pravatar.cc/100?img=39", "valoracion": 4, "fecha": "2026-04-09", "comentario": "Buen ambiente y profesores comprometidos, la losa techada ayuda mucho en época de lluvias." }
+      {
+        "autor": "Ximena Rodríguez",
+        "avatar": "https://i.pravatar.cc/100?img=39",
+        "valoracion": 4,
+        "fecha": "2026-04-09",
+        "comentario": "Buen ambiente y profesores comprometidos, la losa techada ayuda mucho en época de lluvias."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años"
     ]
   },
   {
     "id": 6,
     "slug": "crd-revital",
     "nombre": "CRD ReVital - Centro de Rehabilitación Deportiva",
-    "tipo": "rehabilitacion",
-    "tipoLabel": "Centro de Rehabilitación Deportiva",
+    "tipo": "rehabilitacion-fisioterapia",
+    "tipoLabel": "Centros de Rehabilitación y Fisioterapia Deportiva",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "San Isidro",
@@ -213,15 +394,31 @@
     "numResenas": 87,
     "destacado": true,
     "verificado": true,
-    "lat": -12.0970,
+    "lat": -12.097,
     "lng": -77.0365,
     "descripcion": "Equipo multidisciplinario de fisioterapeutas y médicos deportólogos especializados en la recuperación de lesiones deportivas en niños, jóvenes y atletas de alto rendimiento.",
-    "servicios": ["Fisioterapia deportiva", "Evaluación biomecánica", "Recuperación post-lesión", "Terapia de fortalecimiento", "Medicina deportiva"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "07:00 - 20:00" },
-      { "dia": "Sábados", "hora": "08:00 - 14:00" }
+    "servicios": [
+      "Fisioterapia deportiva",
+      "Evaluación biomecánica",
+      "Recuperación post-lesión",
+      "Terapia de fortalecimiento",
+      "Medicina deportiva"
     ],
-    "contacto": { "nombre": "Dra. Valeria Ponce", "cargo": "Médico Deportóloga", "foto": "https://i.pravatar.cc/100?img=44" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "07:00 - 20:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "08:00 - 14:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Dra. Valeria Ponce",
+      "cargo": "Médico Deportóloga",
+      "foto": "https://i.pravatar.cc/100?img=44"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2F855A/FFFFFF?text=CRD+ReVital",
     "galeria": [
       "https://placehold.co/900x650/2F855A/FFFFFF?text=CRD+ReVital",
@@ -230,16 +427,34 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Equipo+Medico"
     ],
     "resenas": [
-      { "autor": "Sebastián Loayza", "avatar": "https://i.pravatar.cc/100?img=17", "valoracion": 5, "fecha": "2026-06-25", "comentario": "Me recuperé de una lesión de rodilla en tiempo récord gracias al plan personalizado que me hicieron." },
-      { "autor": "Carla Núñez", "avatar": "https://i.pravatar.cc/100?img=48", "valoracion": 5, "fecha": "2026-03-30", "comentario": "Trato humano excelente y resultados visibles desde las primeras sesiones." }
+      {
+        "autor": "Sebastián Loayza",
+        "avatar": "https://i.pravatar.cc/100?img=17",
+        "valoracion": 5,
+        "fecha": "2026-06-25",
+        "comentario": "Me recuperé de una lesión de rodilla en tiempo récord gracias al plan personalizado que me hicieron."
+      },
+      {
+        "autor": "Carla Núñez",
+        "avatar": "https://i.pravatar.cc/100?img=48",
+        "valoracion": 5,
+        "fecha": "2026-03-30",
+        "comentario": "Trato humano excelente y resultados visibles desde las primeras sesiones."
+      }
+    ],
+    "etapas": [
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 7,
     "slug": "mente-ganadora-psicologia-deportiva",
     "nombre": "Mente Ganadora - Psicología Deportiva",
-    "tipo": "psicologia",
-    "tipoLabel": "Psicología Deportiva",
+    "tipo": "psicologia-deportiva",
+    "tipoLabel": "Centros de Psicología Deportiva",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "Miraflores",
@@ -253,14 +468,30 @@
     "destacado": true,
     "verificado": true,
     "lat": -12.1235,
-    "lng": -77.0280,
+    "lng": -77.028,
     "descripcion": "Consultorio especializado en psicología del deporte para niños y jóvenes atletas: manejo de ansiedad competitiva, motivación, concentración y trabajo con padres y entrenadores.",
-    "servicios": ["Sesiones individuales", "Talleres para equipos", "Manejo de ansiedad competitiva", "Escuela para padres", "Evaluación psicodeportiva"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "09:00 - 19:00" },
-      { "dia": "Sábados", "hora": "09:00 - 12:00" }
+    "servicios": [
+      "Sesiones individuales",
+      "Talleres para equipos",
+      "Manejo de ansiedad competitiva",
+      "Escuela para padres",
+      "Evaluación psicodeportiva"
     ],
-    "contacto": { "nombre": "Ps. Daniela Farfán", "cargo": "Psicóloga Deportiva Colegiada", "foto": "https://i.pravatar.cc/100?img=41" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "09:00 - 19:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "09:00 - 12:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Ps. Daniela Farfán",
+      "cargo": "Psicóloga Deportiva Colegiada",
+      "foto": "https://i.pravatar.cc/100?img=41"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Mente+Ganadora",
     "galeria": [
       "https://placehold.co/900x650/FF8300/FFFFFF?text=Mente+Ganadora",
@@ -268,16 +499,34 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Taller+de+Equipo"
     ],
     "resenas": [
-      { "autor": "Rosa Elguera", "avatar": "https://i.pravatar.cc/100?img=23", "valoracion": 5, "fecha": "2026-07-10", "comentario": "Ayudó muchísimo a mi hijo a controlar los nervios antes de las competencias de natación." },
-      { "autor": "Iván Chumpitaz", "avatar": "https://i.pravatar.cc/100?img=3", "valoracion": 4, "fecha": "2026-05-05", "comentario": "Profesional muy preparada, se nota la experiencia trabajando con deportistas jóvenes." }
+      {
+        "autor": "Rosa Elguera",
+        "avatar": "https://i.pravatar.cc/100?img=23",
+        "valoracion": 5,
+        "fecha": "2026-07-10",
+        "comentario": "Ayudó muchísimo a mi hijo a controlar los nervios antes de las competencias de natación."
+      },
+      {
+        "autor": "Iván Chumpitaz",
+        "avatar": "https://i.pravatar.cc/100?img=3",
+        "valoracion": 4,
+        "fecha": "2026-05-05",
+        "comentario": "Profesional muy preparada, se nota la experiencia trabajando con deportistas jóvenes."
+      }
+    ],
+    "etapas": [
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 8,
     "slug": "ace-tenis-club-cusco",
     "nombre": "Ace Tenis Club Cusco",
-    "tipo": "academia-tenis",
-    "tipoLabel": "Academia de Tenis",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Cusco",
     "provincia": "Cusco",
     "distrito": "Wanchaq",
@@ -293,12 +542,28 @@
     "lat": -13.5319,
     "lng": -71.9675,
     "descripcion": "Canchas de polvo de ladrillo y entrenadores certificados ITF. Programas de iniciación, competitivo y clases particulares para toda la familia.",
-    "servicios": ["Canchas de polvo de ladrillo", "Entrenador certificado ITF", "Clases particulares", "Alquiler de equipos", "Torneos internos"],
-    "horario": [
-      { "dia": "Lunes a Sábado", "hora": "07:00 - 20:00" },
-      { "dia": "Domingos", "hora": "08:00 - 13:00" }
+    "servicios": [
+      "Canchas de polvo de ladrillo",
+      "Entrenador certificado ITF",
+      "Clases particulares",
+      "Alquiler de equipos",
+      "Torneos internos"
     ],
-    "contacto": { "nombre": "Christian Béjar", "cargo": "Head Coach", "foto": "https://i.pravatar.cc/100?img=52" },
+    "horario": [
+      {
+        "dia": "Lunes a Sábado",
+        "hora": "07:00 - 20:00"
+      },
+      {
+        "dia": "Domingos",
+        "hora": "08:00 - 13:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Christian Béjar",
+      "cargo": "Head Coach",
+      "foto": "https://i.pravatar.cc/100?img=52"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Ace+Tenis+Club",
     "galeria": [
       "https://placehold.co/900x650/1A365D/FFFFFF?text=Ace+Tenis+Club",
@@ -306,15 +571,28 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Clase+Particular"
     ],
     "resenas": [
-      { "autor": "Fiorella Zúñiga", "avatar": "https://i.pravatar.cc/100?img=27", "valoracion": 5, "fecha": "2026-04-22", "comentario": "Las canchas están en muy buen estado y el coach explica muy bien la técnica." }
+      {
+        "autor": "Fiorella Zúñiga",
+        "avatar": "https://i.pravatar.cc/100?img=27",
+        "valoracion": 5,
+        "fecha": "2026-04-22",
+        "comentario": "Las canchas están en muy buen estado y el coach explica muy bien la técnica."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 9,
     "slug": "atletas-del-sur-tacna",
     "nombre": "Atletas del Sur",
-    "tipo": "atletismo",
-    "tipoLabel": "Escuela de Atletismo",
+    "tipo": "escuela-deportiva-formativa",
+    "tipoLabel": "Escuela Deportiva Formativa",
     "region": "Tacna",
     "provincia": "Tacna",
     "distrito": "Tacna",
@@ -330,11 +608,23 @@
     "lat": -18.0146,
     "lng": -70.2536,
     "descripcion": "Escuela formativa de atletismo en pista oficial: velocidad, fondo, saltos y lanzamientos, con entrenadores egresados del IPD.",
-    "servicios": ["Pista oficial de 400m", "Velocidad y fondo", "Saltos y lanzamientos", "Preparación para juegos escolares"],
-    "horario": [
-      { "dia": "Martes, Jueves y Sábado", "hora": "07:00 - 09:30" }
+    "servicios": [
+      "Pista oficial de 400m",
+      "Velocidad y fondo",
+      "Saltos y lanzamientos",
+      "Preparación para juegos escolares"
     ],
-    "contacto": { "nombre": "Prof. Édgar Mamani", "cargo": "Entrenador Principal", "foto": "https://i.pravatar.cc/100?img=54" },
+    "horario": [
+      {
+        "dia": "Martes, Jueves y Sábado",
+        "hora": "07:00 - 09:30"
+      }
+    ],
+    "contacto": {
+      "nombre": "Prof. Édgar Mamani",
+      "cargo": "Entrenador Principal",
+      "foto": "https://i.pravatar.cc/100?img=54"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2D3748/FFFFFF?text=Atletas+del+Sur",
     "galeria": [
       "https://placehold.co/900x650/2D3748/FFFFFF?text=Atletas+del+Sur",
@@ -342,15 +632,27 @@
       "https://placehold.co/700x500/1A365D/FFFFFF?text=Entrenamiento+de+Fondo"
     ],
     "resenas": [
-      { "autor": "Katherine Flores", "avatar": "https://i.pravatar.cc/100?img=19", "valoracion": 4, "fecha": "2026-02-27", "comentario": "Muy buena disciplina y horarios tempranos que se respetan siempre." }
+      {
+        "autor": "Katherine Flores",
+        "avatar": "https://i.pravatar.cc/100?img=19",
+        "valoracion": 4,
+        "fecha": "2026-02-27",
+        "comentario": "Muy buena disciplina y horarios tempranos que se respetan siempre."
+      }
+    ],
+    "etapas": [
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 10,
     "slug": "fuerza-total-chiclayo",
     "nombre": "Fuerza Total - Preparación Física",
-    "tipo": "preparacion-fisica",
-    "tipoLabel": "Centro de Preparación Física",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Lambayeque",
     "provincia": "Chiclayo",
     "distrito": "Chiclayo",
@@ -366,12 +668,27 @@
     "lat": -6.7714,
     "lng": -79.8409,
     "descripcion": "Centro especializado en preparación física para deportistas juveniles: fuerza, velocidad, agilidad y prevención de lesiones con seguimiento personalizado.",
-    "servicios": ["Evaluación física inicial", "Programas de fuerza y velocidad", "Prevención de lesiones", "Trabajo funcional"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "15:00 - 20:00" },
-      { "dia": "Sábados", "hora": "09:00 - 12:00" }
+    "servicios": [
+      "Evaluación física inicial",
+      "Programas de fuerza y velocidad",
+      "Prevención de lesiones",
+      "Trabajo funcional"
     ],
-    "contacto": { "nombre": "Marco Delgado", "cargo": "Preparador Físico", "foto": "https://i.pravatar.cc/100?img=59" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "15:00 - 20:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "09:00 - 12:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Marco Delgado",
+      "cargo": "Preparador Físico",
+      "foto": "https://i.pravatar.cc/100?img=59"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Fuerza+Total",
     "galeria": [
       "https://placehold.co/900x650/FF8300/FFFFFF?text=Fuerza+Total",
@@ -379,15 +696,26 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Evaluacion+Fisica"
     ],
     "resenas": [
-      { "autor": "Anthony Vega", "avatar": "https://i.pravatar.cc/100?img=9", "valoracion": 5, "fecha": "2026-05-16", "comentario": "Noté una mejora enorme en mi rendimiento en solo dos meses de entrenamiento." }
+      {
+        "autor": "Anthony Vega",
+        "avatar": "https://i.pravatar.cc/100?img=9",
+        "valoracion": 5,
+        "fecha": "2026-05-16",
+        "comentario": "Noté una mejora enorme en mi rendimiento en solo dos meses de entrenamiento."
+      }
+    ],
+    "etapas": [
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 11,
     "slug": "academia-futbol-base-piura",
     "nombre": "Academia Fútbol Base Piura",
-    "tipo": "academia-futbol",
-    "tipoLabel": "Academia de Fútbol",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Piura",
     "provincia": "Piura",
     "distrito": "Piura",
@@ -403,12 +731,27 @@
     "lat": -5.1945,
     "lng": -80.6328,
     "descripcion": "Academia formativa de fútbol base para niños de 5 a 15 años, con enfoque en técnica individual y valores deportivos.",
-    "servicios": ["Categorías 5 a 15 años", "Técnica individual", "Ligas locales", "Uniforme y balón incluidos"],
-    "horario": [
-      { "dia": "Lunes, Miércoles y Viernes", "hora": "16:00 - 18:30" },
-      { "dia": "Sábados", "hora": "08:00 - 11:00" }
+    "servicios": [
+      "Categorías 5 a 15 años",
+      "Técnica individual",
+      "Ligas locales",
+      "Uniforme y balón incluidos"
     ],
-    "contacto": { "nombre": "Willy Chunga", "cargo": "Director de Academia", "foto": "https://i.pravatar.cc/100?img=61" },
+    "horario": [
+      {
+        "dia": "Lunes, Miércoles y Viernes",
+        "hora": "16:00 - 18:30"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "08:00 - 11:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Willy Chunga",
+      "cargo": "Director de Academia",
+      "foto": "https://i.pravatar.cc/100?img=61"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/1A365D/FFFFFF?text=Futbol+Base+Piura",
     "galeria": [
       "https://placehold.co/900x650/1A365D/FFFFFF?text=Futbol+Base+Piura",
@@ -416,15 +759,27 @@
       "https://placehold.co/700x500/2D3748/FFFFFF?text=Liga+Local"
     ],
     "resenas": [
-      { "autor": "Milagros Neyra", "avatar": "https://i.pravatar.cc/100?img=25", "valoracion": 4, "fecha": "2026-03-11", "comentario": "Precios accesibles y buen trato a los niños, recomendable para empezar en el fútbol." }
+      {
+        "autor": "Milagros Neyra",
+        "avatar": "https://i.pravatar.cc/100?img=25",
+        "valoracion": 4,
+        "fecha": "2026-03-11",
+        "comentario": "Precios accesibles y buen trato a los niños, recomendable para empezar en el fútbol."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años"
     ]
   },
   {
     "id": 12,
     "slug": "sirenas-natacion-huancayo",
     "nombre": "Sirenas Natación Huancayo",
-    "tipo": "escuela-natacion",
-    "tipoLabel": "Escuela de Natación",
+    "tipo": "escuela-deportiva-formativa",
+    "tipoLabel": "Escuela Deportiva Formativa",
     "region": "Junín",
     "provincia": "Huancayo",
     "distrito": "El Tambo",
@@ -440,12 +795,27 @@
     "lat": -12.0651,
     "lng": -75.2049,
     "descripcion": "Piscina temperada en altura con instructores especializados en técnica de los cuatro estilos, para niños desde los 3 años.",
-    "servicios": ["Piscina temperada", "Natación desde los 3 años", "Los cuatro estilos", "Clases grupales y particulares"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "08:00 - 19:00" },
-      { "dia": "Sábados", "hora": "08:00 - 13:00" }
+    "servicios": [
+      "Piscina temperada",
+      "Natación desde los 3 años",
+      "Los cuatro estilos",
+      "Clases grupales y particulares"
     ],
-    "contacto": { "nombre": "Yesenia Camayo", "cargo": "Coordinadora", "foto": "https://i.pravatar.cc/100?img=63" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "08:00 - 19:00"
+      },
+      {
+        "dia": "Sábados",
+        "hora": "08:00 - 13:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Yesenia Camayo",
+      "cargo": "Coordinadora",
+      "foto": "https://i.pravatar.cc/100?img=63"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2C5282/FFFFFF?text=Sirenas+Natacion",
     "galeria": [
       "https://placehold.co/900x650/2C5282/FFFFFF?text=Sirenas+Natacion",
@@ -453,15 +823,26 @@
       "https://placehold.co/700x500/1A365D/FFFFFF?text=Clase+Grupal"
     ],
     "resenas": [
-      { "autor": "Herbert Quispe", "avatar": "https://i.pravatar.cc/100?img=11", "valoracion": 5, "fecha": "2026-06-08", "comentario": "El agua siempre está a buena temperatura, ideal para el clima de Huancayo." }
+      {
+        "autor": "Herbert Quispe",
+        "avatar": "https://i.pravatar.cc/100?img=11",
+        "valoracion": 5,
+        "fecha": "2026-06-08",
+        "comentario": "El agua siempre está a buena temperatura, ideal para el clima de Huancayo."
+      }
+    ],
+    "etapas": [
+      "4 a 6 años",
+      "7 a 9 años",
+      "10 a 12 años"
     ]
   },
   {
     "id": 13,
     "slug": "kickboxing-center-ica",
     "nombre": "Kickboxing Center Ica",
-    "tipo": "artes-marciales",
-    "tipoLabel": "Centro de Artes Marciales",
+    "tipo": "academia-deportiva-formativa",
+    "tipoLabel": "Academia Deportiva Formativa",
     "region": "Ica",
     "provincia": "Ica",
     "distrito": "Ica",
@@ -477,11 +858,23 @@
     "lat": -14.0678,
     "lng": -75.7286,
     "descripcion": "Escuela de kickboxing y muay thai para jóvenes, con enfoque en disciplina, acondicionamiento físico y defensa personal.",
-    "servicios": ["Kickboxing juvenil", "Muay thai", "Acondicionamiento físico", "Sparring controlado"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "17:00 - 21:00" }
+    "servicios": [
+      "Kickboxing juvenil",
+      "Muay thai",
+      "Acondicionamiento físico",
+      "Sparring controlado"
     ],
-    "contacto": { "nombre": "Coach Bryan Ochoa", "cargo": "Instructor Principal", "foto": "https://i.pravatar.cc/100?img=65" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "17:00 - 21:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Coach Bryan Ochoa",
+      "cargo": "Instructor Principal",
+      "foto": "https://i.pravatar.cc/100?img=65"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2D3748/FFFFFF?text=Kickboxing+Center+Ica",
     "galeria": [
       "https://placehold.co/900x650/2D3748/FFFFFF?text=Kickboxing+Center+Ica",
@@ -489,15 +882,26 @@
       "https://placehold.co/700x500/1A365D/FFFFFF?text=Clase+Juvenil"
     ],
     "resenas": [
-      { "autor": "Josué Palomino", "avatar": "https://i.pravatar.cc/100?img=7", "valoracion": 4, "fecha": "2026-01-30", "comentario": "Buen ambiente para empezar en las artes marciales, coach muy atento con los novatos." }
+      {
+        "autor": "Josué Palomino",
+        "avatar": "https://i.pravatar.cc/100?img=7",
+        "valoracion": 4,
+        "fecha": "2026-01-30",
+        "comentario": "Buen ambiente para empezar en las artes marciales, coach muy atento con los novatos."
+      }
+    ],
+    "etapas": [
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 14,
     "slug": "psicodeporte-iquitos",
     "nombre": "Psicodeporte Iquitos",
-    "tipo": "psicologia",
-    "tipoLabel": "Psicología Deportiva",
+    "tipo": "psicologia-deportiva",
+    "tipoLabel": "Centros de Psicología Deportiva",
     "region": "Loreto",
     "provincia": "Maynas",
     "distrito": "Iquitos",
@@ -513,26 +917,50 @@
     "lat": -3.7491,
     "lng": -73.2538,
     "descripcion": "Atención psicológica especializada para deportistas escolares y federados de la región Loreto, con enfoque en motivación y manejo emocional.",
-    "servicios": ["Sesiones individuales", "Evaluación psicodeportiva", "Talleres para entrenadores", "Manejo del estrés competitivo"],
-    "horario": [
-      { "dia": "Lunes a Viernes", "hora": "09:00 - 18:00" }
+    "servicios": [
+      "Sesiones individuales",
+      "Evaluación psicodeportiva",
+      "Talleres para entrenadores",
+      "Manejo del estrés competitivo"
     ],
-    "contacto": { "nombre": "Ps. Rosmery Tuesta", "cargo": "Psicóloga Deportiva", "foto": "https://i.pravatar.cc/100?img=42" },
+    "horario": [
+      {
+        "dia": "Lunes a Viernes",
+        "hora": "09:00 - 18:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Ps. Rosmery Tuesta",
+      "cargo": "Psicóloga Deportiva",
+      "foto": "https://i.pravatar.cc/100?img=42"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/FF8300/FFFFFF?text=Psicodeporte+Iquitos",
     "galeria": [
       "https://placehold.co/900x650/FF8300/FFFFFF?text=Psicodeporte+Iquitos",
       "https://placehold.co/700x500/1A365D/FFFFFF?text=Sesion+Individual"
     ],
     "resenas": [
-      { "autor": "Elvis Ríos", "avatar": "https://i.pravatar.cc/100?img=5", "valoracion": 5, "fecha": "2026-05-19", "comentario": "Ayudó mucho a mi sobrino a manejar la presión antes de los juegos nacionales escolares." }
+      {
+        "autor": "Elvis Ríos",
+        "avatar": "https://i.pravatar.cc/100?img=5",
+        "valoracion": 5,
+        "fecha": "2026-05-19",
+        "comentario": "Ayudó mucho a mi sobrino a manejar la presión antes de los juegos nacionales escolares."
+      }
+    ],
+    "etapas": [
+      "7 a 9 años",
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   },
   {
     "id": 15,
     "slug": "rehab-sport-huaraz",
     "nombre": "Rehab Sport Huaraz",
-    "tipo": "rehabilitacion",
-    "tipoLabel": "Centro de Rehabilitación Deportiva",
+    "tipo": "rehabilitacion-fisioterapia",
+    "tipoLabel": "Centros de Rehabilitación y Fisioterapia Deportiva",
     "region": "Áncash",
     "provincia": "Huaraz",
     "distrito": "Huaraz",
@@ -548,11 +976,23 @@
     "lat": -9.5277,
     "lng": -77.5279,
     "descripcion": "Centro de fisioterapia y rehabilitación deportiva para atletas de montaña, ciclistas y deportistas escolares de la región Áncash.",
-    "servicios": ["Fisioterapia deportiva", "Rehabilitación de rodilla y tobillo", "Terapia de altura", "Vendaje neuromuscular"],
-    "horario": [
-      { "dia": "Lunes a Sábado", "hora": "08:00 - 19:00" }
+    "servicios": [
+      "Fisioterapia deportiva",
+      "Rehabilitación de rodilla y tobillo",
+      "Terapia de altura",
+      "Vendaje neuromuscular"
     ],
-    "contacto": { "nombre": "Lic. Óscar Ponte", "cargo": "Fisioterapeuta Deportivo", "foto": "https://i.pravatar.cc/100?img=67" },
+    "horario": [
+      {
+        "dia": "Lunes a Sábado",
+        "hora": "08:00 - 19:00"
+      }
+    ],
+    "contacto": {
+      "nombre": "Lic. Óscar Ponte",
+      "cargo": "Fisioterapeuta Deportivo",
+      "foto": "https://i.pravatar.cc/100?img=67"
+    },
     "imagenPrincipal": "https://placehold.co/900x650/2F855A/FFFFFF?text=Rehab+Sport+Huaraz",
     "galeria": [
       "https://placehold.co/900x650/2F855A/FFFFFF?text=Rehab+Sport+Huaraz",
@@ -560,7 +1000,18 @@
       "https://placehold.co/700x500/FF8300/FFFFFF?text=Vendaje+Neuromuscular"
     ],
     "resenas": [
-      { "autor": "Yolanda Camones", "avatar": "https://i.pravatar.cc/100?img=31", "valoracion": 4, "fecha": "2026-04-02", "comentario": "Buen trato y resultados, aunque hay que sacar cita con unos días de anticipación." }
+      {
+        "autor": "Yolanda Camones",
+        "avatar": "https://i.pravatar.cc/100?img=31",
+        "valoracion": 4,
+        "fecha": "2026-04-02",
+        "comentario": "Buen trato y resultados, aunque hay que sacar cita con unos días de anticipación."
+      }
+    ],
+    "etapas": [
+      "10 a 12 años",
+      "13 a 15 años",
+      "16 a 18 años"
     ]
   }
 ]

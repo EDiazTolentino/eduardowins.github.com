@@ -47,6 +47,15 @@ $servicios = une_fetch_grouped(
     'negocio_id'
 );
 
+$etapas = une_fetch_grouped(
+    $pdo,
+    "SELECT ne.negocio_id, e.nombre
+     FROM negocio_etapas ne JOIN etapas e ON e.id = ne.etapa_id
+     WHERE ne.negocio_id IN ($placeholders) ORDER BY ne.negocio_id, e.orden",
+    $ids,
+    'negocio_id'
+);
+
 $imagenes = une_fetch_grouped(
     $pdo,
     "SELECT negocio_id, url FROM negocio_imagenes
@@ -96,6 +105,7 @@ foreach ($negocios as $n) {
         'lng' => $n['lng'] !== null ? (float) $n['lng'] : null,
         'descripcion' => $n['descripcion'],
         'servicios' => array_map(fn($s) => $s['nombre'], $servicios[$id] ?? []),
+        'etapas' => array_map(fn($e) => $e['nombre'], $etapas[$id] ?? []),
         'horario' => array_map(fn($h) => ['dia' => $h['dia'], 'hora' => $h['hora']], $horarios[$id] ?? []),
         'contacto' => [
             'nombre' => $n['contacto_nombre'],

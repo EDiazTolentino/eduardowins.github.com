@@ -69,16 +69,19 @@
               <label for="tipoNegocio">Tipo de negocio *</label>
               <select id="tipoNegocio" class="select-field" required>
                 <option value="">Selecciona una opción</option>
-                <option>Academia de Fútbol</option>
-                <option>Escuela de Natación</option>
-                <option>Academia de Vóley</option>
-                <option>Centro de Artes Marciales</option>
-                <option>Academia de Básquet</option>
-                <option>Academia de Tenis</option>
-                <option>Escuela de Atletismo</option>
-                <option>Centro de Rehabilitación Deportiva</option>
-                <option>Psicología Deportiva</option>
-                <option>Centro de Preparación Física</option>
+                <option>Academia Deportiva Formativa</option>
+                <option>Escuela Deportiva Formativa</option>
+                <option>Centros de Rehabilitación y Fisioterapia Deportiva</option>
+                <option>Clínicas de Medicina Deportiva Pediátrica</option>
+                <option>Centros de Nutrición y Dietética Deportiva</option>
+                <option>Laboratorios de Biomecánica Deportiva</option>
+                <option>Centros de Psicología Deportiva</option>
+                <option>Consultoras de Coaching Deportivo y Liderazgo</option>
+                <option>Organizaciones de Intervención Familiar</option>
+                <option>Centros de Tutoría y Nivelación Académica</option>
+                <option>Agencias de Safeguarding (Protección Infantil en el Deporte)</option>
+                <option>ONGs de Desarrollo a través del Deporte</option>
+                <option>Estudios de Derecho Deportivo</option>
                 <option>Otro</option>
               </select>
               <span class="form-error">Selecciona el tipo de negocio.</span>
@@ -92,6 +95,19 @@
                 <option value="$$$">$$$ - Premium</option>
               </select>
               <span class="form-error">Selecciona un rango de precio.</span>
+            </div>
+
+            <div class="form-field full">
+              <label>Etapas del deporte formativo que atiendes *</label>
+              <span class="hint">Selecciona todos los rangos de edad que apliquen</span>
+              <div class="checkbox-grid" id="etapasCheckbox" style="margin-top:0.4rem;">
+                <label class="checkbox-row"><input type="checkbox" name="etapa" value="4 a 6 años"><span>4 a 6 años</span></label>
+                <label class="checkbox-row"><input type="checkbox" name="etapa" value="7 a 9 años"><span>7 a 9 años</span></label>
+                <label class="checkbox-row"><input type="checkbox" name="etapa" value="10 a 12 años"><span>10 a 12 años</span></label>
+                <label class="checkbox-row"><input type="checkbox" name="etapa" value="13 a 15 años"><span>13 a 15 años</span></label>
+                <label class="checkbox-row"><input type="checkbox" name="etapa" value="16 a 18 años"><span>16 a 18 años</span></label>
+              </div>
+              <span class="form-error" id="etapasError">Selecciona al menos una etapa.</span>
             </div>
 
             <div class="form-field">
@@ -217,10 +233,10 @@
       <div>
         <h4>Categorías</h4>
         <ul class="footer-links">
-          <li><a href="buscar.html?tipo=academia-futbol">Academias de fútbol</a></li>
-          <li><a href="buscar.html?tipo=escuela-natacion">Escuelas de natación</a></li>
-          <li><a href="buscar.html?tipo=rehabilitacion">Rehabilitación deportiva</a></li>
-          <li><a href="buscar.html?tipo=psicologia">Psicología deportiva</a></li>
+          <li><a href="buscar.html?tipo=academia-deportiva-formativa">Academias deportivas</a></li>
+          <li><a href="buscar.html?tipo=escuela-deportiva-formativa">Escuelas deportivas</a></li>
+          <li><a href="buscar.html?tipo=rehabilitacion-fisioterapia">Rehabilitación y fisioterapia</a></li>
+          <li><a href="buscar.html?tipo=psicologia-deportiva">Psicología deportiva</a></li>
         </ul>
       </div>
       <div>

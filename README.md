@@ -63,7 +63,13 @@ Tipografías: **Montserrat** (títulos) + **Inter** (texto), cargadas desde Goog
 
 ## Base de datos (MySQL)
 
-Tablas: `categorias`, `distritos_peru` (catálogo de región/provincia/distrito), `usuarios`, `negocios`, `servicios` + `negocio_servicios` (N:N), `negocio_imagenes`, `negocio_horarios`, `valoraciones`, `blog_categorias`, `blog_articulos`, `mensajes_contacto`.
+Tablas: `categorias`, `etapas` + `negocio_etapas` (N:N), `distritos_peru` (catálogo de región/provincia/distrito), `usuarios`, `negocios`, `servicios` + `negocio_servicios` (N:N), `negocio_imagenes`, `negocio_horarios`, `valoraciones`, `blog_categorias`, `blog_articulos`, `mensajes_contacto`.
+
+### Categorías (tipo de negocio) y etapas del deporte formativo
+
+`categorias` es una lista fija de 14 tipos de negocio (Academia Deportiva Formativa, Escuela Deportiva Formativa, Centros de Rehabilitación y Fisioterapia Deportiva, Clínicas de Medicina Deportiva Pediátrica, Centros de Nutrición y Dietética Deportiva, Laboratorios de Biomecánica Deportiva, Centros de Psicología Deportiva, Consultoras de Coaching Deportivo y Liderazgo, Organizaciones de Intervención Familiar, Centros de Tutoría y Nivelación Académica, Agencias de Safeguarding, ONGs de Desarrollo a través del Deporte, Estudios de Derecho Deportivo, Otro), la misma en el select de `registrar.html` y en los checkboxes de `buscar.html`.
+
+`etapas` es un catálogo fijo de 5 rangos de edad (4 a 6, 7 a 9, 10 a 12, 13 a 15, 16 a 18 años). En `registrar.html` se eligen con checkboxes justo debajo de "Tipo de negocio" (al menos una es obligatoria); en `buscar.html` son un filtro más; en el perfil de un negocio se muestran como etiquetas bajo "Servicios y especialidades".
 
 ### Catálogo de regiones, provincias y distritos
 
@@ -110,7 +116,7 @@ Luego abre `http://localhost:8080`. Si prefieres no instalar nada, XAMPP/Laragon
 
 **Backend (Fase 2)** — completo para este alcance:
 
-- **Búsqueda y filtros** (región → provincia → distrito en cascada usando el catálogo oficial completo, tipo, precio, valoración, servicios), orden y mapa con [Leaflet](https://leafletjs.com/) + OpenStreetMap (sin API key), leyendo `api/negocios.php` + `api/ubicaciones.php`.
+- **Búsqueda y filtros** (región → provincia → distrito en cascada usando el catálogo oficial completo, tipo de negocio, etapa del deporte formativo, precio, valoración, servicios), orden y mapa con [Leaflet](https://leafletjs.com/) + OpenStreetMap (sin API key), leyendo `api/negocios.php` + `api/ubicaciones.php`.
 - **Perfil de negocio** con galería + lightbox, mapa, WhatsApp/llamada/compartir y **reseñas reales**: se guardan en MySQL vía `api/resena.php` y recalculan el promedio del negocio al instante.
 - **Registrar negocio** y **Contacto**: validan en el cliente y **guardan en la base de datos** vía `api/registrar.php` / `api/contacto.php` (ya no son solo una pantalla de confirmación falsa). Región/provincia/distrito se eligen de selects en cascada, no se escriben a mano.
 - **Blog** leyendo `api/blog.php`, con filtro por categoría.

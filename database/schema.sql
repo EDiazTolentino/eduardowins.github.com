@@ -102,6 +102,26 @@ CREATE TABLE negocio_servicios (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -------------------------------------------------------------------------
+-- Etapas del deporte formativo atendidas (catálogo fijo de 5 rangos de edad)
+-- y su relación N:N con negocios
+-- -------------------------------------------------------------------------
+DROP TABLE IF EXISTS negocio_etapas;
+DROP TABLE IF EXISTS etapas;
+CREATE TABLE etapas (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(30) NOT NULL UNIQUE,
+  orden INT UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE negocio_etapas (
+  negocio_id INT UNSIGNED NOT NULL,
+  etapa_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (negocio_id, etapa_id),
+  FOREIGN KEY (negocio_id) REFERENCES negocios(id) ON DELETE CASCADE,
+  FOREIGN KEY (etapa_id) REFERENCES etapas(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -------------------------------------------------------------------------
 -- Galería de imágenes por negocio
 -- -------------------------------------------------------------------------
 DROP TABLE IF EXISTS negocio_imagenes;

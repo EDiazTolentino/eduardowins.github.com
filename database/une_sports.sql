@@ -102,6 +102,26 @@ CREATE TABLE negocio_servicios (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -------------------------------------------------------------------------
+-- Etapas del deporte formativo atendidas (catálogo fijo de 5 rangos de edad)
+-- y su relación N:N con negocios
+-- -------------------------------------------------------------------------
+DROP TABLE IF EXISTS negocio_etapas;
+DROP TABLE IF EXISTS etapas;
+CREATE TABLE etapas (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(30) NOT NULL UNIQUE,
+  orden INT UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE negocio_etapas (
+  negocio_id INT UNSIGNED NOT NULL,
+  etapa_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (negocio_id, etapa_id),
+  FOREIGN KEY (negocio_id) REFERENCES negocios(id) ON DELETE CASCADE,
+  FOREIGN KEY (etapa_id) REFERENCES etapas(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -------------------------------------------------------------------------
 -- Galería de imágenes por negocio
 -- -------------------------------------------------------------------------
 DROP TABLE IF EXISTS negocio_imagenes;
@@ -193,36 +213,30 @@ SET FOREIGN_KEY_CHECKS = 1;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- Categorías de negocio
+-- Categorías de negocio (lista fija)
 INSERT INTO categorias (slug, nombre) VALUES
-  ('academia-futbol', 'Academia de Fútbol'),
-  ('escuela-natacion', 'Escuela de Natación'),
-  ('academia-voley', 'Academia de Vóley'),
-  ('artes-marciales', 'Centro de Artes Marciales'),
-  ('academia-basquet', 'Academia de Básquet'),
-  ('rehabilitacion', 'Centro de Rehabilitación Deportiva'),
-  ('psicologia', 'Psicología Deportiva'),
-  ('academia-tenis', 'Academia de Tenis'),
-  ('atletismo', 'Escuela de Atletismo'),
-  ('preparacion-fisica', 'Centro de Preparación Física'),
+  ('academia-deportiva-formativa', 'Academia Deportiva Formativa'),
+  ('escuela-deportiva-formativa', 'Escuela Deportiva Formativa'),
+  ('rehabilitacion-fisioterapia', 'Centros de Rehabilitación y Fisioterapia Deportiva'),
+  ('medicina-deportiva-pediatrica', 'Clínicas de Medicina Deportiva Pediátrica'),
+  ('nutricion-dietetica-deportiva', 'Centros de Nutrición y Dietética Deportiva'),
+  ('biomecanica-deportiva', 'Laboratorios de Biomecánica Deportiva'),
+  ('psicologia-deportiva', 'Centros de Psicología Deportiva'),
+  ('coaching-liderazgo', 'Consultoras de Coaching Deportivo y Liderazgo'),
+  ('intervencion-familiar', 'Organizaciones de Intervención Familiar'),
+  ('tutoria-nivelacion', 'Centros de Tutoría y Nivelación Académica'),
+  ('safeguarding', 'Agencias de Safeguarding (Protección Infantil en el Deporte)'),
+  ('ong-desarrollo-deporte', 'ONGs de Desarrollo a través del Deporte'),
+  ('derecho-deportivo', 'Estudios de Derecho Deportivo'),
   ('otro', 'Otro');
 
--- Catálogo de referencia región / provincia / distrito
-INSERT INTO distritos_peru (region, provincia, distrito) VALUES
-  ('Lima', 'Lima', 'Miraflores'),
-  ('Lima', 'Lima', 'San Borja'),
-  ('Lima', 'Lima', 'La Molina'),
-  ('Arequipa', 'Arequipa', 'Cercado'),
-  ('La Libertad', 'Trujillo', 'Trujillo'),
-  ('Lima', 'Lima', 'San Isidro'),
-  ('Cusco', 'Cusco', 'Wanchaq'),
-  ('Tacna', 'Tacna', 'Tacna'),
-  ('Lambayeque', 'Chiclayo', 'Chiclayo'),
-  ('Piura', 'Piura', 'Piura'),
-  ('Junín', 'Huancayo', 'El Tambo'),
-  ('Ica', 'Ica', 'Ica'),
-  ('Loreto', 'Maynas', 'Iquitos'),
-  ('Áncash', 'Huaraz', 'Huaraz');
+-- Etapas del deporte formativo (rangos de edad, lista fija)
+INSERT INTO etapas (nombre, orden) VALUES
+  ('4 a 6 años', 0),
+  ('7 a 9 años', 1),
+  ('10 a 12 años', 2),
+  ('13 a 15 años', 3),
+  ('16 a 18 años', 4);
 
 -- Catálogo de servicios/especialidades
 INSERT INTO servicios (nombre) VALUES
@@ -294,19 +308,19 @@ INSERT INTO servicios (nombre) VALUES
 INSERT INTO negocios (id, slug, nombre, categoria_id, region, provincia, distrito, direccion, telefono, whatsapp, email, precio, descripcion, imagen_principal, contacto_nombre, contacto_cargo, contacto_foto, destacado, verificado, estado, valoracion_promedio, total_resenas, lat, lng) VALUES
   (1, 'academia-gol-de-oro', 'Academia Gol de Oro', 1, 'Lima', 'Lima', 'Miraflores', 'Av. Angamos Oeste 456, Miraflores', '+51 1 445 2201', '51987654321', 'contacto@goldeoro.pe', '$$', 'Formamos futbolistas desde los 4 hasta los 17 años con metodología certificada por la Federación Peruana de Fútbol. Contamos con cancha de grass sintético FIFA Quality, preparadores físicos y psicólogo deportivo permanente.', 'https://placehold.co/900x650/1A365D/FFFFFF?text=Academia+Gol+de+Oro', 'Renzo Aguilar', 'Director Deportivo', 'https://i.pravatar.cc/100?img=12', 1, 1, 'publicado', 4.8, 132, -12.1211, -77.0296),
   (2, 'delfines-natacion-club', 'Delfines Natación Club', 2, 'Lima', 'Lima', 'San Borja', 'Jr. Los Cedros 220, San Borja', '+51 1 224 8890', '51987001122', 'info@delfinesnatacion.pe', '$$$', 'Piscina climatizada semiolímpica con instructores certificados por la Federación Deportiva Peruana de Natación. Programas desde bebés (natación infantil) hasta preparación competitiva federada.', 'https://placehold.co/900x650/2C5282/FFFFFF?text=Delfines+Natacion', 'Claudia Injoque', 'Coordinadora Académica', 'https://i.pravatar.cc/100?img=47', 1, 1, 'publicado', 4.9, 98, -12.1017, -76.998),
-  (3, 'voley-peru-academy', 'Vóley Perú Academy', 3, 'Lima', 'Lima', 'La Molina', 'Av. La Molina 1180, La Molina', '+51 1 348 7712', '51988112233', 'hola@voleyperu.pe', '$$', 'Escuela formativa de vóley con ex jugadoras de la selección nacional como entrenadoras. Trabajamos técnica, táctica y valores dentro y fuera de la cancha.', 'https://placehold.co/900x650/FF8300/FFFFFF?text=Voley+Peru+Academy', 'Katherine Salas', 'Entrenadora Principal', 'https://i.pravatar.cc/100?img=29', 0, 1, 'publicado', 4.6, 74, -12.0868, -76.9451),
-  (4, 'dojo-samurai-peru', 'Dojo Samurai Perú', 4, 'Arequipa', 'Arequipa', 'Cercado', 'Calle Mercaderes 315, Cercado', '+51 54 223 4477', '51954112200', 'info@dojosamurai.pe', '$', 'Más de 20 años formando cinturones negros en karate, taekwondo y defensa personal. Trabajamos disciplina, respeto y confianza en niños, jóvenes y adultos.', 'https://placehold.co/900x650/2D3748/FFFFFF?text=Dojo+Samurai+Peru', 'Sensei Hugo Talavera', 'Instructor Principal (5to Dan)', 'https://i.pravatar.cc/100?img=51', 1, 1, 'publicado', 4.7, 156, -16.3989, -71.535),
-  (5, 'canasta-basket-academy', 'Canasta Basket Academy', 5, 'La Libertad', 'Trujillo', 'Trujillo', 'Av. Húsares de Junín 540, Trujillo', '+51 44 291 3345', '51944556677', 'contacto@canastabasket.pe', '$$', 'Academia formativa de básquet con losa techada propia. Fundamentos técnicos, trabajo en equipo y participación en torneos interescolares de La Libertad.', 'https://placehold.co/900x650/1A365D/FFFFFF?text=Canasta+Basket+Academy', 'Piero Zavaleta', 'Director Técnico', 'https://i.pravatar.cc/100?img=33', 0, 0, 'publicado', 4.5, 61, -8.1116, -79.0288),
-  (6, 'crd-revital', 'CRD ReVital - Centro de Rehabilitación Deportiva', 6, 'Lima', 'Lima', 'San Isidro', 'Av. Camino Real 815, San Isidro', '+51 1 421 6650', '51999887766', 'citas@crdrevital.pe', '$$$', 'Equipo multidisciplinario de fisioterapeutas y médicos deportólogos especializados en la recuperación de lesiones deportivas en niños, jóvenes y atletas de alto rendimiento.', 'https://placehold.co/900x650/2F855A/FFFFFF?text=CRD+ReVital', 'Dra. Valeria Ponce', 'Médico Deportóloga', 'https://i.pravatar.cc/100?img=44', 1, 1, 'publicado', 4.9, 87, -12.097, -77.0365),
+  (3, 'voley-peru-academy', 'Vóley Perú Academy', 1, 'Lima', 'Lima', 'La Molina', 'Av. La Molina 1180, La Molina', '+51 1 348 7712', '51988112233', 'hola@voleyperu.pe', '$$', 'Escuela formativa de vóley con ex jugadoras de la selección nacional como entrenadoras. Trabajamos técnica, táctica y valores dentro y fuera de la cancha.', 'https://placehold.co/900x650/FF8300/FFFFFF?text=Voley+Peru+Academy', 'Katherine Salas', 'Entrenadora Principal', 'https://i.pravatar.cc/100?img=29', 0, 1, 'publicado', 4.6, 74, -12.0868, -76.9451),
+  (4, 'dojo-samurai-peru', 'Dojo Samurai Perú', 1, 'Arequipa', 'Arequipa', 'Cercado', 'Calle Mercaderes 315, Cercado', '+51 54 223 4477', '51954112200', 'info@dojosamurai.pe', '$', 'Más de 20 años formando cinturones negros en karate, taekwondo y defensa personal. Trabajamos disciplina, respeto y confianza en niños, jóvenes y adultos.', 'https://placehold.co/900x650/2D3748/FFFFFF?text=Dojo+Samurai+Peru', 'Sensei Hugo Talavera', 'Instructor Principal (5to Dan)', 'https://i.pravatar.cc/100?img=51', 1, 1, 'publicado', 4.7, 156, -16.3989, -71.535),
+  (5, 'canasta-basket-academy', 'Canasta Basket Academy', 1, 'La Libertad', 'Trujillo', 'Trujillo', 'Av. Húsares de Junín 540, Trujillo', '+51 44 291 3345', '51944556677', 'contacto@canastabasket.pe', '$$', 'Academia formativa de básquet con losa techada propia. Fundamentos técnicos, trabajo en equipo y participación en torneos interescolares de La Libertad.', 'https://placehold.co/900x650/1A365D/FFFFFF?text=Canasta+Basket+Academy', 'Piero Zavaleta', 'Director Técnico', 'https://i.pravatar.cc/100?img=33', 0, 0, 'publicado', 4.5, 61, -8.1116, -79.0288),
+  (6, 'crd-revital', 'CRD ReVital - Centro de Rehabilitación Deportiva', 3, 'Lima', 'Lima', 'San Isidro', 'Av. Camino Real 815, San Isidro', '+51 1 421 6650', '51999887766', 'citas@crdrevital.pe', '$$$', 'Equipo multidisciplinario de fisioterapeutas y médicos deportólogos especializados en la recuperación de lesiones deportivas en niños, jóvenes y atletas de alto rendimiento.', 'https://placehold.co/900x650/2F855A/FFFFFF?text=CRD+ReVital', 'Dra. Valeria Ponce', 'Médico Deportóloga', 'https://i.pravatar.cc/100?img=44', 1, 1, 'publicado', 4.9, 87, -12.097, -77.0365),
   (7, 'mente-ganadora-psicologia-deportiva', 'Mente Ganadora - Psicología Deportiva', 7, 'Lima', 'Lima', 'Miraflores', 'Calle Schell 275, Miraflores', '+51 1 447 9021', '51977123456', 'hola@menteganadora.pe', '$$', 'Consultorio especializado en psicología del deporte para niños y jóvenes atletas: manejo de ansiedad competitiva, motivación, concentración y trabajo con padres y entrenadores.', 'https://placehold.co/900x650/FF8300/FFFFFF?text=Mente+Ganadora', 'Ps. Daniela Farfán', 'Psicóloga Deportiva Colegiada', 'https://i.pravatar.cc/100?img=41', 1, 1, 'publicado', 4.8, 53, -12.1235, -77.028),
-  (8, 'ace-tenis-club-cusco', 'Ace Tenis Club Cusco', 8, 'Cusco', 'Cusco', 'Wanchaq', 'Av. La Cultura 1450, Wanchaq', '+51 84 235 9910', '51984223311', 'info@acetenis.pe', '$$$', 'Canchas de polvo de ladrillo y entrenadores certificados ITF. Programas de iniciación, competitivo y clases particulares para toda la familia.', 'https://placehold.co/900x650/1A365D/FFFFFF?text=Ace+Tenis+Club', 'Christian Béjar', 'Head Coach', 'https://i.pravatar.cc/100?img=52', 0, 1, 'publicado', 4.6, 39, -13.5319, -71.9675),
-  (9, 'atletas-del-sur-tacna', 'Atletas del Sur', 9, 'Tacna', 'Tacna', 'Tacna', 'Av. Bolognesi 780, Tacna', '+51 52 241 7788', '51968334455', 'contacto@atletasdelsur.pe', '$', 'Escuela formativa de atletismo en pista oficial: velocidad, fondo, saltos y lanzamientos, con entrenadores egresados del IPD.', 'https://placehold.co/900x650/2D3748/FFFFFF?text=Atletas+del+Sur', 'Prof. Édgar Mamani', 'Entrenador Principal', 'https://i.pravatar.cc/100?img=54', 0, 0, 'publicado', 4.4, 28, -18.0146, -70.2536),
-  (10, 'fuerza-total-chiclayo', 'Fuerza Total - Preparación Física', 10, 'Lambayeque', 'Chiclayo', 'Chiclayo', 'Av. Balta 990, Chiclayo', '+51 74 220 4456', '51978445566', 'info@fuerzatotal.pe', '$$', 'Centro especializado en preparación física para deportistas juveniles: fuerza, velocidad, agilidad y prevención de lesiones con seguimiento personalizado.', 'https://placehold.co/900x650/FF8300/FFFFFF?text=Fuerza+Total', 'Marco Delgado', 'Preparador Físico', 'https://i.pravatar.cc/100?img=59', 0, 1, 'publicado', 4.5, 44, -6.7714, -79.8409),
+  (8, 'ace-tenis-club-cusco', 'Ace Tenis Club Cusco', 1, 'Cusco', 'Cusco', 'Wanchaq', 'Av. La Cultura 1450, Wanchaq', '+51 84 235 9910', '51984223311', 'info@acetenis.pe', '$$$', 'Canchas de polvo de ladrillo y entrenadores certificados ITF. Programas de iniciación, competitivo y clases particulares para toda la familia.', 'https://placehold.co/900x650/1A365D/FFFFFF?text=Ace+Tenis+Club', 'Christian Béjar', 'Head Coach', 'https://i.pravatar.cc/100?img=52', 0, 1, 'publicado', 4.6, 39, -13.5319, -71.9675),
+  (9, 'atletas-del-sur-tacna', 'Atletas del Sur', 2, 'Tacna', 'Tacna', 'Tacna', 'Av. Bolognesi 780, Tacna', '+51 52 241 7788', '51968334455', 'contacto@atletasdelsur.pe', '$', 'Escuela formativa de atletismo en pista oficial: velocidad, fondo, saltos y lanzamientos, con entrenadores egresados del IPD.', 'https://placehold.co/900x650/2D3748/FFFFFF?text=Atletas+del+Sur', 'Prof. Édgar Mamani', 'Entrenador Principal', 'https://i.pravatar.cc/100?img=54', 0, 0, 'publicado', 4.4, 28, -18.0146, -70.2536),
+  (10, 'fuerza-total-chiclayo', 'Fuerza Total - Preparación Física', 1, 'Lambayeque', 'Chiclayo', 'Chiclayo', 'Av. Balta 990, Chiclayo', '+51 74 220 4456', '51978445566', 'info@fuerzatotal.pe', '$$', 'Centro especializado en preparación física para deportistas juveniles: fuerza, velocidad, agilidad y prevención de lesiones con seguimiento personalizado.', 'https://placehold.co/900x650/FF8300/FFFFFF?text=Fuerza+Total', 'Marco Delgado', 'Preparador Físico', 'https://i.pravatar.cc/100?img=59', 0, 1, 'publicado', 4.5, 44, -6.7714, -79.8409),
   (11, 'academia-futbol-base-piura', 'Academia Fútbol Base Piura', 1, 'Piura', 'Piura', 'Piura', 'Av. Grau 1120, Piura', '+51 73 309 2214', '51969112233', 'contacto@futbolbasepiura.pe', '$', 'Academia formativa de fútbol base para niños de 5 a 15 años, con enfoque en técnica individual y valores deportivos.', 'https://placehold.co/900x650/1A365D/FFFFFF?text=Futbol+Base+Piura', 'Willy Chunga', 'Director de Academia', 'https://i.pravatar.cc/100?img=61', 0, 0, 'publicado', 4.3, 35, -5.1945, -80.6328),
   (12, 'sirenas-natacion-huancayo', 'Sirenas Natación Huancayo', 2, 'Junín', 'Huancayo', 'El Tambo', 'Jr. Amazonas 640, El Tambo', '+51 64 231 8890', '51966889900', 'info@sirenashuancayo.pe', '$$', 'Piscina temperada en altura con instructores especializados en técnica de los cuatro estilos, para niños desde los 3 años.', 'https://placehold.co/900x650/2C5282/FFFFFF?text=Sirenas+Natacion', 'Yesenia Camayo', 'Coordinadora', 'https://i.pravatar.cc/100?img=63', 0, 1, 'publicado', 4.6, 41, -12.0651, -75.2049),
-  (13, 'kickboxing-center-ica', 'Kickboxing Center Ica', 4, 'Ica', 'Ica', 'Ica', 'Calle Lima 233, Ica', '+51 56 223 5567', '51955667788', 'info@kickboxingica.pe', '$', 'Escuela de kickboxing y muay thai para jóvenes, con enfoque en disciplina, acondicionamiento físico y defensa personal.', 'https://placehold.co/900x650/2D3748/FFFFFF?text=Kickboxing+Center+Ica', 'Coach Bryan Ochoa', 'Instructor Principal', 'https://i.pravatar.cc/100?img=65', 0, 0, 'publicado', 4.4, 22, -14.0678, -75.7286),
+  (13, 'kickboxing-center-ica', 'Kickboxing Center Ica', 1, 'Ica', 'Ica', 'Ica', 'Calle Lima 233, Ica', '+51 56 223 5567', '51955667788', 'info@kickboxingica.pe', '$', 'Escuela de kickboxing y muay thai para jóvenes, con enfoque en disciplina, acondicionamiento físico y defensa personal.', 'https://placehold.co/900x650/2D3748/FFFFFF?text=Kickboxing+Center+Ica', 'Coach Bryan Ochoa', 'Instructor Principal', 'https://i.pravatar.cc/100?img=65', 0, 0, 'publicado', 4.4, 22, -14.0678, -75.7286),
   (14, 'psicodeporte-iquitos', 'Psicodeporte Iquitos', 7, 'Loreto', 'Maynas', 'Iquitos', 'Jr. Próspero 412, Iquitos', '+51 65 223 1145', '51945223311', 'contacto@psicodeporteiquitos.pe', '$$', 'Atención psicológica especializada para deportistas escolares y federados de la región Loreto, con enfoque en motivación y manejo emocional.', 'https://placehold.co/900x650/FF8300/FFFFFF?text=Psicodeporte+Iquitos', 'Ps. Rosmery Tuesta', 'Psicóloga Deportiva', 'https://i.pravatar.cc/100?img=42', 0, 1, 'publicado', 4.7, 19, -3.7491, -73.2538),
-  (15, 'rehab-sport-huaraz', 'Rehab Sport Huaraz', 6, 'Áncash', 'Huaraz', 'Huaraz', 'Av. Confraternidad Internacional 350, Huaraz', '+51 43 242 6690', '51934556677', 'citas@rehabsporthuaraz.pe', '$$', 'Centro de fisioterapia y rehabilitación deportiva para atletas de montaña, ciclistas y deportistas escolares de la región Áncash.', 'https://placehold.co/900x650/2F855A/FFFFFF?text=Rehab+Sport+Huaraz', 'Lic. Óscar Ponte', 'Fisioterapeuta Deportivo', 'https://i.pravatar.cc/100?img=67', 0, 0, 'publicado', 4.5, 17, -9.5277, -77.5279);
+  (15, 'rehab-sport-huaraz', 'Rehab Sport Huaraz', 3, 'Áncash', 'Huaraz', 'Huaraz', 'Av. Confraternidad Internacional 350, Huaraz', '+51 43 242 6690', '51934556677', 'citas@rehabsporthuaraz.pe', '$$', 'Centro de fisioterapia y rehabilitación deportiva para atletas de montaña, ciclistas y deportistas escolares de la región Áncash.', 'https://placehold.co/900x650/2F855A/FFFFFF?text=Rehab+Sport+Huaraz', 'Lic. Óscar Ponte', 'Fisioterapeuta Deportivo', 'https://i.pravatar.cc/100?img=67', 0, 0, 'publicado', 4.5, 17, -9.5277, -77.5279);
 
 -- Relación negocio <-> servicios
 INSERT INTO negocio_servicios (negocio_id, servicio_id, orden) VALUES
@@ -379,6 +393,70 @@ INSERT INTO negocio_servicios (negocio_id, servicio_id, orden) VALUES
   (15, 61, 1),
   (15, 62, 2),
   (15, 63, 3);
+
+-- Relación negocio <-> etapas del deporte formativo
+INSERT INTO negocio_etapas (negocio_id, etapa_id) VALUES
+  (1, 1),
+  (1, 2),
+  (1, 3),
+  (1, 4),
+  (1, 5),
+  (2, 1),
+  (2, 2),
+  (2, 3),
+  (2, 4),
+  (2, 5),
+  (3, 1),
+  (3, 2),
+  (3, 3),
+  (3, 4),
+  (3, 5),
+  (4, 1),
+  (4, 2),
+  (4, 3),
+  (4, 4),
+  (4, 5),
+  (5, 1),
+  (5, 2),
+  (5, 3),
+  (5, 4),
+  (6, 2),
+  (6, 3),
+  (6, 4),
+  (6, 5),
+  (7, 2),
+  (7, 3),
+  (7, 4),
+  (7, 5),
+  (8, 1),
+  (8, 2),
+  (8, 3),
+  (8, 4),
+  (8, 5),
+  (9, 2),
+  (9, 3),
+  (9, 4),
+  (9, 5),
+  (10, 3),
+  (10, 4),
+  (10, 5),
+  (11, 1),
+  (11, 2),
+  (11, 3),
+  (11, 4),
+  (12, 1),
+  (12, 2),
+  (12, 3),
+  (13, 3),
+  (13, 4),
+  (13, 5),
+  (14, 2),
+  (14, 3),
+  (14, 4),
+  (14, 5),
+  (15, 3),
+  (15, 4),
+  (15, 5);
 
 -- Galería de imágenes
 INSERT INTO negocio_imagenes (negocio_id, url, orden) VALUES

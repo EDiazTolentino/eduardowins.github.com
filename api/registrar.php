@@ -27,12 +27,16 @@ $horario = une_str($input, 'horario', true);
 $contactoNombre = une_str($input, 'contactoNombre', true);
 $descripcion = une_str($input, 'descripcion', true);
 $servicios = is_array($input['servicios'] ?? null) ? array_slice($input['servicios'], 0, 20) : [];
+$etapas = is_array($input['etapas'] ?? null) ? $input['etapas'] : [];
 
 if (!in_array($precio, ['$', '$$', '$$$'], true)) {
     une_send_json(['error' => 'Rango de precio inválido.'], 400);
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     une_send_json(['error' => 'El correo electrónico no es válido.'], 400);
+}
+if (!$etapas) {
+    une_send_json(['error' => 'Selecciona al menos una etapa del deporte formativo que atiendes.'], 400);
 }
 
 $pdo = une_db();
@@ -86,6 +90,18 @@ try {
 
     $pdo->prepare('INSERT INTO negocio_horarios (negocio_id, dia, hora, orden) VALUES (?, "Horario de atención", ?, 0)')
         ->execute([$negocioId, $horario]);
+
+    if ($etapas) {
+        $findEtapa = $pdo->prepare('SELECT id FROM etapas WHERE nombre = ?');
+        $linkEtapa = $pdo->prepare('INSERT IGNORE INTO negocio_etapas (negocio_id, etapa_id) VALUES (?, ?)');
+        foreach ($etapas as $nombreEtapa) {
+            $findEtapa->execute([trim((string) $nombreEtapa)]);
+            $etapaId = $findEtapa->fetchColumn();
+            if ($etapaId) {
+                $linkEtapa->execute([$negocioId, $etapaId]);
+            }
+        }
+    }
 
     if ($servicios) {
         $findServicio = $pdo->prepare('SELECT id FROM servicios WHERE nombre = ?');

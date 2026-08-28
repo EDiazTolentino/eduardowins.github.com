@@ -10,7 +10,7 @@
     sort: "relevancia",
     view: "list",
     userLocation: null,
-    filters: { q: "", region: "", provincia: "", distrito: "", tipos: [], precio: "", rating: 0, servicios: [] }
+    filters: { q: "", region: "", provincia: "", distrito: "", tipos: [], etapas: [], precio: "", rating: 0, servicios: [] }
   };
 
   var els = {};
@@ -75,12 +75,6 @@
     refreshProvinciaOptions();
     refreshDistritoOptions();
 
-    var tipos = {};
-    data.forEach(function (n) { tipos[n.tipo] = n.tipoLabel; });
-    Object.keys(tipos).sort(function (a, b) { return tipos[a].localeCompare(tipos[b]); }).forEach(function (key) {
-      els.filterTipoOptions.appendChild(checkboxRow("tipo", key, tipos[key], state.filters.tipos.indexOf(key) !== -1));
-    });
-
     var servicios = {};
     data.forEach(function (n) { (n.servicios || []).forEach(function (s) { servicios[s] = true; }); });
     uniqueSorted(Object.keys(servicios)).slice(0, 10).forEach(function (s) {
@@ -133,6 +127,9 @@
 
   function applyFilterValuesToUI() {
     els.filterRegion.value = state.filters.region;
+    document.querySelectorAll('[data-filter="tipo"]').forEach(function (cb) {
+      cb.checked = state.filters.tipos.indexOf(cb.value) !== -1;
+    });
   }
 
   function bindEvents() {
@@ -156,6 +153,12 @@
         runSearch();
       });
     });
+    document.querySelectorAll('[data-filter="etapa"]').forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        state.filters.etapas = Array.from(document.querySelectorAll('[data-filter="etapa"]:checked')).map(function (i) { return i.value; });
+        runSearch();
+      });
+    });
     document.querySelectorAll('[data-filter="servicio"]').forEach(function (cb) {
       cb.addEventListener("change", function () {
         state.filters.servicios = Array.from(document.querySelectorAll('[data-filter="servicio"]:checked')).map(function (i) { return i.value; });
@@ -174,11 +177,11 @@
       runSearch();
     });
     els.clearFilters.addEventListener("click", function () {
-      state.filters = { q: "", region: "", provincia: "", distrito: "", tipos: [], precio: "", rating: 0, servicios: [] };
+      state.filters = { q: "", region: "", provincia: "", distrito: "", tipos: [], etapas: [], precio: "", rating: 0, servicios: [] };
       els.filterRegion.value = "";
       refreshProvinciaOptions();
       refreshDistritoOptions();
-      document.querySelectorAll('[data-filter="tipo"], [data-filter="servicio"]').forEach(function (cb) { cb.checked = false; });
+      document.querySelectorAll('[data-filter="tipo"], [data-filter="etapa"], [data-filter="servicio"]').forEach(function (cb) { cb.checked = false; });
       document.querySelector('input[name="precio"][value=""]').checked = true;
       document.querySelector('input[name="rating"][value="0"]').checked = true;
       runSearch();
@@ -214,6 +217,7 @@
       if (f.provincia && n.provincia !== f.provincia) return false;
       if (f.distrito && n.distrito !== f.distrito) return false;
       if (f.tipos.length && f.tipos.indexOf(n.tipo) === -1) return false;
+      if (f.etapas.length && !f.etapas.some(function (e) { return (n.etapas || []).indexOf(e) !== -1; })) return false;
       if (f.precio && n.precio !== f.precio) return false;
       if (f.rating && n.valoracion < f.rating) return false;
       if (f.servicios.length && !f.servicios.every(function (s) { return n.servicios.indexOf(s) !== -1; })) return false;

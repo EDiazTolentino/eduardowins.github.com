@@ -53,9 +53,29 @@ def main():
     categorias = {}
     for n in negocios:
         categorias[n["tipo"]] = n["tipoLabel"]
-    categorias["otro"] = "Otro"
 
-    lines.append("-- Categorías de negocio")
+    # Se ignora lo derivado arriba: el catálogo de categorías es una lista
+    # fija de 13 tipos de negocio + "Otro" (no depende de qué negocios de
+    # ejemplo existan), para que el formulario de registro y los filtros
+    # siempre muestren las 14 opciones completas.
+    categorias = {
+        "academia-deportiva-formativa": "Academia Deportiva Formativa",
+        "escuela-deportiva-formativa": "Escuela Deportiva Formativa",
+        "rehabilitacion-fisioterapia": "Centros de Rehabilitación y Fisioterapia Deportiva",
+        "medicina-deportiva-pediatrica": "Clínicas de Medicina Deportiva Pediátrica",
+        "nutricion-dietetica-deportiva": "Centros de Nutrición y Dietética Deportiva",
+        "biomecanica-deportiva": "Laboratorios de Biomecánica Deportiva",
+        "psicologia-deportiva": "Centros de Psicología Deportiva",
+        "coaching-liderazgo": "Consultoras de Coaching Deportivo y Liderazgo",
+        "intervencion-familiar": "Organizaciones de Intervención Familiar",
+        "tutoria-nivelacion": "Centros de Tutoría y Nivelación Académica",
+        "safeguarding": "Agencias de Safeguarding (Protección Infantil en el Deporte)",
+        "ong-desarrollo-deporte": "ONGs de Desarrollo a través del Deporte",
+        "derecho-deportivo": "Estudios de Derecho Deportivo",
+        "otro": "Otro",
+    }
+
+    lines.append("-- Categorías de negocio (lista fija)")
     lines.append("INSERT INTO categorias (slug, nombre) VALUES")
     cat_rows = [f"  ({esc(slug)}, {esc(nombre)})" for slug, nombre in categorias.items()]
     lines.append(",\n".join(cat_rows) + ";")
@@ -63,20 +83,13 @@ def main():
 
     cat_id_by_slug = {slug: i + 1 for i, slug in enumerate(categorias.keys())}
 
-    # --- Catálogo de distritos (region, provincia, distrito únicos) ---
-    distritos_set = []
-    seen = set()
-    for n in negocios:
-        key = (n["region"], n["provincia"], n["distrito"])
-        if key not in seen:
-            seen.add(key)
-            distritos_set.append(key)
-
-    lines.append("-- Catálogo de referencia región / provincia / distrito")
-    lines.append("INSERT INTO distritos_peru (region, provincia, distrito) VALUES")
-    dist_rows = [f"  ({esc(r)}, {esc(p)}, {esc(d)})" for r, p, d in distritos_set]
-    lines.append(",\n".join(dist_rows) + ";")
+    # --- Etapas del deporte formativo (catálogo fijo de 5 rangos de edad) ---
+    ETAPAS = ["4 a 6 años", "7 a 9 años", "10 a 12 años", "13 a 15 años", "16 a 18 años"]
+    lines.append("-- Etapas del deporte formativo (rangos de edad, lista fija)")
+    lines.append("INSERT INTO etapas (nombre, orden) VALUES")
+    lines.append(",\n".join(f"  ({esc(e)}, {i})" for i, e in enumerate(ETAPAS)) + ";")
     lines.append("")
+    etapa_id_by_name = {name: i + 1 for i, name in enumerate(ETAPAS)}
 
     # --- Servicios (catálogo único) ---
     servicios_set = []
@@ -145,6 +158,17 @@ def main():
     if ns_rows:
         lines.append("INSERT INTO negocio_servicios (negocio_id, servicio_id, orden) VALUES")
         lines.append(",\n".join(ns_rows) + ";")
+        lines.append("")
+
+    # --- negocio_etapas ---
+    ne_rows = []
+    for n in negocios:
+        for etapa in n.get("etapas", []):
+            ne_rows.append(f"  ({n['id']}, {etapa_id_by_name[etapa]})")
+    if ne_rows:
+        lines.append("-- Relación negocio <-> etapas del deporte formativo")
+        lines.append("INSERT INTO negocio_etapas (negocio_id, etapa_id) VALUES")
+        lines.append(",\n".join(ne_rows) + ";")
         lines.append("")
 
     # --- negocio_imagenes ---
