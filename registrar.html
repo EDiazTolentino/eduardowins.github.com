@@ -96,18 +96,24 @@
 
             <div class="form-field">
               <label for="region">Región *</label>
-              <input type="text" id="region" required placeholder="Ej. Lima">
-              <span class="form-error">Ingresa la región.</span>
+              <select id="region" class="select-field" required>
+                <option value="">Selecciona una región</option>
+              </select>
+              <span class="form-error">Selecciona la región.</span>
             </div>
             <div class="form-field">
               <label for="provincia">Provincia *</label>
-              <input type="text" id="provincia" required placeholder="Ej. Lima">
-              <span class="form-error">Ingresa la provincia.</span>
+              <select id="provincia" class="select-field" required disabled>
+                <option value="">Primero elige una región</option>
+              </select>
+              <span class="form-error">Selecciona la provincia.</span>
             </div>
             <div class="form-field">
               <label for="distrito">Distrito *</label>
-              <input type="text" id="distrito" required placeholder="Ej. Miraflores">
-              <span class="form-error">Ingresa el distrito.</span>
+              <select id="distrito" class="select-field" required disabled>
+                <option value="">Primero elige una provincia</option>
+              </select>
+              <span class="form-error">Selecciona el distrito.</span>
             </div>
             <div class="form-field full">
               <label for="direccion">Dirección completa *</label>

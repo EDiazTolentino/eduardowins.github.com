@@ -20,11 +20,14 @@
   document.addEventListener("DOMContentLoaded", function () {
     cacheEls();
     readParamsFromUrl();
-    fetch("api/negocios.php")
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        state.all = data;
-        buildFilterOptions(data);
+    Promise.all([
+      fetch("api/negocios.php").then(function (r) { return r.json(); }),
+      fetch("api/ubicaciones.php").then(function (r) { return r.json(); })
+    ])
+      .then(function (results) {
+        state.all = results[0];
+        state.ubicaciones = results[1];
+        buildFilterOptions(state.all);
         applyFilterValuesToUI();
         bindEvents();
         runSearch();
@@ -62,8 +65,6 @@
   }
 
   function buildFilterOptions(data) {
-    state.ubicaciones = data.map(function (n) { return { region: n.region, provincia: n.provincia, distrito: n.distrito }; });
-
     var regiones = uniqueSorted(state.ubicaciones.map(function (u) { return u.region; }));
     regiones.forEach(function (r) {
       var opt = document.createElement("option");

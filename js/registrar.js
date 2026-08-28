@@ -7,6 +7,7 @@
     if (!form) return;
 
     initUploadPreview();
+    initUbicacionSelects();
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -77,6 +78,60 @@
       });
     });
   });
+
+  function initUbicacionSelects() {
+    var regionSelect = document.getElementById("region");
+    var provinciaSelect = document.getElementById("provincia");
+    var distritoSelect = document.getElementById("distrito");
+    if (!regionSelect) return;
+
+    var ubicaciones = [];
+
+    function fillSelect(select, values, placeholder) {
+      select.innerHTML = '<option value="">' + placeholder + '</option>';
+      values.forEach(function (v) {
+        var opt = document.createElement("option");
+        opt.value = v; opt.textContent = v;
+        select.appendChild(opt);
+      });
+    }
+
+    function uniqueSorted(arr) {
+      return Array.from(new Set(arr)).sort(function (a, b) { return a.localeCompare(b); });
+    }
+
+    fetch("api/ubicaciones.php")
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        ubicaciones = data;
+        var regiones = uniqueSorted(ubicaciones.map(function (u) { return u.region; }));
+        fillSelect(regionSelect, regiones, "Selecciona una región");
+        regionSelect.disabled = false;
+      })
+      .catch(function () {
+        UNE.toast("No se pudo cargar el listado de regiones. Recarga la página.");
+      });
+
+    regionSelect.addEventListener("change", function () {
+      var provincias = uniqueSorted(
+        ubicaciones.filter(function (u) { return u.region === regionSelect.value; }).map(function (u) { return u.provincia; })
+      );
+      fillSelect(provinciaSelect, provincias, provincias.length ? "Selecciona una provincia" : "Primero elige una región");
+      provinciaSelect.disabled = !provincias.length;
+      fillSelect(distritoSelect, [], "Primero elige una provincia");
+      distritoSelect.disabled = true;
+    });
+
+    provinciaSelect.addEventListener("change", function () {
+      var distritos = uniqueSorted(
+        ubicaciones
+          .filter(function (u) { return u.region === regionSelect.value && u.provincia === provinciaSelect.value; })
+          .map(function (u) { return u.distrito; })
+      );
+      fillSelect(distritoSelect, distritos, distritos.length ? "Selecciona un distrito" : "Primero elige una provincia");
+      distritoSelect.disabled = !distritos.length;
+    });
+  }
 
   function initUploadPreview() {
     var input = document.getElementById("fotosInput");
