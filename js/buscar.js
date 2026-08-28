@@ -10,7 +10,7 @@
     sort: "relevancia",
     view: "list",
     userLocation: null,
-    filters: { q: "", region: "", tipos: [], precio: "", rating: 0, servicios: [] }
+    filters: { q: "", region: "", provincia: "", distrito: "", tipos: [], precio: "", rating: 0, servicios: [] }
   };
 
   var els = {};
@@ -40,6 +40,8 @@
     els.resultsCount = document.getElementById("resultsCount");
     els.pagination = document.getElementById("pagination");
     els.filterRegion = document.getElementById("filterRegion");
+    els.filterProvincia = document.getElementById("filterProvincia");
+    els.filterDistrito = document.getElementById("filterDistrito");
     els.filterTipoOptions = document.getElementById("filterTipoOptions");
     els.filterServiciosOptions = document.getElementById("filterServiciosOptions");
     els.sortSelect = document.getElementById("sortSelect");
@@ -54,16 +56,23 @@
     var params = new URLSearchParams(window.location.search);
     state.filters.q = params.get("q") || "";
     state.filters.region = params.get("region") || "";
+    state.filters.provincia = params.get("provincia") || "";
+    state.filters.distrito = params.get("distrito") || "";
     if (params.get("tipo")) state.filters.tipos = [params.get("tipo")];
   }
 
   function buildFilterOptions(data) {
-    var regiones = uniqueSorted(data.map(function (n) { return n.region; }));
+    state.ubicaciones = data.map(function (n) { return { region: n.region, provincia: n.provincia, distrito: n.distrito }; });
+
+    var regiones = uniqueSorted(state.ubicaciones.map(function (u) { return u.region; }));
     regiones.forEach(function (r) {
       var opt = document.createElement("option");
       opt.value = r; opt.textContent = r;
       els.filterRegion.appendChild(opt);
     });
+
+    refreshProvinciaOptions();
+    refreshDistritoOptions();
 
     var tipos = {};
     data.forEach(function (n) { tipos[n.tipo] = n.tipoLabel; });
@@ -85,12 +94,61 @@
     return wrap;
   }
 
+  function fillSelect(select, values, placeholder) {
+    select.innerHTML = '<option value="">' + placeholder + '</option>';
+    values.forEach(function (v) {
+      var opt = document.createElement("option");
+      opt.value = v; opt.textContent = v;
+      select.appendChild(opt);
+    });
+  }
+
+  /* Provincias disponibles según la región elegida (todas si no hay región). */
+  function refreshProvinciaOptions() {
+    var region = state.filters.region;
+    var provincias = uniqueSorted(
+      state.ubicaciones
+        .filter(function (u) { return !region || u.region === region; })
+        .map(function (u) { return u.provincia; })
+    );
+    fillSelect(els.filterProvincia, provincias, "Todas las provincias");
+    els.filterProvincia.value = provincias.indexOf(state.filters.provincia) !== -1 ? state.filters.provincia : "";
+    state.filters.provincia = els.filterProvincia.value;
+  }
+
+  /* Distritos disponibles según región + provincia elegidas. */
+  function refreshDistritoOptions() {
+    var region = state.filters.region;
+    var provincia = state.filters.provincia;
+    var distritos = uniqueSorted(
+      state.ubicaciones
+        .filter(function (u) { return (!region || u.region === region) && (!provincia || u.provincia === provincia); })
+        .map(function (u) { return u.distrito; })
+    );
+    fillSelect(els.filterDistrito, distritos, "Todos los distritos");
+    els.filterDistrito.value = distritos.indexOf(state.filters.distrito) !== -1 ? state.filters.distrito : "";
+    state.filters.distrito = els.filterDistrito.value;
+  }
+
   function applyFilterValuesToUI() {
     els.filterRegion.value = state.filters.region;
   }
 
   function bindEvents() {
-    els.filterRegion.addEventListener("change", function () { state.filters.region = els.filterRegion.value; runSearch(); });
+    els.filterRegion.addEventListener("change", function () {
+      state.filters.region = els.filterRegion.value;
+      state.filters.distrito = ""; // la provincia puede cambiar de región, así que reseteamos ambos
+      refreshProvinciaOptions();
+      refreshDistritoOptions();
+      runSearch();
+    });
+    els.filterProvincia.addEventListener("change", function () {
+      state.filters.provincia = els.filterProvincia.value;
+      state.filters.distrito = "";
+      refreshDistritoOptions();
+      runSearch();
+    });
+    els.filterDistrito.addEventListener("change", function () { state.filters.distrito = els.filterDistrito.value; runSearch(); });
     document.querySelectorAll('[data-filter="tipo"]').forEach(function (cb) {
       cb.addEventListener("change", function () {
         state.filters.tipos = Array.from(document.querySelectorAll('[data-filter="tipo"]:checked')).map(function (i) { return i.value; });
@@ -115,8 +173,10 @@
       runSearch();
     });
     els.clearFilters.addEventListener("click", function () {
-      state.filters = { q: "", region: "", tipos: [], precio: "", rating: 0, servicios: [] };
+      state.filters = { q: "", region: "", provincia: "", distrito: "", tipos: [], precio: "", rating: 0, servicios: [] };
       els.filterRegion.value = "";
+      refreshProvinciaOptions();
+      refreshDistritoOptions();
       document.querySelectorAll('[data-filter="tipo"], [data-filter="servicio"]').forEach(function (cb) { cb.checked = false; });
       document.querySelector('input[name="precio"][value=""]').checked = true;
       document.querySelector('input[name="rating"][value="0"]').checked = true;
@@ -150,6 +210,8 @@
     state.filtered = state.all.filter(function (n) {
       if (f.q && !(n.nombre + " " + n.tipoLabel + " " + n.descripcion).toLowerCase().includes(f.q.toLowerCase())) return false;
       if (f.region && n.region !== f.region) return false;
+      if (f.provincia && n.provincia !== f.provincia) return false;
+      if (f.distrito && n.distrito !== f.distrito) return false;
       if (f.tipos.length && f.tipos.indexOf(n.tipo) === -1) return false;
       if (f.precio && n.precio !== f.precio) return false;
       if (f.rating && n.valoracion < f.rating) return false;
