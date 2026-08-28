@@ -1,35 +1,51 @@
 # UNE Sports
 
-Directorio web de academias, escuelas, centros de rehabilitación, psicología deportiva y demás negocios de **deporte formativo en el Perú**. Sitio estático (HTML + CSS + JS) pensado para desplegarse directamente en **Hostinger** (hosting compartido), sin necesidad de build ni backend para esta primera fase.
+Directorio web de academias, escuelas, centros de rehabilitación, psicología deportiva y demás negocios de **deporte formativo en el Perú**. Sitio en **HTML + CSS + JS** con backend en **PHP + MySQL**, pensado para desplegarse directamente en **Hostinger** (hosting compartido: Apache + PHP + MySQL/phpMyAdmin, sin Node ni build).
 
 ## Estructura del proyecto
 
 ```
 /
-├── index.html              Página principal
-├── buscar.html              Búsqueda con filtros, lista y mapa
-├── negocio.html              Perfil de negocio (usa ?slug=xxx)
-├── registrar.html            Formulario para registrar un negocio
-├── blog.html                 Listado del blog
-├── blog-articulo.html        Artículo individual (usa ?slug=xxx)
-├── contacto.html             Formulario de contacto + FAQ
-├── 404.html                  Página de error personalizada
+├── index.html                 Página principal
+├── buscar.html                 Búsqueda con filtros, lista y mapa
+├── negocio.html                 Perfil de negocio (usa ?slug=xxx)
+├── registrar.html               Formulario para registrar un negocio
+├── blog.html                    Listado del blog
+├── blog-articulo.html           Artículo individual (usa ?slug=xxx)
+├── contacto.html                Formulario de contacto + FAQ
+├── 404.html                     Página de error personalizada
 ├── css/
-│   └── style.css             Sistema de diseño completo (colores, tipografía, componentes)
+│   └── style.css                Sistema de diseño completo (colores, tipografía, componentes)
 ├── js/
-│   ├── main.js                Menú móvil, toasts, lightbox, helpers compartidos
-│   ├── buscar.js               Filtros, orden, paginación y mapa de resultados
-│   ├── negocio.js              Render del perfil, reseñas (localStorage), mapa, JSON-LD
-│   ├── registrar.js            Validación del formulario y preview de fotos
-│   ├── blog.js                  Listado y artículo individual del blog
-│   └── contacto.js             Validación del formulario de contacto y mapa
+│   ├── main.js                   Menú móvil, toasts, lightbox, helpers compartidos
+│   ├── buscar.js                  Filtros, orden, paginación y mapa de resultados
+│   ├── negocio.js                 Render del perfil, reseñas, mapa, JSON-LD
+│   ├── registrar.js               Validación + envío del formulario a la API
+│   ├── blog.js                     Listado y artículo individual del blog
+│   └── contacto.js                Validación + envío del formulario a la API
+├── api/                          Backend PHP (API JSON que consume el JS de arriba)
+│   ├── config.sample.php          Plantilla de credenciales de la BD (copiar a config.php)
+│   ├── db.php                     Conexión PDO + helpers compartidos
+│   ├── negocios.php  [GET]        Lista de negocios publicados
+│   ├── blog.php      [GET]        Lista de artículos del blog
+│   ├── resena.php    [POST]       Crea una reseña y recalcula el promedio
+│   ├── registrar.php [POST]       Crea un negocio en estado "pendiente"
+│   ├── contacto.php  [POST]       Guarda un mensaje de contacto
+│   └── .htaccess                  Bloquea el acceso directo a config.php
+├── database/
+│   ├── schema.sql                 Solo estructura (tablas, relaciones, índices)
+│   ├── seed.sql                   Solo datos iniciales (generado desde /data)
+│   ├── une_sports.sql             schema.sql + seed.sql → el archivo a importar en phpMyAdmin
+│   └── generate_seed.py           Regenera seed.sql si cambian data/negocios.json o data/blog.json
 ├── data/
-│   ├── negocios.json           Datos de ejemplo de academias/centros (15 negocios reales de muestra)
-│   └── blog.json                Artículos de ejemplo del blog
+│   ├── negocios.json              Datos de ejemplo originales (fuente de la semilla SQL)
+│   └── blog.json                   Artículos de ejemplo originales (fuente de la semilla SQL)
 ├── sitemap.xml
 ├── robots.txt
-└── .htaccess                  Config básica de Apache/Hostinger (gzip, caché, HTTPS, 404)
+└── .htaccess                     Config básica de Apache/Hostinger (gzip, caché, HTTPS, 404)
 ```
+
+`data/*.json` ya no las consume el sitio en vivo (eso ahora lo hace `api/negocios.php` y `api/blog.php` desde MySQL); se conservan como la fuente legible con la que se generó `database/seed.sql`.
 
 ## Identidad visual
 
@@ -42,41 +58,57 @@ Directorio web de academias, escuelas, centros de rehabilitación, psicología d
 
 Tipografías: **Montserrat** (títulos) + **Inter** (texto), cargadas desde Google Fonts. El naranja se reserva para elementos interactivos (botones, enlaces activos, badges); los párrafos largos siempre usan gris carbón sobre blanco para mantener buena legibilidad.
 
+## Base de datos (MySQL)
+
+Tablas: `categorias`, `distritos_peru` (catálogo de región/provincia/distrito), `usuarios`, `negocios`, `servicios` + `negocio_servicios` (N:N), `negocio_imagenes`, `negocio_horarios`, `valoraciones`, `blog_categorias`, `blog_articulos`, `mensajes_contacto`.
+
+Un negocio registrado desde `registrar.html` entra con `estado = "pendiente"` y **no aparece** en el directorio público hasta que se cambie manualmente a `"publicado"` desde phpMyAdmin (aún no hay panel de administración, ver "Próximos pasos").
+
+## Despliegue en Hostinger (con base de datos)
+
+1. **Crear la base de datos**: en hPanel → *Bases de datos* → *MySQL*, crea una base y un usuario, y anota host / nombre / usuario / contraseña.
+2. **Importar el esquema**: en hPanel → *phpMyAdmin*, entra a esa base, pestaña *Importar*, y sube `database/une_sports.sql` (trae estructura + los 15 negocios y 6 artículos de ejemplo ya cargados).
+3. **Configurar la API**: dentro de `api/`, duplica `config.sample.php` como `config.php` y coloca ahí los datos del paso 1.
+4. **Subir los archivos**: sube todo el contenido de esta carpeta a `public_html/` (o la subcarpeta de tu dominio) vía Administrador de Archivos o FTP. Verifica que `.htaccess` (raíz y `api/`) hayan subido — algunos clientes ocultan por defecto los archivos que empiezan con punto.
+5. Abre tu dominio: la página principal, la búsqueda, los perfiles y el blog ya deberían leer datos reales desde MySQL, y los formularios de reseña/registro/contacto quedan guardados en la base.
+6. Actualiza el dominio real en las etiquetas `canonical`/Open Graph y en `sitemap.xml`/`robots.txt` (usan `https://www.unesports.pe/` como referencia) y sube el sitemap a Google Search Console.
+
+`config.php` nunca se sube al repositorio de Git (está en `.gitignore`); al desplegar por FTP/zip sí debes subirlo tú mismo con las credenciales reales.
+
 ## Cómo probar el sitio localmente
 
-Los datos (`negocios.json`, `blog.json`) se cargan con `fetch`, por lo que **no funcionan abriendo los archivos con doble clic** (protocolo `file://`). Levanta un servidor local simple desde la carpeta del proyecto:
+Necesitas PHP y MySQL/MariaDB corriendo en tu máquina (por ejemplo con [XAMPP](https://www.apachefriends.org/) o [Laragon](https://laragon.org/) en Windows, o `php` + `mariadb` instalados en Linux/Mac).
 
 ```bash
-python3 -m http.server 8080
-# o
-npx serve .
+# 1. Crea la base e importa el esquema + datos
+mysql -u root -e "CREATE DATABASE une_sports CHARACTER SET utf8mb4"
+mysql -u root une_sports < database/une_sports.sql
+
+# 2. Copia y completa las credenciales
+cp api/config.sample.php api/config.php   # edítalo con tus datos locales
+
+# 3. Levanta el servidor embebido de PHP desde la raíz del proyecto
+php -S localhost:8080
 ```
 
-Luego abre `http://localhost:8080`.
+Luego abre `http://localhost:8080`. Si prefieres no instalar nada, XAMPP/Laragon te dan Apache + PHP + MySQL + phpMyAdmin listos con un instalador.
 
-## Despliegue en Hostinger
+## Estado actual
 
-1. Comprime todo el contenido de esta carpeta (o usa el Administrador de Archivos de hPanel).
-2. Sube y descomprime el contenido dentro de `public_html/` (o la subcarpeta de tu dominio).
-3. Verifica que `.htaccess` haya subido correctamente (algunos clientes FTP ocultan archivos que empiezan con punto).
-4. Actualiza el dominio real en las etiquetas `canonical`, Open Graph y en `sitemap.xml` / `robots.txt` (actualmente usan `https://www.unesports.pe/` como referencia).
-5. Sube el sitemap a Google Search Console una vez publicado el dominio definitivo.
+**Diseño (Fase 1)** — completo: todas las páginas maquetadas mobile-first con la identidad de marca, componentes reutilizables y estados de carga/vacío.
 
-No se requiere Node, build ni base de datos para este alcance: todo funciona con archivos estáticos.
+**Backend (Fase 2)** — completo para este alcance:
 
-## Estado actual (Fase 1: diseño + maquetación)
+- **Búsqueda y filtros** (región, tipo, precio, valoración, servicios), orden y mapa con [Leaflet](https://leafletjs.com/) + OpenStreetMap (sin API key), leyendo `api/negocios.php`.
+- **Perfil de negocio** con galería + lightbox, mapa, WhatsApp/llamada/compartir y **reseñas reales**: se guardan en MySQL vía `api/resena.php` y recalculan el promedio del negocio al instante.
+- **Registrar negocio** y **Contacto**: validan en el cliente y **guardan en la base de datos** vía `api/registrar.php` / `api/contacto.php` (ya no son solo una pantalla de confirmación falsa).
+- **Blog** leyendo `api/blog.php`, con filtro por categoría.
+- SEO básico: meta tags dinámicas por página, `sitemap.xml`, `robots.txt`, datos estructurados (JSON-LD), `loading="lazy"` en imágenes.
 
-Siguiendo la prioridad solicitada, primero se completó el diseño visual completo en HTML/CSS (mobile-first, todas las páginas y estados) y luego se añadió una capa de funcionalidad ligera 100% en el navegador:
+## Próximos pasos sugeridos (Fase 3)
 
-- **Búsqueda y filtros** (región, tipo, precio, valoración, servicios), orden y mapa con [Leaflet](https://leafletjs.com/) + OpenStreetMap (sin API key).
-- **Perfil de negocio** dinámico desde `negocios.json`, con galería + lightbox, mapa, WhatsApp/llamada/compartir y sistema de reseñas (las nuevas reseñas se guardan en `localStorage` del navegador, no en un servidor).
-- **Formulario de registro de negocio** y **formulario de contacto** con validación en el cliente. Aún no están conectados a un backend/correo real: al enviar, solo muestran una pantalla de confirmación.
-- **Blog** con artículos de ejemplo y filtro por categoría.
-- SEO básico: meta tags dinámicas por página, `sitemap.xml`, `robots.txt`, datos estructurados (JSON-LD) en negocio y artículo, `loading="lazy"` en imágenes.
-
-## Próximos pasos sugeridos (Fase 2: backend)
-
-- Reemplazar `data/*.json` por una base de datos real (negocios, usuarios, valoraciones, distritos) y una API.
-- Conectar `registrar.html` y `contacto.html` a un endpoint real (correo, base de datos o servicio como Formspree).
-- Autenticación para dueños de negocio y panel de administración/moderación.
-- Subida real de imágenes (actualmente se usan imágenes de referencia de `placehold.co` y avatares de `i.pravatar.cc`).
+- Panel de administración para aprobar/rechazar negocios `pendientes` y moderar reseñas (hoy se hace a mano desde phpMyAdmin).
+- Autenticación real de usuarios/dueños de negocio (la tabla `usuarios` ya existe, falta login y permisos).
+- Subida real de imágenes a servidor (hoy se usan imágenes de referencia de `placehold.co` y avatares de `i.pravatar.cc`; el formulario de registro previsualiza fotos pero no las sube).
+- Envío de notificaciones por correo al recibir un registro o mensaje de contacto (hoy solo quedan guardados en la base).
+- Paginación/índices a nivel de base de datos si el catálogo crece mucho (hoy `api/negocios.php` trae todo el listado publicado en una sola respuesta, igual que hacía el JSON estático).

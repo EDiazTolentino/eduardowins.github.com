@@ -3,7 +3,7 @@
   "use strict";
 
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("data/blog.json")
+    fetch("api/blog.php")
       .then(function (r) { return r.json(); })
       .then(function (articulos) {
         if (document.getElementById("blogList")) initListado(articulos);

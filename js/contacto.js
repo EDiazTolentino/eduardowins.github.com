@@ -33,9 +33,28 @@
       });
       if (!valid) { UNE.toast("Revisa los campos marcados en rojo."); return; }
 
-      document.getElementById("contactoSuccess").classList.add("is-visible");
-      form.querySelectorAll("input, select, textarea, button[type='submit']").forEach(function (f) { f.disabled = true; });
-      UNE.toast("¡Gracias! Recibimos tu mensaje.");
+      var payload = {
+        nombre: document.getElementById("cNombre").value.trim(),
+        email: document.getElementById("cEmail").value.trim(),
+        asunto: document.getElementById("cAsunto").value,
+        mensaje: document.getElementById("cMensaje").value.trim()
+      };
+
+      fetch("api/contacto.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json().then(function (body) { return { ok: r.ok, body: body }; }); })
+        .then(function (result) {
+          if (!result.ok) throw new Error(result.body.error || "No se pudo enviar el mensaje.");
+          document.getElementById("contactoSuccess").classList.add("is-visible");
+          form.querySelectorAll("input, select, textarea, button[type='submit']").forEach(function (f) { f.disabled = true; });
+          UNE.toast("¡Gracias! Recibimos tu mensaje.");
+        })
+        .catch(function (err) {
+          UNE.toast(err.message || "No se pudo enviar el mensaje, intenta nuevamente.");
+        });
     });
   }
 })();

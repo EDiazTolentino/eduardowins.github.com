@@ -7,7 +7,7 @@
   var allNegocios = [];
 
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("data/negocios.json")
+    fetch("api/negocios.php")
       .then(function (r) { return r.json(); })
       .then(function (data) {
         allNegocios = data;
@@ -87,14 +87,9 @@
     document.getElementById("profileDireccion").textContent = n.direccion;
   }
 
-  function getStoredReviews(slugKey) {
-    try { return JSON.parse(localStorage.getItem("une-reviews-" + slugKey) || "[]"); } catch (e) { return []; }
-  }
-  function saveStoredReviews(slugKey, reviews) {
-    localStorage.setItem("une-reviews-" + slugKey, JSON.stringify(reviews));
-  }
+  var sessionReviews = []; // reseñas ya guardadas en la BD durante esta visita, para reflejarlas al instante
 
-  function allReviews(n) { return getStoredReviews(n.slug).concat(n.resenas.slice().reverse()); }
+  function allReviews(n) { return sessionReviews.concat(n.resenas.slice().reverse()); }
 
   function renderRatingSummary(n) {
     var reviews = allReviews(n);
@@ -126,22 +121,42 @@
   }
 
   function bindReviewForm(n) {
-    document.getElementById("reviewForm").addEventListener("submit", function (e) {
+    var form = document.getElementById("reviewForm");
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
       var nombre = document.getElementById("reviewNombre").value.trim();
       var estrellas = parseInt(document.getElementById("reviewEstrellas").value, 10);
       var comentario = document.getElementById("reviewComentario").value.trim();
       if (!nombre || !comentario) return;
 
-      var reviews = getStoredReviews(n.slug);
-      reviews.push({ autor: nombre, valoracion: estrellas, fecha: new Date().toISOString().slice(0, 10), comentario: comentario });
-      saveStoredReviews(n.slug, reviews);
-      n.numResenas += 1;
+      var submitBtn = form.querySelector("button[type='submit']");
+      submitBtn.disabled = true;
 
-      renderReviews(n);
-      renderRatingSummary(n);
-      this.reset();
-      UNE.toast("¡Gracias por tu reseña! Se publicó correctamente.");
+      fetch("api/resena.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: n.slug, autor: nombre, valoracion: estrellas, comentario: comentario })
+      })
+        .then(function (r) { return r.json().then(function (body) { return { ok: r.ok, body: body }; }); })
+        .then(function (result) {
+          if (!result.ok) throw new Error(result.body.error || "No se pudo guardar la reseña.");
+          sessionReviews.unshift(result.body.resena);
+          n.valoracion = result.body.valoracion;
+          n.numResenas = result.body.numResenas;
+
+          renderReviews(n);
+          renderRatingSummary(n);
+          document.getElementById("profileRating").innerHTML =
+            '<span class="stars">' + UNE.renderStars(n.valoracion) + '</span><strong>' + n.valoracion.toFixed(1) + '</strong><span class="count">(' + n.numResenas + ' reseñas)</span>';
+          form.reset();
+          UNE.toast("¡Gracias por tu reseña! Se publicó correctamente.");
+        })
+        .catch(function (err) {
+          UNE.toast(err.message || "No se pudo guardar la reseña, intenta nuevamente.");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
     });
   }
 

@@ -20,7 +20,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     cacheEls();
     readParamsFromUrl();
-    fetch("data/negocios.json")
+    fetch("api/negocios.php")
       .then(function (r) { return r.json(); })
       .then(function (data) {
         state.all = data;

@@ -1,0 +1,6 @@
+# UNE Sports — evita que se acceda directamente al archivo de configuración
+<FilesMatch "^config\.php$">
+  Require all denied
+</FilesMatch>
+
+Options -Indexes

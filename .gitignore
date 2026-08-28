@@ -1,0 +1,6 @@
+# Credenciales reales de la base de datos: nunca se suben al repositorio
+api/config.php
+
+# Archivos temporales de SO/editores
+.DS_Store
+Thumbs.db
