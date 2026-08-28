@@ -10,7 +10,7 @@
     sort: "relevancia",
     view: "list",
     userLocation: null,
-    filters: { q: "", region: "", provincia: "", distrito: "", tipos: [], etapas: [], precio: "", rating: 0, servicios: [] }
+    filters: { q: "", region: "", provincia: "", distrito: "", tipos: [], deporte: "", precio: "", rating: 0, servicios: [] }
   };
 
   var els = {};
@@ -45,6 +45,7 @@
     els.filterRegion = document.getElementById("filterRegion");
     els.filterProvincia = document.getElementById("filterProvincia");
     els.filterDistrito = document.getElementById("filterDistrito");
+    els.filterDeporte = document.getElementById("filterDeporte");
     els.filterTipoOptions = document.getElementById("filterTipoOptions");
     els.filterServiciosOptions = document.getElementById("filterServiciosOptions");
     els.sortSelect = document.getElementById("sortSelect");
@@ -153,12 +154,7 @@
         runSearch();
       });
     });
-    document.querySelectorAll('[data-filter="etapa"]').forEach(function (cb) {
-      cb.addEventListener("change", function () {
-        state.filters.etapas = Array.from(document.querySelectorAll('[data-filter="etapa"]:checked')).map(function (i) { return i.value; });
-        runSearch();
-      });
-    });
+    els.filterDeporte.addEventListener("change", function () { state.filters.deporte = els.filterDeporte.value; runSearch(); });
     document.querySelectorAll('[data-filter="servicio"]').forEach(function (cb) {
       cb.addEventListener("change", function () {
         state.filters.servicios = Array.from(document.querySelectorAll('[data-filter="servicio"]:checked')).map(function (i) { return i.value; });
@@ -177,11 +173,12 @@
       runSearch();
     });
     els.clearFilters.addEventListener("click", function () {
-      state.filters = { q: "", region: "", provincia: "", distrito: "", tipos: [], etapas: [], precio: "", rating: 0, servicios: [] };
+      state.filters = { q: "", region: "", provincia: "", distrito: "", tipos: [], deporte: "", precio: "", rating: 0, servicios: [] };
       els.filterRegion.value = "";
+      els.filterDeporte.value = "";
       refreshProvinciaOptions();
       refreshDistritoOptions();
-      document.querySelectorAll('[data-filter="tipo"], [data-filter="etapa"], [data-filter="servicio"]').forEach(function (cb) { cb.checked = false; });
+      document.querySelectorAll('[data-filter="tipo"], [data-filter="servicio"]').forEach(function (cb) { cb.checked = false; });
       document.querySelector('input[name="precio"][value=""]').checked = true;
       document.querySelector('input[name="rating"][value="0"]').checked = true;
       runSearch();
@@ -217,7 +214,7 @@
       if (f.provincia && n.provincia !== f.provincia) return false;
       if (f.distrito && n.distrito !== f.distrito) return false;
       if (f.tipos.length && f.tipos.indexOf(n.tipo) === -1) return false;
-      if (f.etapas.length && !f.etapas.some(function (e) { return (n.etapas || []).indexOf(e) !== -1; })) return false;
+      if (f.deporte && (n.deportes || []).indexOf(f.deporte) === -1) return false;
       if (f.precio && n.precio !== f.precio) return false;
       if (f.rating && n.valoracion < f.rating) return false;
       if (f.servicios.length && !f.servicios.every(function (s) { return n.servicios.indexOf(s) !== -1; })) return false;

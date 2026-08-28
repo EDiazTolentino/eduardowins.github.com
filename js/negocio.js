@@ -69,21 +69,21 @@
       return '<div class="service-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>' + escapeHtml(s) + '</div>';
     }).join("");
 
-    var etapasWrap = document.getElementById("profileEtapasWrap");
-    if (!n.etapas || !n.etapas.length) {
-      etapasWrap.style.display = "none";
+    var deportesWrap = document.getElementById("profileDeportesWrap");
+    if (!n.deportes || !n.deportes.length) {
+      deportesWrap.style.display = "none";
     } else {
-      etapasWrap.style.display = "";
-      document.getElementById("profileEtapas").innerHTML = n.etapas.map(function (e) {
-        return '<span class="tag tag--primary">' + escapeHtml(e) + '</span>';
+      deportesWrap.style.display = "";
+      document.getElementById("profileDeportes").innerHTML = n.deportes.map(function (d) {
+        return '<span class="tag tag--primary">' + escapeHtml(d) + '</span>';
       }).join("");
     }
   }
 
   function renderHorario(n) {
-    document.getElementById("profileHorario").innerHTML = n.horario.map(function (h) {
-      return "<tr><td>" + escapeHtml(h.dia) + "</td><td>" + escapeHtml(h.hora) + "</td></tr>";
-    }).join("");
+    document.getElementById("profileTurnos").innerHTML = (n.turnos && n.turnos.length)
+      ? n.turnos.map(function (t) { return '<span class="tag tag--primary">' + escapeHtml(t) + '</span>'; }).join("")
+      : '<p style="color:var(--color-text-light);">No especificado. Escríbenos para consultar horarios.</p>';
   }
 
   function renderMap(n) {
@@ -171,9 +171,6 @@
   }
 
   function renderSidebar(n) {
-    document.getElementById("contactPerson").innerHTML =
-      '<img src="' + n.contacto.foto + '" alt="' + escapeHtml(n.contacto.nombre) + '"><div><strong>' + escapeHtml(n.contacto.nombre) + '</strong><span>' + escapeHtml(n.contacto.cargo) + '</span></div>';
-
     var waMsg = "Hola, vi su perfil de " + n.nombre + " en UNE Sports y quisiera más información.";
     document.getElementById("btnWhatsapp").href = UNE.formatWhatsappLink(n.whatsapp, waMsg);
     document.getElementById("btnLlamar").href = "tel:" + n.telefono.replace(/\s+/g, "");

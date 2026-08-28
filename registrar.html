@@ -65,12 +65,12 @@
               <input type="text" id="nombreNegocio" required placeholder="Ej. Academia Gol de Oro">
               <span class="form-error">Ingresa el nombre de tu negocio.</span>
             </div>
-            <div class="form-field">
+            <div class="form-field full">
               <label for="tipoNegocio">Tipo de negocio *</label>
               <select id="tipoNegocio" class="select-field" required>
                 <option value="">Selecciona una opción</option>
-                <option>Academia Deportiva Formativa</option>
-                <option>Escuela Deportiva Formativa</option>
+                <option>Academia Deportiva</option>
+                <option>Escuela Deportiva</option>
                 <option>Centros de Rehabilitación y Fisioterapia Deportiva</option>
                 <option>Clínicas de Medicina Deportiva Pediátrica</option>
                 <option>Centros de Nutrición y Dietética Deportiva</option>
@@ -86,28 +86,28 @@
               </select>
               <span class="form-error">Selecciona el tipo de negocio.</span>
             </div>
-            <div class="form-field">
-              <label for="rangoPrecio">Rango de precio *</label>
-              <select id="rangoPrecio" class="select-field" required>
-                <option value="">Selecciona una opción</option>
-                <option value="$">$ - Económico</option>
-                <option value="$$">$$ - Precio medio</option>
-                <option value="$$$">$$$ - Premium</option>
-              </select>
-              <span class="form-error">Selecciona un rango de precio.</span>
+
+            <div class="form-field full" id="deporteWrap" style="display:none;">
+              <label>Disciplina deportiva * <span class="hint">(elige hasta 5 — <span id="deporteContador">0</span>/5)</span></label>
+              <div id="deporteGrupos"></div>
+              <span class="form-error" id="deporteError">Selecciona al menos una disciplina (máximo 5).</span>
             </div>
 
-            <div class="form-field full">
-              <label>Etapas del deporte formativo que atiendes *</label>
-              <span class="hint">Selecciona todos los rangos de edad que apliquen</span>
-              <div class="checkbox-grid" id="etapasCheckbox" style="margin-top:0.4rem;">
-                <label class="checkbox-row"><input type="checkbox" name="etapa" value="4 a 6 años"><span>4 a 6 años</span></label>
-                <label class="checkbox-row"><input type="checkbox" name="etapa" value="7 a 9 años"><span>7 a 9 años</span></label>
-                <label class="checkbox-row"><input type="checkbox" name="etapa" value="10 a 12 años"><span>10 a 12 años</span></label>
-                <label class="checkbox-row"><input type="checkbox" name="etapa" value="13 a 15 años"><span>13 a 15 años</span></label>
-                <label class="checkbox-row"><input type="checkbox" name="etapa" value="16 a 18 años"><span>16 a 18 años</span></label>
+            <div class="form-field">
+              <label for="precioSoles">Precio mensual en soles (S/) *</label>
+              <input type="number" id="precioSoles" min="1" step="1" required placeholder="Ej. 220">
+              <span class="hint">Este monto es privado: no se muestra al público, solo se usa para clasificar tu negocio como $, $$ o $$$.</span>
+              <span class="form-error">Ingresa un precio válido en soles.</span>
+            </div>
+            <div class="form-field">
+              <label>Turnos de atención *</label>
+              <span class="hint">Para que los interesados sepan cuándo escribirte</span>
+              <div class="checkbox-grid" id="turnosCheckbox" style="margin-top:0.4rem;">
+                <label class="checkbox-row"><input type="checkbox" name="turno" value="Mañana"><span>Mañana</span></label>
+                <label class="checkbox-row"><input type="checkbox" name="turno" value="Tarde"><span>Tarde</span></label>
+                <label class="checkbox-row"><input type="checkbox" name="turno" value="Noche"><span>Noche</span></label>
               </div>
-              <span class="form-error" id="etapasError">Selecciona al menos una etapa.</span>
+              <span class="form-error" id="turnosError">Selecciona al menos un turno.</span>
             </div>
 
             <div class="form-field">
@@ -134,6 +134,7 @@
             <div class="form-field full">
               <label for="direccion">Dirección completa *</label>
               <input type="text" id="direccion" required placeholder="Av. / Jr. / Calle, número, referencia">
+              <span class="hint">Si tienes más de una sede, regístralas por separado: un formulario por cada local.</span>
               <span class="form-error">Ingresa la dirección.</span>
             </div>
 
@@ -153,14 +154,10 @@
               <span class="form-error">Ingresa un correo válido.</span>
             </div>
 
-            <div class="form-field">
-              <label for="horarioResumen">Horario de atención *</label>
-              <input type="text" id="horarioResumen" required placeholder="Ej. Lunes a viernes, 15:00 - 20:00">
-              <span class="form-error">Ingresa el horario de atención.</span>
-            </div>
-            <div class="form-field">
+            <div class="form-field full">
               <label for="contactoNombre">Nombre de contacto *</label>
               <input type="text" id="contactoNombre" required placeholder="Nombre de la persona responsable">
+              <span class="hint">Uso interno: no se muestra en tu perfil público.</span>
               <span class="form-error">Ingresa el nombre de contacto.</span>
             </div>
 
@@ -175,7 +172,10 @@
           <div class="checkbox-grid" id="serviciosCheckbox">
             <label class="checkbox-row"><input type="checkbox" value="Clases grupales"><span>Clases grupales</span></label>
             <label class="checkbox-row"><input type="checkbox" value="Clases particulares"><span>Clases particulares</span></label>
-            <label class="checkbox-row"><input type="checkbox" value="Torneos internos"><span>Torneos internos</span></label>
+            <label class="checkbox-row"><input type="checkbox" value="Nivel inicial"><span>Nivel inicial</span></label>
+            <label class="checkbox-row"><input type="checkbox" value="Nivel intermedio"><span>Nivel intermedio</span></label>
+            <label class="checkbox-row"><input type="checkbox" value="Nivel avanzado"><span>Nivel avanzado</span></label>
+            <label class="checkbox-row"><input type="checkbox" value="Torneos internos / externos"><span>Torneos internos / externos</span></label>
             <label class="checkbox-row"><input type="checkbox" value="Preparación física"><span>Preparación física</span></label>
             <label class="checkbox-row"><input type="checkbox" value="Evaluación inicial"><span>Evaluación inicial</span></label>
             <label class="checkbox-row"><input type="checkbox" value="Uniforme incluido"><span>Uniforme incluido</span></label>
@@ -233,8 +233,8 @@
       <div>
         <h4>Categorías</h4>
         <ul class="footer-links">
-          <li><a href="buscar.html?tipo=academia-deportiva-formativa">Academias deportivas</a></li>
-          <li><a href="buscar.html?tipo=escuela-deportiva-formativa">Escuelas deportivas</a></li>
+          <li><a href="buscar.html?tipo=academia-deportiva">Academias deportivas</a></li>
+          <li><a href="buscar.html?tipo=escuela-deportiva">Escuelas deportivas</a></li>
           <li><a href="buscar.html?tipo=rehabilitacion-fisioterapia">Rehabilitación y fisioterapia</a></li>
           <li><a href="buscar.html?tipo=psicologia-deportiva">Psicología deportiva</a></li>
         </ul>

@@ -73,8 +73,8 @@
           <details class="filter-group" open>
             <summary>Tipo de negocio</summary>
             <div class="filter-options" id="filterTipoOptions">
-              <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="academia-deportiva-formativa"><span>Academia Deportiva Formativa</span></label>
-              <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="escuela-deportiva-formativa"><span>Escuela Deportiva Formativa</span></label>
+              <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="academia-deportiva"><span>Academia Deportiva</span></label>
+              <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="escuela-deportiva"><span>Escuela Deportiva</span></label>
               <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="rehabilitacion-fisioterapia"><span>Centros de Rehabilitación y Fisioterapia Deportiva</span></label>
               <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="medicina-deportiva-pediatrica"><span>Clínicas de Medicina Deportiva Pediátrica</span></label>
               <label class="checkbox-row"><input type="checkbox" data-filter="tipo" value="nutricion-dietetica-deportiva"><span>Centros de Nutrición y Dietética Deportiva</span></label>
@@ -91,13 +91,44 @@
           </details>
 
           <details class="filter-group">
-            <summary>Etapa del deporte formativo</summary>
-            <div class="filter-options" id="filterEtapaOptions">
-              <label class="checkbox-row"><input type="checkbox" data-filter="etapa" value="4 a 6 años"><span>4 a 6 años</span></label>
-              <label class="checkbox-row"><input type="checkbox" data-filter="etapa" value="7 a 9 años"><span>7 a 9 años</span></label>
-              <label class="checkbox-row"><input type="checkbox" data-filter="etapa" value="10 a 12 años"><span>10 a 12 años</span></label>
-              <label class="checkbox-row"><input type="checkbox" data-filter="etapa" value="13 a 15 años"><span>13 a 15 años</span></label>
-              <label class="checkbox-row"><input type="checkbox" data-filter="etapa" value="16 a 18 años"><span>16 a 18 años</span></label>
+            <summary>Disciplina deportiva</summary>
+            <div class="filter-options">
+              <select class="select-field" id="filterDeporte" aria-label="Filtrar por disciplina deportiva">
+                <option value="">Todas las disciplinas</option>
+                <optgroup label="Equipo">
+                  <option>Fútbol</option><option>Baloncesto</option><option>Balonmano</option><option>Rugby 7</option><option>Voleibol</option><option>Hockey sobre césped</option><option>Flag football</option><option>Lacrosse</option><option>Fútbol americano</option><option>Rugby</option><option>Fútbol sala</option><option>Fútbol playa</option><option>Netball</option><option>Korfbal</option><option>Polo</option>
+                </optgroup>
+                <optgroup label="Raqueta">
+                  <option>Tenis</option><option>Tenis de mesa</option><option>Bádminton</option><option>Squash</option><option>Pádel</option><option>Pickleball</option><option>Racquetball</option><option>Frontón</option>
+                </optgroup>
+                <optgroup label="Bate y pelota">
+                  <option>Béisbol</option><option>Sóftbol</option><option>Críquet</option>
+                </optgroup>
+                <optgroup label="Combate">
+                  <option>Judo</option><option>Taekwondo</option><option>Boxeo</option><option>Lucha (libre y grecorromana)</option><option>Esgrima</option><option>Artes Marciales Mixtas (MMA)</option><option>Jiu-jitsu brasileño (BJJ)</option><option>Kickboxing</option><option>Muay thai</option><option>Karate</option><option>Sumo</option><option>Kung fu</option><option>Capoeira</option>
+                </optgroup>
+                <optgroup label="Motor">
+                  <option>Motocross</option><option>Superbike</option>
+                </optgroup>
+                <optgroup label="Atletismo y fuerza">
+                  <option>Atletismo</option><option>Ciclismo (ruta, pista, MTB y BMX)</option><option>Halterofilia (levantamiento de pesas)</option><option>Powerlifting</option><option>CrossFit</option><option>Strongman</option><option>Fisicoculturismo</option>
+                </optgroup>
+                <optgroup label="Acuáticos">
+                  <option>Natación (piscina y aguas abiertas)</option><option>Saltos (clavados)</option><option>Natación artística</option><option>Waterpolo</option><option>Surf</option><option>Vela</option><option>Remo</option><option>Piragüismo (canotaje)</option>
+                </optgroup>
+                <optgroup label="Precisión y gimnasia">
+                  <option>Tiro con arco</option><option>Tiro deportivo</option><option>Golf</option><option>Gimnasia (artística, rítmica y trampolín)</option>
+                </optgroup>
+                <optgroup label="Mesa y puntería">
+                  <option>Billar (pool, snooker, carambola)</option><option>Dardos</option><option>Bolos (bowling)</option><option>Bochas</option>
+                </optgroup>
+                <optgroup label="Mente">
+                  <option>Ajedrez</option><option>Damas</option><option>Go</option><option>Bridge</option><option>Deportes electrónicos (eSports)</option>
+                </optgroup>
+                <optgroup label="Aventura y montaña">
+                  <option>Escalada deportiva</option><option>Paracaidismo</option><option>Parapente</option><option>Vuelo sin motor</option><option>Salto BASE</option><option>Montañismo / alpinismo de expedición</option>
+                </optgroup>
+              </select>
             </div>
           </details>
 
@@ -197,8 +228,8 @@
       <div>
         <h4>Categorías</h4>
         <ul class="footer-links">
-          <li><a href="buscar.html?tipo=academia-deportiva-formativa">Academias deportivas</a></li>
-          <li><a href="buscar.html?tipo=escuela-deportiva-formativa">Escuelas deportivas</a></li>
+          <li><a href="buscar.html?tipo=academia-deportiva">Academias deportivas</a></li>
+          <li><a href="buscar.html?tipo=escuela-deportiva">Escuelas deportivas</a></li>
           <li><a href="buscar.html?tipo=rehabilitacion-fisioterapia">Rehabilitación y fisioterapia</a></li>
           <li><a href="buscar.html?tipo=psicologia-deportiva">Psicología deportiva</a></li>
         </ul>

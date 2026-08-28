@@ -1,9 +1,10 @@
 <?php
 /**
  * UNE Sports — GET /api/negocios.php
- * Devuelve todos los negocios publicados con la misma forma que antes tenía
- * data/negocios.json, para que buscar.js y negocio.js no necesiten cambios
- * de lógica: solo se cambió la URL del fetch.
+ * Devuelve todos los negocios publicados. A propósito NO incluye
+ * precio_soles ni contacto_nombre: son datos privados/internos que el
+ * formulario de registro sí guarda, pero que este endpoint público nunca
+ * expone (ver comentario en database/schema.sql sobre negocios).
  */
 declare(strict_types=1);
 require_once __DIR__ . '/db.php';
@@ -42,16 +43,16 @@ $servicios = une_fetch_grouped(
     $pdo,
     "SELECT ns.negocio_id, s.nombre
      FROM negocio_servicios ns JOIN servicios s ON s.id = ns.servicio_id
-     WHERE ns.negocio_id IN ($placeholders) ORDER BY ns.negocio_id, ns.orden",
+     WHERE ns.negocio_id IN ($placeholders) ORDER BY ns.negocio_id, s.orden",
     $ids,
     'negocio_id'
 );
 
-$etapas = une_fetch_grouped(
+$deportes = une_fetch_grouped(
     $pdo,
-    "SELECT ne.negocio_id, e.nombre
-     FROM negocio_etapas ne JOIN etapas e ON e.id = ne.etapa_id
-     WHERE ne.negocio_id IN ($placeholders) ORDER BY ne.negocio_id, e.orden",
+    "SELECT nd.negocio_id, d.nombre
+     FROM negocio_deportes nd JOIN deportes d ON d.id = nd.deporte_id
+     WHERE nd.negocio_id IN ($placeholders) ORDER BY nd.negocio_id, d.orden",
     $ids,
     'negocio_id'
 );
@@ -59,14 +60,6 @@ $etapas = une_fetch_grouped(
 $imagenes = une_fetch_grouped(
     $pdo,
     "SELECT negocio_id, url FROM negocio_imagenes
-     WHERE negocio_id IN ($placeholders) ORDER BY negocio_id, orden",
-    $ids,
-    'negocio_id'
-);
-
-$horarios = une_fetch_grouped(
-    $pdo,
-    "SELECT negocio_id, dia, hora FROM negocio_horarios
      WHERE negocio_id IN ($placeholders) ORDER BY negocio_id, orden",
     $ids,
     'negocio_id'
@@ -83,6 +76,11 @@ $resenas = une_fetch_grouped(
 $out = [];
 foreach ($negocios as $n) {
     $id = (int) $n['id'];
+    $turnos = [];
+    if ($n['atiende_manana']) $turnos[] = 'Mañana';
+    if ($n['atiende_tarde']) $turnos[] = 'Tarde';
+    if ($n['atiende_noche']) $turnos[] = 'Noche';
+
     $out[] = [
         'id' => $id,
         'slug' => $n['slug'],
@@ -97,6 +95,7 @@ foreach ($negocios as $n) {
         'whatsapp' => $n['whatsapp'],
         'email' => $n['email'],
         'precio' => $n['precio'],
+        'turnos' => $turnos,
         'valoracion' => (float) $n['valoracion_promedio'],
         'numResenas' => (int) $n['total_resenas'],
         'destacado' => (bool) $n['destacado'],
@@ -105,13 +104,7 @@ foreach ($negocios as $n) {
         'lng' => $n['lng'] !== null ? (float) $n['lng'] : null,
         'descripcion' => $n['descripcion'],
         'servicios' => array_map(fn($s) => $s['nombre'], $servicios[$id] ?? []),
-        'etapas' => array_map(fn($e) => $e['nombre'], $etapas[$id] ?? []),
-        'horario' => array_map(fn($h) => ['dia' => $h['dia'], 'hora' => $h['hora']], $horarios[$id] ?? []),
-        'contacto' => [
-            'nombre' => $n['contacto_nombre'],
-            'cargo' => $n['contacto_cargo'],
-            'foto' => $n['contacto_foto'],
-        ],
+        'deportes' => array_map(fn($d) => $d['nombre'], $deportes[$id] ?? []),
         'imagenPrincipal' => $n['imagen_principal'],
         'galeria' => array_map(fn($i) => $i['url'], $imagenes[$id] ?? []),
         'resenas' => array_map(fn($r) => [

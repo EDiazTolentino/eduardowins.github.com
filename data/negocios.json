@@ -3,8 +3,8 @@
     "id": 1,
     "slug": "academia-gol-de-oro",
     "nombre": "Academia Gol de Oro",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "Miraflores",
@@ -21,26 +21,11 @@
     "lng": -77.0296,
     "descripcion": "Formamos futbolistas desde los 4 hasta los 17 años con metodología certificada por la Federación Peruana de Fútbol. Contamos con cancha de grass sintético FIFA Quality, preparadores físicos y psicólogo deportivo permanente.",
     "servicios": [
-      "Menores de 4 a 17 años",
-      "Cancha de grass sintético",
-      "Torneos internos",
-      "Preparación física",
-      "Escuela de porteros",
+      "Clases grupales",
+      "Nivel inicial",
+      "Nivel intermedio",
+      "Torneos internos / externos",
       "Uniforme incluido"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "15:00 - 20:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "08:00 - 13:00"
-      },
-      {
-        "dia": "Domingos",
-        "hora": "Cerrado"
-      }
     ],
     "contacto": {
       "nombre": "Renzo Aguilar",
@@ -78,20 +63,21 @@
         "comentario": "Muy buena academia, solo sugiero más horarios los fines de semana."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Fútbol"
+    ],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 220
   },
   {
     "id": 2,
     "slug": "delfines-natacion-club",
     "nombre": "Delfines Natación Club",
-    "tipo": "escuela-deportiva-formativa",
-    "tipoLabel": "Escuela Deportiva Formativa",
+    "tipo": "escuela-deportiva",
+    "tipoLabel": "Escuela Deportiva",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "San Borja",
@@ -108,26 +94,11 @@
     "lng": -76.998,
     "descripcion": "Piscina climatizada semiolímpica con instructores certificados por la Federación Deportiva Peruana de Natación. Programas desde bebés (natación infantil) hasta preparación competitiva federada.",
     "servicios": [
-      "Piscina climatizada",
-      "Natación para bebés",
-      "Nivel competitivo",
+      "Clases grupales",
       "Clases particulares",
-      "Aqua-terapia",
-      "Casilleros y duchas"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "06:00 - 21:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "07:00 - 15:00"
-      },
-      {
-        "dia": "Domingos",
-        "hora": "08:00 - 12:00"
-      }
+      "Nivel inicial",
+      "Nivel avanzado",
+      "Evaluación inicial"
     ],
     "contacto": {
       "nombre": "Claudia Injoque",
@@ -157,20 +128,22 @@
         "comentario": "Instructores muy profesionales y la piscina siempre impecable."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Natación (piscina y aguas abiertas)"
+    ],
+    "turnos": [
+      "Mañana",
+      "Tarde",
+      "Noche"
+    ],
+    "precioSoles": 420
   },
   {
     "id": 3,
     "slug": "voley-peru-academy",
     "nombre": "Vóley Perú Academy",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Lima",
     "provincia": "Lima",
     "distrito": "La Molina",
@@ -187,21 +160,10 @@
     "lng": -76.9451,
     "descripcion": "Escuela formativa de vóley con ex jugadoras de la selección nacional como entrenadoras. Trabajamos técnica, táctica y valores dentro y fuera de la cancha.",
     "servicios": [
-      "Categorías mini, sub-14 y sub-17",
-      "Entrenadoras ex seleccionadas",
-      "Ligas escolares",
-      "Vóley playa (temporada)",
-      "Preparación física"
-    ],
-    "horario": [
-      {
-        "dia": "Martes y Jueves",
-        "hora": "16:00 - 19:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "09:00 - 12:00"
-      }
+      "Clases grupales",
+      "Nivel intermedio",
+      "Nivel avanzado",
+      "Torneos internos / externos"
     ],
     "contacto": {
       "nombre": "Katherine Salas",
@@ -230,20 +192,20 @@
         "comentario": "Buena academia, el único punto es que se llena rápido los sábados."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Voleibol"
+    ],
+    "turnos": [
+      "Tarde"
+    ],
+    "precioSoles": 200
   },
   {
     "id": 4,
     "slug": "dojo-samurai-peru",
     "nombre": "Dojo Samurai Perú",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Arequipa",
     "provincia": "Arequipa",
     "distrito": "Cercado",
@@ -260,21 +222,11 @@
     "lng": -71.535,
     "descripcion": "Más de 20 años formando cinturones negros en karate, taekwondo y defensa personal. Trabajamos disciplina, respeto y confianza en niños, jóvenes y adultos.",
     "servicios": [
-      "Karate infantil",
-      "Taekwondo competitivo",
-      "Defensa personal",
-      "Exámenes de grado",
-      "Clases para adultos"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "16:00 - 21:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "09:00 - 13:00"
-      }
+      "Clases grupales",
+      "Nivel inicial",
+      "Nivel intermedio",
+      "Nivel avanzado",
+      "Uniforme incluido"
     ],
     "contacto": {
       "nombre": "Sensei Hugo Talavera",
@@ -304,20 +256,22 @@
         "comentario": "Un dojo con historia y disciplina real, se los recomiendo a cualquier padre."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Karate",
+      "Taekwondo"
+    ],
+    "turnos": [
+      "Tarde",
+      "Noche"
+    ],
+    "precioSoles": 120
   },
   {
     "id": 5,
     "slug": "canasta-basket-academy",
     "nombre": "Canasta Basket Academy",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "La Libertad",
     "provincia": "Trujillo",
     "distrito": "Trujillo",
@@ -334,20 +288,10 @@
     "lng": -79.0288,
     "descripcion": "Academia formativa de básquet con losa techada propia. Fundamentos técnicos, trabajo en equipo y participación en torneos interescolares de La Libertad.",
     "servicios": [
-      "Categorías 6 a 16 años",
-      "Losa techada propia",
-      "Torneos interescolares",
-      "Campamentos de verano"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes, Miércoles y Viernes",
-        "hora": "17:00 - 19:30"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "10:00 - 13:00"
-      }
+      "Clases grupales",
+      "Nivel inicial",
+      "Torneos internos / externos",
+      "Movilidad / transporte"
     ],
     "contacto": {
       "nombre": "Piero Zavaleta",
@@ -369,12 +313,13 @@
         "comentario": "Buen ambiente y profesores comprometidos, la losa techada ayuda mucho en época de lluvias."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años"
-    ]
+    "deportes": [
+      "Baloncesto"
+    ],
+    "turnos": [
+      "Tarde"
+    ],
+    "precioSoles": 190
   },
   {
     "id": 6,
@@ -398,21 +343,9 @@
     "lng": -77.0365,
     "descripcion": "Equipo multidisciplinario de fisioterapeutas y médicos deportólogos especializados en la recuperación de lesiones deportivas en niños, jóvenes y atletas de alto rendimiento.",
     "servicios": [
-      "Fisioterapia deportiva",
-      "Evaluación biomecánica",
-      "Recuperación post-lesión",
-      "Terapia de fortalecimiento",
-      "Medicina deportiva"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "07:00 - 20:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "08:00 - 14:00"
-      }
+      "Evaluación inicial",
+      "Clases particulares",
+      "Nivel avanzado"
     ],
     "contacto": {
       "nombre": "Dra. Valeria Ponce",
@@ -442,12 +375,12 @@
         "comentario": "Trato humano excelente y resultados visibles desde las primeras sesiones."
       }
     ],
-    "etapas": [
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 450
   },
   {
     "id": 7,
@@ -471,21 +404,8 @@
     "lng": -77.028,
     "descripcion": "Consultorio especializado en psicología del deporte para niños y jóvenes atletas: manejo de ansiedad competitiva, motivación, concentración y trabajo con padres y entrenadores.",
     "servicios": [
-      "Sesiones individuales",
-      "Talleres para equipos",
-      "Manejo de ansiedad competitiva",
-      "Escuela para padres",
-      "Evaluación psicodeportiva"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "09:00 - 19:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "09:00 - 12:00"
-      }
+      "Clases particulares",
+      "Evaluación inicial"
     ],
     "contacto": {
       "nombre": "Ps. Daniela Farfán",
@@ -514,19 +434,19 @@
         "comentario": "Profesional muy preparada, se nota la experiencia trabajando con deportistas jóvenes."
       }
     ],
-    "etapas": [
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 250
   },
   {
     "id": 8,
     "slug": "ace-tenis-club-cusco",
     "nombre": "Ace Tenis Club Cusco",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Cusco",
     "provincia": "Cusco",
     "distrito": "Wanchaq",
@@ -543,21 +463,11 @@
     "lng": -71.9675,
     "descripcion": "Canchas de polvo de ladrillo y entrenadores certificados ITF. Programas de iniciación, competitivo y clases particulares para toda la familia.",
     "servicios": [
-      "Canchas de polvo de ladrillo",
-      "Entrenador certificado ITF",
+      "Clases grupales",
       "Clases particulares",
-      "Alquiler de equipos",
-      "Torneos internos"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Sábado",
-        "hora": "07:00 - 20:00"
-      },
-      {
-        "dia": "Domingos",
-        "hora": "08:00 - 13:00"
-      }
+      "Nivel inicial",
+      "Nivel avanzado",
+      "Torneos internos / externos"
     ],
     "contacto": {
       "nombre": "Christian Béjar",
@@ -579,20 +489,21 @@
         "comentario": "Las canchas están en muy buen estado y el coach explica muy bien la técnica."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Tenis"
+    ],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 400
   },
   {
     "id": 9,
     "slug": "atletas-del-sur-tacna",
     "nombre": "Atletas del Sur",
-    "tipo": "escuela-deportiva-formativa",
-    "tipoLabel": "Escuela Deportiva Formativa",
+    "tipo": "escuela-deportiva",
+    "tipoLabel": "Escuela Deportiva",
     "region": "Tacna",
     "provincia": "Tacna",
     "distrito": "Tacna",
@@ -609,16 +520,10 @@
     "lng": -70.2536,
     "descripcion": "Escuela formativa de atletismo en pista oficial: velocidad, fondo, saltos y lanzamientos, con entrenadores egresados del IPD.",
     "servicios": [
-      "Pista oficial de 400m",
-      "Velocidad y fondo",
-      "Saltos y lanzamientos",
-      "Preparación para juegos escolares"
-    ],
-    "horario": [
-      {
-        "dia": "Martes, Jueves y Sábado",
-        "hora": "07:00 - 09:30"
-      }
+      "Clases grupales",
+      "Nivel intermedio",
+      "Torneos internos / externos",
+      "Campamentos de verano"
     ],
     "contacto": {
       "nombre": "Prof. Édgar Mamani",
@@ -640,19 +545,20 @@
         "comentario": "Muy buena disciplina y horarios tempranos que se respetan siempre."
       }
     ],
-    "etapas": [
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Atletismo"
+    ],
+    "turnos": [
+      "Mañana"
+    ],
+    "precioSoles": 100
   },
   {
     "id": 10,
     "slug": "fuerza-total-chiclayo",
     "nombre": "Fuerza Total - Preparación Física",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Lambayeque",
     "provincia": "Chiclayo",
     "distrito": "Chiclayo",
@@ -669,20 +575,9 @@
     "lng": -79.8409,
     "descripcion": "Centro especializado en preparación física para deportistas juveniles: fuerza, velocidad, agilidad y prevención de lesiones con seguimiento personalizado.",
     "servicios": [
-      "Evaluación física inicial",
-      "Programas de fuerza y velocidad",
-      "Prevención de lesiones",
-      "Trabajo funcional"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "15:00 - 20:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "09:00 - 12:00"
-      }
+      "Evaluación inicial",
+      "Clases particulares",
+      "Preparación física"
     ],
     "contacto": {
       "nombre": "Marco Delgado",
@@ -704,18 +599,21 @@
         "comentario": "Noté una mejora enorme en mi rendimiento en solo dos meses de entrenamiento."
       }
     ],
-    "etapas": [
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "CrossFit",
+      "Powerlifting"
+    ],
+    "turnos": [
+      "Tarde"
+    ],
+    "precioSoles": 210
   },
   {
     "id": 11,
     "slug": "academia-futbol-base-piura",
     "nombre": "Academia Fútbol Base Piura",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Piura",
     "provincia": "Piura",
     "distrito": "Piura",
@@ -732,20 +630,10 @@
     "lng": -80.6328,
     "descripcion": "Academia formativa de fútbol base para niños de 5 a 15 años, con enfoque en técnica individual y valores deportivos.",
     "servicios": [
-      "Categorías 5 a 15 años",
-      "Técnica individual",
-      "Ligas locales",
-      "Uniforme y balón incluidos"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes, Miércoles y Viernes",
-        "hora": "16:00 - 18:30"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "08:00 - 11:00"
-      }
+      "Clases grupales",
+      "Nivel inicial",
+      "Uniforme incluido",
+      "Torneos internos / externos"
     ],
     "contacto": {
       "nombre": "Willy Chunga",
@@ -767,19 +655,20 @@
         "comentario": "Precios accesibles y buen trato a los niños, recomendable para empezar en el fútbol."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años"
-    ]
+    "deportes": [
+      "Fútbol"
+    ],
+    "turnos": [
+      "Tarde"
+    ],
+    "precioSoles": 110
   },
   {
     "id": 12,
     "slug": "sirenas-natacion-huancayo",
     "nombre": "Sirenas Natación Huancayo",
-    "tipo": "escuela-deportiva-formativa",
-    "tipoLabel": "Escuela Deportiva Formativa",
+    "tipo": "escuela-deportiva",
+    "tipoLabel": "Escuela Deportiva",
     "region": "Junín",
     "provincia": "Huancayo",
     "distrito": "El Tambo",
@@ -796,20 +685,9 @@
     "lng": -75.2049,
     "descripcion": "Piscina temperada en altura con instructores especializados en técnica de los cuatro estilos, para niños desde los 3 años.",
     "servicios": [
-      "Piscina temperada",
-      "Natación desde los 3 años",
-      "Los cuatro estilos",
-      "Clases grupales y particulares"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "08:00 - 19:00"
-      },
-      {
-        "dia": "Sábados",
-        "hora": "08:00 - 13:00"
-      }
+      "Clases grupales",
+      "Clases particulares",
+      "Nivel inicial"
     ],
     "contacto": {
       "nombre": "Yesenia Camayo",
@@ -831,18 +709,21 @@
         "comentario": "El agua siempre está a buena temperatura, ideal para el clima de Huancayo."
       }
     ],
-    "etapas": [
-      "4 a 6 años",
-      "7 a 9 años",
-      "10 a 12 años"
-    ]
+    "deportes": [
+      "Natación (piscina y aguas abiertas)"
+    ],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 230
   },
   {
     "id": 13,
     "slug": "kickboxing-center-ica",
     "nombre": "Kickboxing Center Ica",
-    "tipo": "academia-deportiva-formativa",
-    "tipoLabel": "Academia Deportiva Formativa",
+    "tipo": "academia-deportiva",
+    "tipoLabel": "Academia Deportiva",
     "region": "Ica",
     "provincia": "Ica",
     "distrito": "Ica",
@@ -859,16 +740,10 @@
     "lng": -75.7286,
     "descripcion": "Escuela de kickboxing y muay thai para jóvenes, con enfoque en disciplina, acondicionamiento físico y defensa personal.",
     "servicios": [
-      "Kickboxing juvenil",
-      "Muay thai",
-      "Acondicionamiento físico",
-      "Sparring controlado"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "17:00 - 21:00"
-      }
+      "Clases grupales",
+      "Nivel inicial",
+      "Nivel intermedio",
+      "Preparación física"
     ],
     "contacto": {
       "nombre": "Coach Bryan Ochoa",
@@ -890,11 +765,15 @@
         "comentario": "Buen ambiente para empezar en las artes marciales, coach muy atento con los novatos."
       }
     ],
-    "etapas": [
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [
+      "Kickboxing",
+      "Muay thai"
+    ],
+    "turnos": [
+      "Tarde",
+      "Noche"
+    ],
+    "precioSoles": 130
   },
   {
     "id": 14,
@@ -918,16 +797,8 @@
     "lng": -73.2538,
     "descripcion": "Atención psicológica especializada para deportistas escolares y federados de la región Loreto, con enfoque en motivación y manejo emocional.",
     "servicios": [
-      "Sesiones individuales",
-      "Evaluación psicodeportiva",
-      "Talleres para entrenadores",
-      "Manejo del estrés competitivo"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Viernes",
-        "hora": "09:00 - 18:00"
-      }
+      "Clases particulares",
+      "Evaluación inicial"
     ],
     "contacto": {
       "nombre": "Ps. Rosmery Tuesta",
@@ -948,12 +819,12 @@
         "comentario": "Ayudó mucho a mi sobrino a manejar la presión antes de los juegos nacionales escolares."
       }
     ],
-    "etapas": [
-      "7 a 9 años",
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 240
   },
   {
     "id": 15,
@@ -977,16 +848,9 @@
     "lng": -77.5279,
     "descripcion": "Centro de fisioterapia y rehabilitación deportiva para atletas de montaña, ciclistas y deportistas escolares de la región Áncash.",
     "servicios": [
-      "Fisioterapia deportiva",
-      "Rehabilitación de rodilla y tobillo",
-      "Terapia de altura",
-      "Vendaje neuromuscular"
-    ],
-    "horario": [
-      {
-        "dia": "Lunes a Sábado",
-        "hora": "08:00 - 19:00"
-      }
+      "Evaluación inicial",
+      "Clases particulares",
+      "Preparación física"
     ],
     "contacto": {
       "nombre": "Lic. Óscar Ponte",
@@ -1008,10 +872,11 @@
         "comentario": "Buen trato y resultados, aunque hay que sacar cita con unos días de anticipación."
       }
     ],
-    "etapas": [
-      "10 a 12 años",
-      "13 a 15 años",
-      "16 a 18 años"
-    ]
+    "deportes": [],
+    "turnos": [
+      "Mañana",
+      "Tarde"
+    ],
+    "precioSoles": 260
   }
 ]

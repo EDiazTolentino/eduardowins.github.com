@@ -3,7 +3,7 @@
 Genera database/seed.sql a partir de data/negocios.json y data/blog.json.
 Se ejecuta una sola vez (o cada vez que se actualicen los JSON de ejemplo)
 para regenerar los datos iniciales de la base de datos. No se necesita en
-producción: el resultado ya queda incluido en schema.sql.
+producción: el resultado ya queda incluido en database/une_sports.sql.
 
 Uso: python3 database/generate_seed.py
 """
@@ -11,6 +11,90 @@ import json
 import os
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# --- Catálogos fijos (no dependen de qué negocios de ejemplo existan) ------
+
+CATEGORIAS = {
+    "academia-deportiva": "Academia Deportiva",
+    "escuela-deportiva": "Escuela Deportiva",
+    "rehabilitacion-fisioterapia": "Centros de Rehabilitación y Fisioterapia Deportiva",
+    "medicina-deportiva-pediatrica": "Clínicas de Medicina Deportiva Pediátrica",
+    "nutricion-dietetica-deportiva": "Centros de Nutrición y Dietética Deportiva",
+    "biomecanica-deportiva": "Laboratorios de Biomecánica Deportiva",
+    "psicologia-deportiva": "Centros de Psicología Deportiva",
+    "coaching-liderazgo": "Consultoras de Coaching Deportivo y Liderazgo",
+    "intervencion-familiar": "Organizaciones de Intervención Familiar",
+    "tutoria-nivelacion": "Centros de Tutoría y Nivelación Académica",
+    "safeguarding": "Agencias de Safeguarding (Protección Infantil en el Deporte)",
+    "ong-desarrollo-deporte": "ONGs de Desarrollo a través del Deporte",
+    "derecho-deportivo": "Estudios de Derecho Deportivo",
+    "otro": "Otro",
+}
+
+# El campo "disciplina deportiva" solo se muestra en el formulario cuando el
+# tipo de negocio es una de estas dos categorías.
+CATEGORIAS_CON_DEPORTE = {"academia-deportiva", "escuela-deportiva"}
+
+SERVICIOS = [
+    "Clases grupales", "Clases particulares", "Nivel inicial", "Nivel intermedio",
+    "Nivel avanzado", "Torneos internos / externos", "Preparación física",
+    "Evaluación inicial", "Uniforme incluido", "Movilidad / transporte",
+    "Campamentos de verano",
+]
+
+TURNOS = ["Mañana", "Tarde", "Noche"]
+
+DEPORTES = {
+    "Equipo": [
+        "Fútbol", "Baloncesto", "Balonmano", "Rugby 7", "Voleibol",
+        "Hockey sobre césped", "Flag football", "Lacrosse", "Fútbol americano",
+        "Rugby", "Fútbol sala", "Fútbol playa", "Netball", "Korfbal", "Polo",
+    ],
+    "Raqueta": [
+        "Tenis", "Tenis de mesa", "Bádminton", "Squash", "Pádel",
+        "Pickleball", "Racquetball", "Frontón",
+    ],
+    "Bate y pelota": ["Béisbol", "Sóftbol", "Críquet"],
+    "Combate": [
+        "Judo", "Taekwondo", "Boxeo", "Lucha (libre y grecorromana)", "Esgrima",
+        "Artes Marciales Mixtas (MMA)", "Jiu-jitsu brasileño (BJJ)", "Kickboxing",
+        "Muay thai", "Karate", "Sumo", "Kung fu", "Capoeira",
+    ],
+    "Motor": ["Motocross", "Superbike"],
+    "Atletismo y fuerza": [
+        "Atletismo", "Ciclismo (ruta, pista, MTB y BMX)",
+        "Halterofilia (levantamiento de pesas)", "Powerlifting", "CrossFit",
+        "Strongman", "Fisicoculturismo",
+    ],
+    "Acuáticos": [
+        "Natación (piscina y aguas abiertas)", "Saltos (clavados)",
+        "Natación artística", "Waterpolo", "Surf", "Vela", "Remo",
+        "Piragüismo (canotaje)",
+    ],
+    "Precisión y gimnasia": [
+        "Tiro con arco", "Tiro deportivo", "Golf",
+        "Gimnasia (artística, rítmica y trampolín)",
+    ],
+    "Mesa y puntería": [
+        "Billar (pool, snooker, carambola)", "Dardos", "Bolos (bowling)", "Bochas",
+    ],
+    "Mente": ["Ajedrez", "Damas", "Go", "Bridge", "Deportes electrónicos (eSports)"],
+    "Aventura y montaña": [
+        "Escalada deportiva", "Paracaidismo", "Parapente", "Vuelo sin motor",
+        "Salto BASE", "Montañismo / alpinismo de expedición",
+    ],
+}
+
+# Rangos de precio público ($/$$/$$$) derivados del precio real en soles.
+# Deben coincidir exactamente con PRECIO_TIER_* en api/registrar.php.
+def precio_tier(soles):
+    if soles is None:
+        return "$$"
+    if soles <= 150:
+        return "$"
+    if soles <= 350:
+        return "$$"
+    return "$$$"
 
 
 def esc(value):
@@ -40,84 +124,58 @@ def main():
 
     lines = []
     lines.append("-- =========================================================================")
-    lines.append("-- UNE Sports — Datos iniciales (generado automáticamente desde data/*.json)")
-    lines.append("-- No editar a mano: volver a correr database/generate_seed.py si cambian los")
-    lines.append("-- JSON de ejemplo en /data.")
+    lines.append("-- UNE Sports — Datos iniciales (generado automáticamente desde data/*.json")
+    lines.append("-- y los catálogos fijos declarados en database/generate_seed.py)")
+    lines.append("-- No editar a mano: volver a correr database/generate_seed.py si cambian.")
     lines.append("-- =========================================================================")
     lines.append("")
     lines.append("SET NAMES utf8mb4;")
     lines.append("SET FOREIGN_KEY_CHECKS = 0;")
     lines.append("")
 
-    # --- Categorías (a partir de tipo/tipoLabel únicos en negocios.json) ---
-    categorias = {}
-    for n in negocios:
-        categorias[n["tipo"]] = n["tipoLabel"]
-
-    # Se ignora lo derivado arriba: el catálogo de categorías es una lista
-    # fija de 13 tipos de negocio + "Otro" (no depende de qué negocios de
-    # ejemplo existan), para que el formulario de registro y los filtros
-    # siempre muestren las 14 opciones completas.
-    categorias = {
-        "academia-deportiva-formativa": "Academia Deportiva Formativa",
-        "escuela-deportiva-formativa": "Escuela Deportiva Formativa",
-        "rehabilitacion-fisioterapia": "Centros de Rehabilitación y Fisioterapia Deportiva",
-        "medicina-deportiva-pediatrica": "Clínicas de Medicina Deportiva Pediátrica",
-        "nutricion-dietetica-deportiva": "Centros de Nutrición y Dietética Deportiva",
-        "biomecanica-deportiva": "Laboratorios de Biomecánica Deportiva",
-        "psicologia-deportiva": "Centros de Psicología Deportiva",
-        "coaching-liderazgo": "Consultoras de Coaching Deportivo y Liderazgo",
-        "intervencion-familiar": "Organizaciones de Intervención Familiar",
-        "tutoria-nivelacion": "Centros de Tutoría y Nivelación Académica",
-        "safeguarding": "Agencias de Safeguarding (Protección Infantil en el Deporte)",
-        "ong-desarrollo-deporte": "ONGs de Desarrollo a través del Deporte",
-        "derecho-deportivo": "Estudios de Derecho Deportivo",
-        "otro": "Otro",
-    }
-
+    # --- Categorías (lista fija) ---
     lines.append("-- Categorías de negocio (lista fija)")
     lines.append("INSERT INTO categorias (slug, nombre) VALUES")
-    cat_rows = [f"  ({esc(slug)}, {esc(nombre)})" for slug, nombre in categorias.items()]
-    lines.append(",\n".join(cat_rows) + ";")
+    lines.append(",\n".join(f"  ({esc(slug)}, {esc(nombre)})" for slug, nombre in CATEGORIAS.items()) + ";")
+    lines.append("")
+    cat_id_by_slug = {slug: i + 1 for i, slug in enumerate(CATEGORIAS.keys())}
+
+    # --- Disciplinas deportivas (catálogo fijo agrupado) ---
+    lines.append("-- Disciplinas deportivas (catálogo fijo, agrupado)")
+    lines.append("INSERT INTO deportes (nombre, grupo, orden) VALUES")
+    deporte_rows = []
+    deporte_id_by_name = {}
+    i = 0
+    for grupo, nombres in DEPORTES.items():
+        for nombre in nombres:
+            i += 1
+            deporte_rows.append(f"  ({esc(nombre)}, {esc(grupo)}, {i})")
+            deporte_id_by_name[nombre] = i
+    lines.append(",\n".join(deporte_rows) + ";")
     lines.append("")
 
-    cat_id_by_slug = {slug: i + 1 for i, slug in enumerate(categorias.keys())}
-
-    # --- Etapas del deporte formativo (catálogo fijo de 5 rangos de edad) ---
-    ETAPAS = ["4 a 6 años", "7 a 9 años", "10 a 12 años", "13 a 15 años", "16 a 18 años"]
-    lines.append("-- Etapas del deporte formativo (rangos de edad, lista fija)")
-    lines.append("INSERT INTO etapas (nombre, orden) VALUES")
-    lines.append(",\n".join(f"  ({esc(e)}, {i})" for i, e in enumerate(ETAPAS)) + ";")
+    # --- Servicios (catálogo fijo) ---
+    lines.append("-- Servicios (catálogo fijo)")
+    lines.append("INSERT INTO servicios (nombre, orden) VALUES")
+    lines.append(",\n".join(f"  ({esc(s)}, {i})" for i, s in enumerate(SERVICIOS)) + ";")
     lines.append("")
-    etapa_id_by_name = {name: i + 1 for i, name in enumerate(ETAPAS)}
+    serv_id_by_name = {name: i + 1 for i, name in enumerate(SERVICIOS)}
 
-    # --- Servicios (catálogo único) ---
-    servicios_set = []
-    seen_s = set()
-    for n in negocios:
-        for s in n.get("servicios", []):
-            if s not in seen_s:
-                seen_s.add(s)
-                servicios_set.append(s)
-
-    lines.append("-- Catálogo de servicios/especialidades")
-    lines.append("INSERT INTO servicios (nombre) VALUES")
-    serv_rows = [f"  ({esc(s)})" for s in servicios_set]
-    lines.append(",\n".join(serv_rows) + ";")
-    lines.append("")
-
-    serv_id_by_name = {name: i + 1 for i, name in enumerate(servicios_set)}
+    # --- Catálogo de distritos: se puebla aparte desde ubicaciones_peru.sql ---
 
     # --- Negocios ---
     lines.append("-- Negocios")
     lines.append(
         "INSERT INTO negocios "
         "(id, slug, nombre, categoria_id, region, provincia, distrito, direccion, telefono, "
-        "whatsapp, email, precio, descripcion, imagen_principal, contacto_nombre, contacto_cargo, "
-        "contacto_foto, destacado, verificado, estado, valoracion_promedio, total_resenas, lat, lng) VALUES"
+        "whatsapp, email, precio_soles, precio, atiende_manana, atiende_tarde, atiende_noche, "
+        "descripcion, imagen_principal, contacto_nombre, destacado, verificado, estado, "
+        "valoracion_promedio, total_resenas, lat, lng) VALUES"
     )
     neg_rows = []
     for n in negocios:
+        precioSoles = n.get("precioSoles")
+        turnos = n.get("turnos", [])
         neg_rows.append(
             "  (" + ", ".join([
                 num_or_null(n["id"]),
@@ -131,12 +189,14 @@ def main():
                 esc(n["telefono"]),
                 esc(n["whatsapp"]),
                 esc(n["email"]),
-                esc(n["precio"]),
+                num_or_null(precioSoles),
+                esc(precio_tier(precioSoles)),
+                bool_sql("Mañana" in turnos),
+                bool_sql("Tarde" in turnos),
+                bool_sql("Noche" in turnos),
                 esc(n["descripcion"]),
                 esc(n["imagenPrincipal"]),
                 esc(n["contacto"]["nombre"]),
-                esc(n["contacto"]["cargo"]),
-                esc(n["contacto"]["foto"]),
                 bool_sql(n.get("destacado")),
                 bool_sql(n.get("verificado")),
                 "'publicado'",
@@ -149,26 +209,26 @@ def main():
     lines.append(",\n".join(neg_rows) + ";")
     lines.append("")
 
-    # --- negocio_servicios ---
-    lines.append("-- Relación negocio <-> servicios")
-    ns_rows = []
+    # --- negocio_deportes ---
+    nd_rows = []
     for n in negocios:
-        for i, s in enumerate(n.get("servicios", [])):
-            ns_rows.append(f"  ({n['id']}, {serv_id_by_name[s]}, {i})")
-    if ns_rows:
-        lines.append("INSERT INTO negocio_servicios (negocio_id, servicio_id, orden) VALUES")
-        lines.append(",\n".join(ns_rows) + ";")
+        for d in n.get("deportes", []):
+            nd_rows.append(f"  ({n['id']}, {deporte_id_by_name[d]})")
+    if nd_rows:
+        lines.append("-- Relación negocio <-> disciplinas deportivas")
+        lines.append("INSERT INTO negocio_deportes (negocio_id, deporte_id) VALUES")
+        lines.append(",\n".join(nd_rows) + ";")
         lines.append("")
 
-    # --- negocio_etapas ---
-    ne_rows = []
+    # --- negocio_servicios ---
+    ns_rows = []
     for n in negocios:
-        for etapa in n.get("etapas", []):
-            ne_rows.append(f"  ({n['id']}, {etapa_id_by_name[etapa]})")
-    if ne_rows:
-        lines.append("-- Relación negocio <-> etapas del deporte formativo")
-        lines.append("INSERT INTO negocio_etapas (negocio_id, etapa_id) VALUES")
-        lines.append(",\n".join(ne_rows) + ";")
+        for s in n.get("servicios", []):
+            ns_rows.append(f"  ({n['id']}, {serv_id_by_name[s]})")
+    if ns_rows:
+        lines.append("-- Relación negocio <-> servicios")
+        lines.append("INSERT INTO negocio_servicios (negocio_id, servicio_id) VALUES")
+        lines.append(",\n".join(ns_rows) + ";")
         lines.append("")
 
     # --- negocio_imagenes ---
@@ -179,16 +239,6 @@ def main():
             img_rows.append(f"  ({n['id']}, {esc(url)}, {i})")
     lines.append("INSERT INTO negocio_imagenes (negocio_id, url, orden) VALUES")
     lines.append(",\n".join(img_rows) + ";")
-    lines.append("")
-
-    # --- negocio_horarios ---
-    lines.append("-- Horarios de atención")
-    hor_rows = []
-    for n in negocios:
-        for i, h in enumerate(n.get("horario", [])):
-            hor_rows.append(f"  ({n['id']}, {esc(h['dia'])}, {esc(h['hora'])}, {i})")
-    lines.append("INSERT INTO negocio_horarios (negocio_id, dia, hora, orden) VALUES")
-    lines.append(",\n".join(hor_rows) + ";")
     lines.append("")
 
     # --- valoraciones ---
