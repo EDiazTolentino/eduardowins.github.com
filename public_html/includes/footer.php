@@ -3,8 +3,9 @@
 <footer class="pie">
   <div class="contenedor pie__interior">
     <div class="pie__marca">
-      <?php if (is_file(RUTA_BASE . '/assets/img/logo.svg') && filesize(RUTA_BASE . '/assets/img/logo.svg') > 0): ?>
-        <img src="/assets/img/logo.svg" alt="<?= e(SITE_NAME) ?>" height="32">
+      <?php if (!isset($logoArchivo)): $logoArchivo = null; foreach (['logo.svg', 'logo.webp', 'logo.png', 'logo.jpg'] as $nombreLogo) { $rutaLogo = RUTA_BASE . '/assets/img/' . $nombreLogo; if (is_file($rutaLogo) && filesize($rutaLogo) > 0) { $logoArchivo = $nombreLogo; break; } } endif; ?>
+      <?php if ($logoArchivo): ?>
+        <img src="/assets/img/<?= e($logoArchivo) ?>" alt="<?= e(SITE_NAME) ?>" height="32">
       <?php else: ?>
         <?php include __DIR__ . '/logo-inline.php'; ?>
       <?php endif; ?>

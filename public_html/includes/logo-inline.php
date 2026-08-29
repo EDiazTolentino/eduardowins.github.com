@@ -1,8 +1,9 @@
 <?php
 /**
- * logo-inline.php — Placeholder de logo mientras se sube el logo.svg
- * definitivo a assets/img/logo.svg. No editar la lógica que lo incluye
- * (ver includes/header.php); solo sirve como respaldo visual.
+ * logo-inline.php — Placeholder de logo mientras se sube el logo
+ * definitivo a assets/img/ (logo.svg, logo.webp, logo.png o logo.jpg).
+ * No editar la lógica que lo incluye (ver includes/header.php); solo
+ * sirve como respaldo visual.
  */
 ?>
 <svg width="180" height="36" viewBox="0 0 180 36" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">

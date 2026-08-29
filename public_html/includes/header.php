@@ -9,6 +9,25 @@ $tituloPagina = $tituloPagina ?? SITE_NAME . ' — Directorio Nacional de Deport
 $metaDescripcion = $metaDescripcion ?? 'Encuentra academias, escuelas y centros de deporte formativo para niños y adolescentes en todo el Perú.';
 $canonical = $canonical ?? SITE_URL . ($_SERVER['REQUEST_URI'] ?? '/');
 $ogImagen = $ogImagen ?? SITE_URL . '/assets/img/og-default.jpg';
+
+// El logo puede subirse en cualquiera de estos formatos; se usa el
+// primero que exista y no esté vacío (por si el .svg dio problemas
+// de tipo MIME en el hosting).
+$logoArchivo = null;
+$logoMime = null;
+foreach ([
+    'logo.svg' => 'image/svg+xml',
+    'logo.webp' => 'image/webp',
+    'logo.png' => 'image/png',
+    'logo.jpg' => 'image/jpeg',
+] as $nombre => $mime) {
+    $ruta = RUTA_BASE . '/assets/img/' . $nombre;
+    if (is_file($ruta) && filesize($ruta) > 0) {
+        $logoArchivo = $nombre;
+        $logoMime = $mime;
+        break;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es-PE">
@@ -30,8 +49,10 @@ $ogImagen = $ogImagen ?? SITE_URL . '/assets/img/og-default.jpg';
 <meta name="twitter:description" content="<?= e($metaDescripcion) ?>">
 <meta name="twitter:image" content="<?= e($ogImagen) ?>">
 
-<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/img/logo.svg">
+<?php if ($logoArchivo): ?>
+<link rel="icon" href="/assets/img/<?= e($logoArchivo) ?>" type="<?= e($logoMime) ?>">
+<link rel="apple-touch-icon" href="/assets/img/<?= e($logoArchivo) ?>">
+<?php endif; ?>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,8 +66,8 @@ $ogImagen = $ogImagen ?? SITE_URL . '/assets/img/og-default.jpg';
 <header class="cabecera">
   <div class="contenedor cabecera__interior">
     <a href="/" class="cabecera__logo" aria-label="<?= e(SITE_NAME) ?> — inicio">
-      <?php if (is_file(RUTA_BASE . '/assets/img/logo.svg') && filesize(RUTA_BASE . '/assets/img/logo.svg') > 0): ?>
-        <img src="/assets/img/logo.svg" alt="<?= e(SITE_NAME) ?>" height="36">
+      <?php if ($logoArchivo): ?>
+        <img src="/assets/img/<?= e($logoArchivo) ?>" alt="<?= e(SITE_NAME) ?>" height="36">
       <?php else: ?>
         <?php include __DIR__ . '/logo-inline.php'; ?>
       <?php endif; ?>
