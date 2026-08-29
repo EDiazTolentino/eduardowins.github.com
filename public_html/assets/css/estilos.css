@@ -461,3 +461,26 @@ fieldset:disabled { opacity: .7; }
 
 /* Contacto */
 .datos-contacto { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--borde); }
+
+/* Botón flotante de WhatsApp (presente en todas las páginas vía footer.php) */
+.boton-whatsapp-flotante {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .3);
+  z-index: 1000;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.boton-whatsapp-flotante:hover { background: #1EBE5B; transform: scale(1.08); }
+.boton-whatsapp-flotante svg { width: 30px; height: 30px; }
+@media (min-width: 768px) {
+  .boton-whatsapp-flotante { right: 2rem; bottom: 2rem; }
+}

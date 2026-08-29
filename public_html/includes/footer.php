@@ -52,6 +52,17 @@
   </div>
 </footer>
 
+<?php if (SITE_WHATSAPP): ?>
+  <?php
+    $mensajeWhatsappFlotante = rawurlencode('Hola, quiero más información sobre UNE Sports Perú.');
+    $separadorWhatsappFlotante = str_contains(SITE_WHATSAPP, '?') ? '&' : '?';
+    $urlWhatsappFlotante = SITE_WHATSAPP . $separadorWhatsappFlotante . 'text=' . $mensajeWhatsappFlotante;
+  ?>
+  <a href="<?= e($urlWhatsappFlotante) ?>" target="_blank" rel="noopener noreferrer" class="boton-whatsapp-flotante" aria-label="Escríbenos por WhatsApp">
+    <?= iconoRedSocial('whatsapp') ?>
+  </a>
+<?php endif; ?>
+
 <script src="/assets/js/app.js" defer></script>
 </body>
 </html>
