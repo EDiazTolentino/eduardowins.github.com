@@ -73,7 +73,9 @@ require __DIR__ . '/../includes/header.php';
 </section>
 
 <?php if ($deportesInicio): ?>
-<section class="contenedor seccion-deportes-rapidos">
+<!-- Oculta a propósito mientras se prioriza que las academias suban su información;
+     se deja el código intacto para reactivarla luego quitando el atributo "hidden". -->
+<section class="contenedor seccion-deportes-rapidos" hidden>
   <h2>Busca por deporte</h2>
   <div class="accesos-deportes">
     <?php foreach ($deportesInicio as $d): ?>
