@@ -58,7 +58,7 @@ foreach ([
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/assets/css/estilos.css">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=<?= @filemtime(RUTA_BASE . '/assets/css/estilos.css') ?: '1' ?>">
 </head>
 <body>
 <a href="#contenido" class="salto-enlace">Saltar al contenido</a>
