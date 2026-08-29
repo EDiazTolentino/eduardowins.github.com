@@ -284,6 +284,9 @@ textarea { resize: vertical; }
 .pie { background: var(--gris-claro); border-top: 1px solid var(--borde); margin-top: 2rem; }
 .pie__interior { padding: 2.5rem 1rem; }
 .pie__marca p { color: var(--gris); margin-top: .75em; max-width: 420px; }
+.pie__redes { display: flex; gap: .9rem; margin-top: 1em; }
+.pie__redes a { color: var(--azul); display: inline-flex; }
+.pie__redes a:hover { color: var(--naranja); }
 .pie__enlaces { display: flex; flex-direction: column; gap: .5em; margin: 1.5em 0; }
 .pie__enlaces a { color: var(--carbon); text-decoration: none; }
 .pie__enlaces a:hover { color: var(--naranja); }

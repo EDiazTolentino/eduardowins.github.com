@@ -24,6 +24,14 @@ define('SITE_URL', 'https://unesportsperu.pe'); // sin slash final
 define('SITE_EMAIL_CONTACTO', 'contacto@unesportsperu.pe');
 define('SITE_EMAIL_ADMIN', 'registro@unesportsperu.pe'); // recibe avisos de nuevos leads
 define('WHATSAPP_PREFIJO_PAIS', '51');
+
+// Redes sociales de UNE Sports Perú (no las de cada academia).
+// Deja el valor en '' en las que todavía no tengas cuenta: el ícono
+// correspondiente simplemente no se muestra en el pie de página.
+define('SITE_FACEBOOK', '');
+define('SITE_INSTAGRAM', '');
+define('SITE_TIKTOK', '');
+define('SITE_WHATSAPP', ''); // enlace completo, ej: https://wa.me/51987654321
 // Departamento sentinela "Sin definir" (sql/03_ubigeo.sql), usado cuando
 // un lead del formulario público llega sin distrito resuelto.
 define('DEPARTAMENTO_SIN_DEFINIR_ID', 26);

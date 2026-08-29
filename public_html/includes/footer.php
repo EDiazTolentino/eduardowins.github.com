@@ -13,6 +13,22 @@
         <?php include __DIR__ . '/logo-inline.php'; ?>
       <?php endif; ?>
       <p>El directorio nacional de academias, escuelas y centros de deporte formativo del Perú.</p>
+
+      <?php
+        $redesSociales = array_filter([
+            'facebook' => SITE_FACEBOOK,
+            'instagram' => SITE_INSTAGRAM,
+            'tiktok' => SITE_TIKTOK,
+            'whatsapp' => SITE_WHATSAPP,
+        ]);
+      ?>
+      <?php if ($redesSociales): ?>
+        <nav class="pie__redes" aria-label="Redes sociales de <?= e(SITE_NAME) ?>">
+          <?php foreach ($redesSociales as $red => $url): ?>
+            <a href="<?= e($url) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= e(ucfirst($red)) ?>"><?= iconoRedSocial($red) ?></a>
+          <?php endforeach; ?>
+        </nav>
+      <?php endif; ?>
     </div>
 
     <nav class="pie__enlaces" aria-label="Enlaces del pie de página">
