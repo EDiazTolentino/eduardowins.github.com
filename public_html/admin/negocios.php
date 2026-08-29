@@ -84,7 +84,10 @@ $tituloPagina = 'Negocios — Panel ' . SITE_NAME;
 require __DIR__ . '/../includes/admin-header.php';
 ?>
 <div class="contenedor-admin">
-  <h1>Todos los negocios <small>(<?= $total ?>)</small></h1>
+  <div class="admin-encabezado">
+    <h1>Todos los negocios <small>(<?= $total ?>)</small></h1>
+    <a href="/admin/negocio-editar.php?nuevo=1" class="boton boton--primario">+ Nuevo negocio</a>
+  </div>
   <?php if ($mensaje): ?><p class="alerta alerta--exito"><?= e($mensaje) ?></p><?php endif; ?>
 
   <form method="get" class="formulario-filtros">

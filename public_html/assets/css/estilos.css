@@ -283,6 +283,7 @@ textarea { resize: vertical; }
 .admin-cabecera__usuario { display: flex; align-items: center; gap: 1rem; font-size: .9rem; }
 .admin-main { padding: 1.5rem 0; }
 .contenedor-admin { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.admin-encabezado { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
 .admin-login { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
 .admin-login__formulario { background: var(--blanco); padding: 2rem; border-radius: var(--radio); box-shadow: var(--sombra); width: 100%; max-width: 360px; }
