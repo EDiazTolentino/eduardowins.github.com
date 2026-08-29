@@ -67,7 +67,8 @@ foreach ([
   <div class="contenedor cabecera__interior">
     <a href="/" class="cabecera__logo" aria-label="<?= e(SITE_NAME) ?> — inicio">
       <?php if ($logoArchivo): ?>
-        <img src="/assets/img/<?= e($logoArchivo) ?>" alt="<?= e(SITE_NAME) ?>" height="36">
+        <img src="/assets/img/<?= e($logoArchivo) ?>" alt="" height="36">
+        <span class="cabecera__marca-texto">UNE SPORTS</span>
       <?php else: ?>
         <?php include __DIR__ . '/logo-inline.php'; ?>
       <?php endif; ?>

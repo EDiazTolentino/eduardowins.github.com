@@ -5,7 +5,10 @@
     <div class="pie__marca">
       <?php if (!isset($logoArchivo)): $logoArchivo = null; foreach (['logo.svg', 'logo.webp', 'logo.png', 'logo.jpg'] as $nombreLogo) { $rutaLogo = RUTA_BASE . '/assets/img/' . $nombreLogo; if (is_file($rutaLogo) && filesize($rutaLogo) > 0) { $logoArchivo = $nombreLogo; break; } } endif; ?>
       <?php if ($logoArchivo): ?>
-        <img src="/assets/img/<?= e($logoArchivo) ?>" alt="<?= e(SITE_NAME) ?>" height="32">
+        <span class="pie__marca-logo">
+          <img src="/assets/img/<?= e($logoArchivo) ?>" alt="" height="32">
+          <span class="cabecera__marca-texto">UNE SPORTS</span>
+        </span>
       <?php else: ?>
         <?php include __DIR__ . '/logo-inline.php'; ?>
       <?php endif; ?>
