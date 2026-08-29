@@ -31,6 +31,7 @@ define('WHATSAPP_PREFIJO_PAIS', '51');
 define('SITE_FACEBOOK', '');
 define('SITE_INSTAGRAM', '');
 define('SITE_TIKTOK', '');
+define('SITE_LINKEDIN', '');
 define('SITE_WHATSAPP', ''); // enlace completo, ej: https://wa.me/51987654321
 // Departamento sentinela "Sin definir" (sql/03_ubigeo.sql), usado cuando
 // un lead del formulario público llega sin distrito resuelto.

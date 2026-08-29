@@ -19,6 +19,7 @@
             'facebook' => SITE_FACEBOOK,
             'instagram' => SITE_INSTAGRAM,
             'tiktok' => SITE_TIKTOK,
+            'linkedin' => SITE_LINKEDIN,
             'whatsapp' => SITE_WHATSAPP,
         ]);
       ?>
