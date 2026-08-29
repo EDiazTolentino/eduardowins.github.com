@@ -114,7 +114,7 @@ img { max-width: 100%; display: block; }
    Cabecera pública
    --------------------------------------------------------------------- */
 .cabecera { background: var(--blanco); border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 100; }
-.cabecera__interior { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; }
+.cabecera__interior { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; position: relative; }
 .cabecera__logo { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; line-height: 1; }
 .cabecera__marca-texto {
   font-family: 'Montserrat', Arial, sans-serif !important;
@@ -130,6 +130,23 @@ img { max-width: 100%; display: block; }
 .cabecera__nav { display: none; }
 .cabecera__nav a { color: var(--carbon); text-decoration: none; font-weight: 500; margin-right: 1.25rem; }
 .cabecera__nav a:hover { color: var(--naranja); }
+
+/* Menú desplegable en móvil: el botón hamburguesa le agrega esta
+   clase por JS (assets/js/app.js) para mostrarlo. */
+.cabecera__nav--abierto {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--borde);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .08);
+  padding: .5rem 1rem;
+}
+.cabecera__nav--abierto a { margin-right: 0; padding: .75em 0; border-bottom: 1px solid var(--borde); }
+.cabecera__nav--abierto a:last-child { border-bottom: none; }
 .cabecera__cta { display: none; }
 .cabecera__menu-toggle {
   display: flex; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: .5em;

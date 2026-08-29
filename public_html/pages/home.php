@@ -52,7 +52,9 @@ require __DIR__ . '/../includes/header.php';
     <p class="hero__subtitulo">El directorio nacional de academias, escuelas y centros de deporte formativo del Perú, para niños y adolescentes de 4 a 18 años.</p>
 
     <form method="get" action="/buscar" class="formulario-buscador-hero">
-      <select name="deporte" aria-label="Deporte">
+      <!-- Oculto a propósito mientras se prioriza que las academias suban su información;
+           se deja el código intacto para reactivarlo luego quitando el atributo "hidden". -->
+      <select name="deporte" aria-label="Deporte" hidden>
         <option value="">Cualquier deporte</option>
         <?php foreach ($deportesInicio as $d): ?>
           <option value="<?= (int) $d['id'] ?>"><?= e($d['icono']) ?> <?= e($d['nombre']) ?></option>
