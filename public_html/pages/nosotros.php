@@ -16,7 +16,11 @@ require __DIR__ . '/../includes/header.php';
   <h1>Sobre UNE Sports Perú</h1>
 
   <h2>El problema que resolvemos</h2>
-  <p>Hoy no existe un registro consolidado de la oferta formativa deportiva del Perú. Los padres de familia no saben qué academias, escuelas o centros hay cerca de casa; y esas academias, muchas veces pequeñas y con presencia solo en redes sociales, no tienen dónde mostrarse ante quienes las buscan.</p>
+  <p>El deporte formativo en el Perú está fragmentado y es invisible. Hoy en día, nos enfrentamos a un doble desafío:</p>
+  <ul class="lista-vinetas">
+    <li><strong>Para los profesionales y academias:</strong> Miles de técnicos, entusiastas y centros de servicios deportivos realizan un trabajo silencioso y vital impactando la vida de los niños, pero carecen de una plataforma que les brinde visibilidad.</li>
+    <li><strong>Para las familias:</strong> Los padres no tienen un lugar centralizado y confiable donde buscar opciones deportivas para sus hijos. Como resultado, la exposición deportiva de los jóvenes suele limitarse al fútbol o al vóley, dejando en la sombra decenas de otras disciplinas fundamentales para el desarrollo integral.</li>
+  </ul>
 
   <h2>Misión</h2>
   <p>Conectar a las familias peruanas con la oferta de deporte formativo de su zona, y darle a cada academia, escuela y centro deportivo un lugar gratuito donde ser encontrado.</p>

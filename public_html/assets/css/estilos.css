@@ -255,6 +255,10 @@ textarea { resize: vertical; }
 .tabla-horarios { width: 100%; border-collapse: collapse; }
 .tabla-horarios th, .tabla-horarios td { text-align: left; padding: .5em .75em; border-bottom: 1px solid var(--borde); }
 
+.lista-vinetas { list-style: none; padding: 0; margin: 1.25em 0; }
+.lista-vinetas li { position: relative; padding: 0 0 1.1em 1.6em; line-height: 1.6; }
+.lista-vinetas li::before { content: "○"; position: absolute; left: 0; top: 0; color: var(--azul); font-size: .9em; }
+
 .lista-distintivos, .lista-relacionadas { list-style: none; padding: 0; margin: 0; }
 .lista-distintivos li { padding: .3em 0 .3em 1.6em; position: relative; }
 .lista-distintivos li::before { content: "✓"; color: var(--exito); position: absolute; left: 0; font-weight: 700; }
