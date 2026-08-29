@@ -1,0 +1,71 @@
+# =====================================================================
+# .htaccess — public_html/
+# URLs amigables, HTTPS forzado, sin "www", cabeceras de seguridad,
+# caché de estáticos y compresión. Compatible con LiteSpeed (LSAPI).
+# =====================================================================
+
+RewriteEngine On
+
+# -----------------------------------------------------------------
+# 1. Forzar HTTPS
+# -----------------------------------------------------------------
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# -----------------------------------------------------------------
+# 2. Forzar dominio sin "www"
+# -----------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# -----------------------------------------------------------------
+# 3. Front controller: si el archivo o directorio pedido existe
+#    físicamente (admin/*.php, api/*.php, assets/, uploads/...), se
+#    sirve tal cual. Si no existe, se enruta a index.php.
+# -----------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ index.php [L]
+
+# -----------------------------------------------------------------
+# 4. Bloquear acceso directo a carpetas internas
+# -----------------------------------------------------------------
+RewriteRule ^(config|includes|sql)/ - [F,L]
+
+# -----------------------------------------------------------------
+# 5. Cabeceras de seguridad
+# -----------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(self), camera=(), microphone=()"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://unpkg.com; connect-src 'self' https://nominatim.openstreetmap.org"
+</IfModule>
+
+# -----------------------------------------------------------------
+# 6. Caché de archivos estáticos
+# -----------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+</IfModule>
+
+# -----------------------------------------------------------------
+# 7. Compresión
+# -----------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
+</IfModule>
+
+# -----------------------------------------------------------------
+# 8. Ocultar listado de directorios
+# -----------------------------------------------------------------
+Options -Indexes

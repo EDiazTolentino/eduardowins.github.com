@@ -1,0 +1,8 @@
+# Carpeta de archivos subidos por usuarios: nunca debe ejecutar PHP.
+<FilesMatch "\.(php|php\d|phtml|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>
+
+php_flag engine off
+
+Options -Indexes -ExecCGI
