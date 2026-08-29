@@ -267,7 +267,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$modoLectura) {
 
     if ($accion === 'registrar_contacto') {
         $resultado = $_POST['resultado_contacto'] ?? 'sin_contactar';
-        $proximo = $_POST['proximo_seguimiento'] ?: null;
+        $proximo = ($_POST['proximo_seguimiento'] ?? '') ?: null;
         $nota = trim((string) ($_POST['nota'] ?? ''));
         $tipoContacto = $_POST['tipo_contacto'] ?? 'llamada';
         $resultadosValidos = ['sin_contactar', 'no_contesta', 'numero_errado', 'interesado', 'en_espera', 'rechazo'];

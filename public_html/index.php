@@ -25,6 +25,13 @@ $rutasEstaticas = [
     '/' => 'pages/home.php',
     '/registrar' => 'pages/registrar.php',
     '/legal-privacidad' => 'pages/legal-privacidad.php',
+    '/legal-terminos' => 'pages/legal-terminos.php',
+    '/buscar' => 'pages/buscar.php',
+    '/sugerir' => 'pages/sugerir.php',
+    '/blog' => 'pages/blog.php',
+    '/servicios' => 'pages/servicios.php',
+    '/nosotros' => 'pages/nosotros.php',
+    '/contacto' => 'pages/contacto.php',
 ];
 
 if (isset($rutasEstaticas[$ruta])) {
@@ -43,6 +50,39 @@ if (preg_match('#^/negocio/([a-z0-9-]+)$#', $ruta, $m)) {
 if (preg_match('#^/solicitar-retiro/([a-z0-9-]+)$#', $ruta, $m)) {
     $slug = $m[1];
     require __DIR__ . '/pages/solicitar-retiro.php';
+    return;
+}
+
+// Reclamar ficha: /reclamar/{slug}
+if (preg_match('#^/reclamar/([a-z0-9-]+)$#', $ruta, $m)) {
+    $slug = $m[1];
+    require __DIR__ . '/pages/reclamar.php';
+    return;
+}
+
+// Edición vía token, sin login: /editar/{token}
+// (case-insensitive: los tokens generados en PHP son minúsculas —
+// bin2hex — pero los de la semilla SQL usan HEX(), que es mayúsculas)
+if (preg_match('#^/editar/([a-fA-F0-9]{20,64})$#', $ruta, $m)) {
+    $token = $m[1];
+    require __DIR__ . '/pages/editar.php';
+    return;
+}
+
+// Artículo de blog: /blog/{slug}
+if (preg_match('#^/blog/([a-z0-9-]+)$#', $ruta, $m)) {
+    $slug = $m[1];
+    require __DIR__ . '/pages/articulo.php';
+    return;
+}
+
+// Páginas geográficas: /academias/{departamento} o /academias/{departamento}/{distrito}
+if (preg_match('#^/academias/([a-z0-9-]+)(?:/([a-z0-9-]+))?$#', $ruta, $m)) {
+    $depSlug = $m[1];
+    if (isset($m[2]) && $m[2] !== '') {
+        $distSlug = $m[2];
+    }
+    require __DIR__ . '/pages/academias.php';
     return;
 }
 

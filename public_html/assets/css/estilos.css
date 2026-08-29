@@ -362,3 +362,79 @@ details[open] summary { border-bottom: 1px solid var(--borde); margin-bottom: .7
 
 fieldset { border: none; padding: 0; margin: 0; }
 fieldset:disabled { opacity: .7; }
+
+/* =====================================================================
+   Fase 2 — Buscador, páginas geográficas y menú principal
+   ===================================================================== */
+
+.migas-pan { padding: 1rem 1rem 0; font-size: .85rem; color: var(--gris); }
+.migas-pan a { color: var(--gris); }
+.migas-pan a:hover { color: var(--naranja); }
+
+/* Buscador hero */
+.formulario-buscador-hero { display: flex; flex-direction: column; gap: .6rem; max-width: 560px; margin: 1.25rem auto; }
+.formulario-buscador-hero select, .formulario-buscador-hero input { width: 100%; }
+@media (min-width: 768px) { .formulario-buscador-hero { flex-direction: row; } }
+
+.seccion-deportes-rapidos { padding: 2rem 0; text-align: center; }
+.accesos-deportes { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1rem; }
+@media (min-width: 768px) { .accesos-deportes { grid-template-columns: repeat(4, 1fr); } }
+.acceso-deporte {
+  display: flex; flex-direction: column; align-items: center; gap: .4em; padding: 1rem;
+  border: 1px solid var(--borde); border-radius: var(--radio); text-decoration: none; color: var(--carbon);
+}
+.acceso-deporte:hover { border-color: var(--naranja); }
+.acceso-deporte__icono { font-size: 1.8rem; }
+
+.seccion-regiones { padding: 2rem 0; }
+.grid-regiones { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+@media (min-width: 768px) { .grid-regiones { grid-template-columns: repeat(4, 1fr); } }
+.tarjeta-region {
+  display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--borde); border-radius: var(--radio);
+  text-decoration: none; color: var(--carbon); background: var(--gris-claro);
+}
+.tarjeta-region span { color: var(--gris); font-size: .85rem; }
+
+/* Buscador */
+.seccion-buscar { padding: 1.5rem 1rem 3rem; }
+.formulario-filtros--buscar { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.formulario-filtros--buscar select, .formulario-filtros--buscar input[type=search] { width: auto; flex: 1 1 160px; }
+.alternador-vista { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.alternador-vista a { padding: .4em 1em; border: 1px solid var(--borde); border-radius: 999px; text-decoration: none; color: var(--carbon); }
+.alternador-vista a.activo { background: var(--azul); color: var(--blanco); border-color: var(--azul); }
+.mapa-buscar { height: 480px; border-radius: var(--radio); overflow: hidden; border: 1px solid var(--borde); }
+.seccion-sugerir-footer { margin-top: 2rem; text-align: center; }
+
+/* Editar por token */
+.seccion-editar-token { padding: 1.5rem 1rem 3rem; max-width: 720px; margin: 0 auto; }
+
+/* Nosotros */
+.seccion-equipo { padding: 2rem 0; }
+.grid-equipo { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+@media (min-width: 768px) { .grid-equipo { grid-template-columns: repeat(3, 1fr); } }
+.tarjeta-persona { text-align: center; }
+.tarjeta-persona img { border-radius: 50%; margin: 0 auto .75em; object-fit: cover; }
+.tarjeta-persona__cargo { color: var(--naranja-oscuro); font-weight: 600; font-size: .9rem; }
+
+/* Servicios */
+.grid-servicios { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+@media (min-width: 768px) { .grid-servicios { grid-template-columns: repeat(3, 1fr); } }
+.tarjeta-servicio { border: 1px solid var(--borde); border-radius: var(--radio); padding: 1.25rem; background: var(--gris-claro); }
+
+/* Blog */
+.seccion-blog { padding: 1.5rem 1rem 3rem; }
+.grid-blog { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+@media (min-width: 768px) { .grid-blog { grid-template-columns: repeat(3, 1fr); } }
+.tarjeta-articulo { display: block; text-decoration: none; color: var(--carbon); border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra); }
+.tarjeta-articulo img { width: 100%; height: 160px; object-fit: cover; }
+.tarjeta-articulo h2 { font-size: 1.1rem; margin: .5em 1rem .3em; }
+.tarjeta-articulo p, .tarjeta-articulo time { margin: 0 1rem .75em; display: block; }
+.tarjeta-articulo .etiqueta { margin: .75rem 1rem 0; }
+
+.articulo { padding-top: 1rem; }
+.articulo img { border-radius: var(--radio); margin: 1rem 0; width: 100%; object-fit: cover; max-height: 420px; }
+.articulo__contenido h2 { margin-top: 1.5em; }
+.articulo__contenido ul { padding-left: 1.3em; }
+
+/* Contacto */
+.datos-contacto { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--borde); }

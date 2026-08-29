@@ -12,14 +12,19 @@
     </div>
 
     <nav class="pie__enlaces" aria-label="Enlaces del pie de página">
-      <a href="/">Inicio</a>
-      <a href="/registrar">Registra tu academia</a>
+      <a href="/buscar">Buscar</a>
+      <a href="/registrar">Registrar academia</a>
+      <a href="/blog">Blog</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/contacto">Contacto</a>
       <a href="/legal-privacidad">Política de privacidad</a>
+      <a href="/legal-terminos">Términos y condiciones</a>
     </nav>
 
     <p class="pie__nota">
       ¿Conoces una academia que no aparece aquí?
-      <a href="/registrar">Regístrala gratis</a>.
+      <a href="/sugerir">Sugiérela aquí</a>.
     </p>
 
     <p class="pie__copy">&copy; <?= date('Y') ?> <?= e(SITE_NAME) ?>. Todos los derechos reservados.</p>

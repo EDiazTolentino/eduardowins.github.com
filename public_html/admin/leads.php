@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($accion === 'registrar_contacto') {
         $negocioId = (int) $_POST['negocio_id'];
         $resultado = $_POST['resultado_contacto'] ?? 'sin_contactar';
-        $proximoSeguimiento = $_POST['proximo_seguimiento'] ?: null;
+        $proximoSeguimiento = ($_POST['proximo_seguimiento'] ?? '') ?: null;
         $nota = trim((string) ($_POST['nota'] ?? ''));
         $tipoContacto = $_POST['tipo_contacto'] ?? 'llamada';
 

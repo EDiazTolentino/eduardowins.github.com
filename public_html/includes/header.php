@@ -59,7 +59,12 @@ $ogImagen = $ogImagen ?? SITE_URL . '/assets/img/og-default.jpg';
 
     <nav class="cabecera__nav" id="menu-principal">
       <a href="/">Inicio</a>
-      <a href="/registrar">Registrar academia</a>
+      <a href="/buscar">Buscar</a>
+      <a href="/registrar">Registrar</a>
+      <a href="/blog">Blog</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/contacto">Contacto</a>
     </nav>
 
     <a href="/registrar" class="boton boton--primario cabecera__cta">Registra tu academia</a>

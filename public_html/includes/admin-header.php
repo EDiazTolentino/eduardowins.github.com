@@ -23,6 +23,8 @@ $tituloPagina = $tituloPagina ?? 'Panel — ' . SITE_NAME;
   <nav class="admin-cabecera__nav">
     <a href="/admin/leads.php">Leads</a>
     <a href="/admin/negocios.php">Negocios</a>
+    <a href="/admin/sugerencias.php">Sugerencias</a>
+    <a href="/admin/articulos.php">Blog</a>
     <?php if (adminEsAdministrador()): ?><a href="/admin/importar.php">Importar CSV</a><?php endif; ?>
     <a href="/admin/dashboard.php">Inicio</a>
   </nav>

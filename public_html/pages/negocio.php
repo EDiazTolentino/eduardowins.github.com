@@ -97,7 +97,60 @@ $mensajeWhatsApp = "Hola, vi la ficha de {$negocio['nombre_comercial']} en " . S
 $tituloPagina = "{$negocio['nombre_comercial']} — Deporte formativo en " . ($negocio['distrito'] ?: $negocio['departamento']) . ' | ' . SITE_NAME;
 $metaDescripcion = mb_substr(strip_tags((string) $negocio['descripcion']), 0, 155) ?: "Conoce {$negocio['nombre_comercial']}, en " . ($negocio['distrito'] ?: $negocio['departamento']) . '.';
 require __DIR__ . '/../includes/header.php';
+
+$diasSchemaOrg = [
+    1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday',
+    5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday',
+];
+$horariosSchema = array_map(static function (array $h) use ($diasSchemaOrg): array {
+    return [
+        '@type' => 'OpeningHoursSpecification',
+        'dayOfWeek' => 'https://schema.org/' . ($diasSchemaOrg[(int) $h['dia_semana']] ?? 'Monday'),
+        'opens' => substr($h['hora_inicio'], 0, 5),
+        'closes' => substr($h['hora_fin'], 0, 5),
+    ];
+}, $horarios);
+
+$datosEstructurados = [
+    '@context' => 'https://schema.org',
+    '@type' => 'SportsActivityLocation',
+    'name' => $negocio['nombre_comercial'],
+    'description' => $negocio['descripcion'] ?: null,
+    'url' => SITE_URL . '/negocio/' . $negocio['slug'],
+    'telephone' => $negocio['telefono_publico'] ?: null,
+    'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => $negocio['direccion'] ?: null,
+        'addressLocality' => $negocio['distrito'] ?: null,
+        'addressRegion' => $negocio['departamento'] ?: null,
+        'addressCountry' => 'PE',
+    ],
+];
+if ($negocio['latitud'] && $negocio['longitud']) {
+    $datosEstructurados['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => (float) $negocio['latitud'], 'longitude' => (float) $negocio['longitud']];
+}
+if ($horariosSchema) {
+    $datosEstructurados['openingHoursSpecification'] = $horariosSchema;
+}
+$datosEstructurados = array_filter($datosEstructurados, static fn ($v) => $v !== null);
+$datosEstructurados['address'] = array_filter($datosEstructurados['address'], static fn ($v) => $v !== null);
+
+$migasPan = [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Inicio', 'item' => SITE_URL],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Buscar', 'item' => SITE_URL . '/buscar'],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $negocio['nombre_comercial'], 'item' => SITE_URL . '/negocio/' . $negocio['slug']],
+    ],
+];
 ?>
+<script type="application/ld+json"><?= json_encode($datosEstructurados, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
+<script type="application/ld+json"><?= json_encode($migasPan, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
+
+<nav class="migas-pan contenedor" aria-label="Ruta de navegación">
+  <a href="/">Inicio</a> › <a href="/buscar">Buscar</a> › <span><?= e($negocio['nombre_comercial']) ?></span>
+</nav>
 
 <article class="contenedor ficha-negocio">
   <?php if ($imagenes): ?>

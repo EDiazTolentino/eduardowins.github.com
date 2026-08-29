@@ -62,12 +62,14 @@ require __DIR__ . '/../includes/admin-header.php';
   </div>
 
   <?php if (adminEsAdministrador() && $sugerenciasPendientes > 0): ?>
-    <p class="alerta alerta--info">Hay <?= $sugerenciasPendientes ?> sugerencia(s) ciudadana(s) pendiente(s) de procesar.</p>
+    <p class="alerta alerta--info">Hay <?= $sugerenciasPendientes ?> sugerencia(s) ciudadana(s) pendiente(s) de procesar. <a href="/admin/sugerencias.php">Verlas</a>.</p>
   <?php endif; ?>
 
   <div class="accesos-rapidos">
     <a href="/admin/leads.php" class="boton boton--primario">Ir a la bandeja de leads</a>
     <a href="/admin/negocios.php" class="boton boton--secundario">Ver todos los negocios</a>
+    <a href="/admin/sugerencias.php" class="boton boton--secundario">Sugerencias y reclamos</a>
+    <a href="/admin/articulos.php" class="boton boton--secundario">Blog</a>
     <?php if (adminEsAdministrador()): ?>
       <a href="/admin/importar.php" class="boton boton--secundario">Importar CSV</a>
     <?php endif; ?>

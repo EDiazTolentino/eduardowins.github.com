@@ -46,7 +46,7 @@ INSERT INTO `une_negocios` (
   120, 8, 'mixto',
   1, 1, 1, 1,
   'publicado', 'alta_admin', 1, NOW(), 90,
-  'interesado', 1, HEX(RANDOM_BYTES(24)), 'semilla_demo', NOW()
+  'interesado', 1, LOWER(HEX(RANDOM_BYTES(24))), 'semilla_demo', NOW()
 );
 
 INSERT INTO `une_negocio_categorias` (`negocio_id`, `categoria_id`) VALUES (1, 1);
@@ -74,7 +74,7 @@ INSERT INTO `une_negocios` (
   '912345678', 'María Torres (representante, dato privado)',
   'presencial', 3, 'mixto',
   'publicado', 'importacion', 0, 55,
-  'sin_contactar', 0, HEX(RANDOM_BYTES(24)), 'semilla_demo', NOW()
+  'sin_contactar', 0, LOWER(HEX(RANDOM_BYTES(24))), 'semilla_demo', NOW()
 );
 
 INSERT INTO `une_negocio_categorias` (`negocio_id`, `categoria_id`) VALUES (2, 2);
@@ -98,7 +98,7 @@ INSERT INTO `une_negocios` (
   '954112233', 'Carlos Ramírez (representante, dato privado)',
   'lead', 'captura_rapida', 0, 25,
   'sin_contactar', 0, 'Lead de ejemplo: registrado desde /registrar, pendiente de primera llamada.',
-  HEX(RANDOM_BYTES(24)), 'semilla_demo', NOW()
+  LOWER(HEX(RANDOM_BYTES(24))), 'semilla_demo', NOW()
 );
 
 INSERT INTO `une_lead_historial` (`negocio_id`, `admin_id`, `accion`, `resultado`, `nota`) VALUES

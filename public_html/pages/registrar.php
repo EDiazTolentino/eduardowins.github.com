@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ':dep' => $departamentoId, ':prov' => $provinciaId, ':dist' => $distritoId,
                     ':tel' => $telefonoNormalizado, ':email' => $emailPublico, ':contacto' => $valores['contacto_nombre'],
                     ':notas' => $notasInternas, ':token' => $tokenEdicion,
-                    ':utm_source' => $_POST['utm_source'] ?: null, ':utm_campaign' => $_POST['utm_campaign'] ?: null,
+                    ':utm_source' => ($_POST['utm_source'] ?? '') ?: null, ':utm_campaign' => ($_POST['utm_campaign'] ?? '') ?: null,
                     ':ip' => $ipBin,
                 ]);
                 $negocioId = (int) $pdo->lastInsertId();
