@@ -46,7 +46,16 @@ RewriteRule ^(config|includes|sql)/ - [F,L]
 </IfModule>
 
 # -----------------------------------------------------------------
-# 6. Caché de archivos estáticos
+# 6. Tipos MIME explícitos (algunos servidores no traen .svg/.webp
+#    registrados por defecto, y el navegador los trata como XML plano)
+# -----------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg .svgz
+  AddType image/webp .webp
+</IfModule>
+
+# -----------------------------------------------------------------
+# 7. Caché de archivos estáticos
 # -----------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -59,13 +68,13 @@ RewriteRule ^(config|includes|sql)/ - [F,L]
 </IfModule>
 
 # -----------------------------------------------------------------
-# 7. Compresión
+# 8. Compresión
 # -----------------------------------------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
 </IfModule>
 
 # -----------------------------------------------------------------
-# 8. Ocultar listado de directorios
+# 9. Ocultar listado de directorios
 # -----------------------------------------------------------------
 Options -Indexes
