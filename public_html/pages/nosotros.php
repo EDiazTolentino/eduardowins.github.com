@@ -29,7 +29,13 @@ require __DIR__ . '/../includes/header.php';
   <p>Ser el directorio de referencia del deporte formativo en el Perú, cubriendo los 25 departamentos con información completa y confiable sobre cada academia registrada.</p>
 
   <h2>Cómo trabajamos</h2>
-  <p>Construimos el directorio combinando el registro directo de las academias con un trabajo activo de nuestro equipo: llamamos, visitamos y verificamos la información antes de marcarla con el sello "Verificada por UNE Sports". Toda ficha que aún no ha sido confirmada por su establecimiento lo indica claramente.</p>
+  <p>Operamos bajo un modelo transparente y colaborativo diseñado para construir comunidad:</p>
+  <ol class="lista-numerada">
+    <li><strong>Registro 100% gratuito (y para siempre):</strong> Eliminamos las barreras de entrada. Cualquier academia, escuela o centro de servicio deportivo puede crear su perfil sin costo, garantizando igualdad de oportunidades en su visibilidad.</li>
+    <li><strong>Mapeo del ecosistema:</strong> Nuestro primer gran hito es identificar y cuantificar la realidad del deporte formativo peruano. Queremos saber exactamente cuántos somos, dónde estamos y qué enseñamos.</li>
+    <li><strong>Diversificación deportiva:</strong> Filtramos y categorizamos la información para que los padres puedan explorar más allá de los deportes tradicionales, descubriendo nuevas disciplinas adaptadas al talento y gusto de sus hijos.</li>
+    <li><strong>Conexión directa:</strong> Diseñamos una plataforma intuitiva donde, con un par de clics, las familias pueden ubicar por distrito y categoría el centro deportivo o de servicio que mejor se adapte a sus necesidades.</li>
+  </ol>
 </section>
 
 <?php if ($equipo): ?>

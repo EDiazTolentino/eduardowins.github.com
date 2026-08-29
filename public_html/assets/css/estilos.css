@@ -259,6 +259,10 @@ textarea { resize: vertical; }
 .lista-vinetas li { position: relative; padding: 0 0 1.1em 1.6em; line-height: 1.6; }
 .lista-vinetas li::before { content: "○"; position: absolute; left: 0; top: 0; color: var(--azul); font-size: .9em; }
 
+.lista-numerada { list-style: none; counter-reset: paso; padding: 0; margin: 1.25em 0; }
+.lista-numerada li { position: relative; padding: 0 0 1.1em 2.2em; line-height: 1.6; counter-increment: paso; }
+.lista-numerada li::before { content: counter(paso) "."; position: absolute; left: 0; top: 0; color: var(--azul); font-weight: 700; }
+
 .lista-distintivos, .lista-relacionadas { list-style: none; padding: 0; margin: 0; }
 .lista-distintivos li { padding: .3em 0 .3em 1.6em; position: relative; }
 .lista-distintivos li::before { content: "✓"; color: var(--exito); position: absolute; left: 0; font-weight: 700; }
