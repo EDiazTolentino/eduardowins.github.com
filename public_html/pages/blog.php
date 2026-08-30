@@ -10,7 +10,7 @@ $offset = ($pagina - 1) * $porPagina;
 $total = (int) $pdo->query('SELECT COUNT(*) FROM une_articulos WHERE publicado = 1')->fetchColumn();
 $totalPaginas = max(1, (int) ceil($total / $porPagina));
 
-$stmt = $pdo->prepare("SELECT titulo, slug, resumen, imagen, categoria, fecha FROM une_articulos WHERE publicado = 1 ORDER BY fecha DESC LIMIT {$porPagina} OFFSET {$offset}");
+$stmt = $pdo->prepare("SELECT titulo, slug, resumen, imagen, categoria, autor, fecha FROM une_articulos WHERE publicado = 1 ORDER BY fecha DESC LIMIT {$porPagina} OFFSET {$offset}");
 $stmt->execute();
 $articulos = $stmt->fetchAll();
 
@@ -34,7 +34,10 @@ require __DIR__ . '/../includes/header.php';
           <?php if ($a['categoria']): ?><span class="etiqueta"><?= e($a['categoria']) ?></span><?php endif; ?>
           <h2><?= e($a['titulo']) ?></h2>
           <?php if ($a['resumen']): ?><p><?= e($a['resumen']) ?></p><?php endif; ?>
-          <time datetime="<?= e($a['fecha']) ?>" class="texto-ayuda"><?= e(date('d/m/Y', strtotime($a['fecha']))) ?></time>
+          <p class="texto-ayuda articulo__meta">
+            <?php if ($a['autor']): ?>Por <?= e($a['autor']) ?> · <?php endif; ?>
+            <time datetime="<?= e($a['fecha']) ?>"><?= e(date('d/m/Y', strtotime($a['fecha']))) ?></time>
+          </p>
         </a>
       <?php endforeach; ?>
     </div>

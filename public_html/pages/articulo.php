@@ -31,7 +31,9 @@ $datosEstructurados = array_filter([
     'headline' => $articulo['titulo'],
     'description' => $articulo['resumen'],
     'datePublished' => $articulo['fecha'],
-    'author' => ['@type' => 'Organization', 'name' => SITE_NAME],
+    'author' => $articulo['autor']
+        ? ['@type' => 'Person', 'name' => $articulo['autor']]
+        : ['@type' => 'Organization', 'name' => SITE_NAME],
     'publisher' => ['@type' => 'Organization', 'name' => SITE_NAME],
 ], static fn ($v) => $v !== null);
 
@@ -48,7 +50,10 @@ require __DIR__ . '/../includes/header.php';
 <article class="contenedor seccion-angosta articulo">
   <?php if ($articulo['categoria']): ?><span class="etiqueta"><?= e($articulo['categoria']) ?></span><?php endif; ?>
   <h1><?= e($articulo['titulo']) ?></h1>
-  <time datetime="<?= e($articulo['fecha']) ?>" class="texto-ayuda"><?= e(date('d/m/Y', strtotime($articulo['fecha']))) ?></time>
+  <p class="texto-ayuda articulo__meta">
+    <?php if ($articulo['autor']): ?>Por <strong><?= e($articulo['autor']) ?></strong> · <?php endif; ?>
+    <time datetime="<?= e($articulo['fecha']) ?>"><?= e(date('d/m/Y', strtotime($articulo['fecha']))) ?></time>
+  </p>
   <?php if ($articulo['imagen']): ?>
     <img src="/uploads/galeria/<?= e($articulo['imagen']) ?>" alt="<?= e($articulo['titulo']) ?>" loading="lazy" width="720" height="400">
   <?php endif; ?>

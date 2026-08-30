@@ -190,6 +190,7 @@ CREATE TABLE une_articulos (
   contenido        LONGTEXT NOT NULL,
   imagen           VARCHAR(255) NULL,
   categoria        VARCHAR(80) NULL,
+  autor            VARCHAR(120) NULL,
   meta_titulo      VARCHAR(160) NULL,
   meta_descripcion VARCHAR(200) NULL,
   publicado        TINYINT(1) NOT NULL DEFAULT 0,

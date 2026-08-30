@@ -77,6 +77,7 @@ img { max-width: 100%; display: block; }
 }
 .seccion-angosta { max-width: 640px; padding-top: 2rem; padding-bottom: 2rem; }
 .texto-ayuda { color: var(--gris); font-size: .9rem; }
+.articulo__meta { margin: .4em 0 1em; }
 
 /* ---------------------------------------------------------------------
    Botones

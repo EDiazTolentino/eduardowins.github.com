@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resumen = trim((string) ($_POST['resumen'] ?? '')) ?: null;
         $contenido = (string) ($_POST['contenido'] ?? '');
         $categoria = trim((string) ($_POST['categoria'] ?? '')) ?: null;
+        $autor = trim((string) ($_POST['autor'] ?? '')) ?: null;
         $metaTitulo = trim((string) ($_POST['meta_titulo'] ?? '')) ?: null;
         $metaDescripcion = trim((string) ($_POST['meta_descripcion'] ?? '')) ?: null;
         $publicado = !empty($_POST['publicado']) ? 1 : 0;
@@ -40,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($titulo === '' || mb_strlen($contenido) < 20) {
             $mensaje = 'El título y el contenido son obligatorios.';
         } elseif ($id > 0) {
-            $sql = 'UPDATE une_articulos SET titulo=:titulo, resumen=:resumen, contenido=:contenido, categoria=:categoria,
+            $sql = 'UPDATE une_articulos SET titulo=:titulo, resumen=:resumen, contenido=:contenido, categoria=:categoria, autor=:autor,
                     meta_titulo=:meta_titulo, meta_descripcion=:meta_descripcion, publicado=:publicado, fecha=:fecha';
             $params = [
-                ':titulo' => $titulo, ':resumen' => $resumen, ':contenido' => $contenido, ':categoria' => $categoria,
+                ':titulo' => $titulo, ':resumen' => $resumen, ':contenido' => $contenido, ':categoria' => $categoria, ':autor' => $autor,
                 ':meta_titulo' => $metaTitulo, ':meta_descripcion' => $metaDescripcion, ':publicado' => $publicado,
                 ':fecha' => $fecha, ':id' => $id,
             ];
@@ -57,11 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $slug = generarSlugUnicoArticulo($pdo, $titulo);
             $pdo->prepare(
-                'INSERT INTO une_articulos (titulo, slug, resumen, contenido, imagen, categoria, meta_titulo, meta_descripcion, publicado, fecha)
-                 VALUES (:titulo, :slug, :resumen, :contenido, :imagen, :categoria, :meta_titulo, :meta_descripcion, :publicado, :fecha)'
+                'INSERT INTO une_articulos (titulo, slug, resumen, contenido, imagen, categoria, autor, meta_titulo, meta_descripcion, publicado, fecha)
+                 VALUES (:titulo, :slug, :resumen, :contenido, :imagen, :categoria, :autor, :meta_titulo, :meta_descripcion, :publicado, :fecha)'
             )->execute([
                 ':titulo' => $titulo, ':slug' => $slug, ':resumen' => $resumen, ':contenido' => $contenido,
-                ':imagen' => $imagenArchivo, ':categoria' => $categoria, ':meta_titulo' => $metaTitulo,
+                ':imagen' => $imagenArchivo, ':categoria' => $categoria, ':autor' => $autor, ':meta_titulo' => $metaTitulo,
                 ':meta_descripcion' => $metaDescripcion, ':publicado' => $publicado, ':fecha' => $fecha,
             ]);
             $mensaje = 'Artículo creado.';
@@ -125,6 +126,7 @@ require __DIR__ . '/../includes/admin-header.php';
         <div class="campo"><label for="resumen">Resumen</label><textarea id="resumen" name="resumen" rows="2"><?= e($articulo['resumen'] ?? '') ?></textarea></div>
         <div class="campo"><label for="contenido">Contenido (HTML) *</label><textarea id="contenido" name="contenido" rows="14" required><?= $articulo['contenido'] ?? '' ?></textarea></div>
         <div class="campo"><label for="categoria">Categoría</label><input type="text" id="categoria" name="categoria" value="<?= e($articulo['categoria'] ?? '') ?>"></div>
+        <div class="campo"><label for="autor">Autor / colaborador</label><input type="text" id="autor" name="autor" placeholder="Ej. María Quispe, Lic. en Educación Física" value="<?= e($articulo['autor'] ?? '') ?>"></div>
         <div class="campo"><label for="fecha">Fecha</label><input type="date" id="fecha" name="fecha" value="<?= e($articulo['fecha'] ?? date('Y-m-d')) ?>"></div>
         <div class="campo">
           <label for="imagen">Imagen de portada</label>
