@@ -32,7 +32,11 @@ $datosEstructurados = array_filter([
     'description' => $articulo['resumen'],
     'datePublished' => $articulo['fecha'],
     'author' => $articulo['autor']
-        ? ['@type' => 'Person', 'name' => $articulo['autor']]
+        ? array_filter([
+            '@type' => 'Person',
+            'name' => $articulo['autor'],
+            'sameAs' => $articulo['autor_url'] ?: null,
+        ], static fn ($v) => $v !== null)
         : ['@type' => 'Organization', 'name' => SITE_NAME],
     'publisher' => ['@type' => 'Organization', 'name' => SITE_NAME],
 ], static fn ($v) => $v !== null);
@@ -51,7 +55,9 @@ require __DIR__ . '/../includes/header.php';
   <?php if ($articulo['categoria']): ?><span class="etiqueta"><?= e($articulo['categoria']) ?></span><?php endif; ?>
   <h1><?= e($articulo['titulo']) ?></h1>
   <p class="texto-ayuda articulo__meta">
-    <?php if ($articulo['autor']): ?>Por <strong><?= e($articulo['autor']) ?></strong> · <?php endif; ?>
+    <?php if ($articulo['autor']): ?>
+      Por <strong><?php if ($articulo['autor_url']): ?><a href="<?= e($articulo['autor_url']) ?>" target="_blank" rel="noopener noreferrer nofollow"><?= e($articulo['autor']) ?></a><?php else: ?><?= e($articulo['autor']) ?><?php endif; ?></strong> ·
+    <?php endif; ?>
     <time datetime="<?= e($articulo['fecha']) ?>"><?= e(date('d/m/Y', strtotime($articulo['fecha']))) ?></time>
   </p>
   <?php if ($articulo['imagen']): ?>
