@@ -189,6 +189,8 @@ img { max-width: 100%; display: block; }
 .tarjeta-negocio h3 { margin: .4em 0 .2em; }
 .tarjeta-negocio__ubicacion { color: var(--gris); font-size: .9rem; margin-bottom: .5em; }
 .tarjeta-negocio__descripcion { color: var(--carbon); font-size: .92rem; }
+.tarjeta-negocio__logo { width: 56px; height: 56px; object-fit: cover; border-radius: var(--radio); border: 1px solid var(--borde); margin-bottom: .5em; }
+.ficha-negocio__logo { width: 88px; height: 88px; object-fit: cover; border-radius: var(--radio); border: 1px solid var(--borde); margin-bottom: .75em; }
 
 .seccion-cta-gestor { background: var(--azul); color: var(--blanco); text-align: center; padding: 3rem 1rem; }
 .seccion-cta-gestor h2 { color: var(--blanco); }

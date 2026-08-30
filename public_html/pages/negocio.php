@@ -162,6 +162,9 @@ $migasPan = [
   <?php endif; ?>
 
   <header class="ficha-negocio__cabecera">
+    <?php if ($negocio['logo']): ?>
+      <img src="/uploads/logos/<?= e($negocio['logo']) ?>" alt="Logo de <?= e($negocio['nombre_comercial']) ?>" class="ficha-negocio__logo" width="88" height="88">
+    <?php endif; ?>
     <?php if ($negocio['verificado']): ?>
       <span class="insignia insignia--verificada">Verificada por UNE Sports</span>
     <?php else: ?>

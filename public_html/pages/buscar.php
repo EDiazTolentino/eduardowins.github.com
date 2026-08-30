@@ -64,7 +64,7 @@ $offset = ($pagina - 1) * $porPagina;
 
 $stmt = $pdo->prepare(
     'SELECT n.slug, n.nombre_comercial, n.descripcion, n.verificado, n.rango_precio, n.clase_prueba_gratis,
-            n.latitud, n.longitud,
+            n.latitud, n.longitud, n.logo,
             dep.nombre AS departamento, dist.nombre AS distrito
      FROM une_negocios n
      LEFT JOIN une_departamentos dep ON dep.id = n.departamento_id
@@ -191,6 +191,9 @@ require __DIR__ . '/../includes/header.php';
     <div class="tarjetas-negocios">
       <?php foreach ($resultados as $n): ?>
         <a href="/negocio/<?= e($n['slug']) ?>" class="tarjeta-negocio">
+          <?php if ($n['logo']): ?>
+            <img src="/uploads/logos/<?= e($n['logo']) ?>" alt="" class="tarjeta-negocio__logo" width="56" height="56" loading="lazy">
+          <?php endif; ?>
           <?php if ($n['verificado']): ?>
             <span class="insignia insignia--verificada">Verificada</span>
           <?php else: ?>

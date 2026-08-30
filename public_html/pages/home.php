@@ -11,7 +11,7 @@ $stmtContador = $pdo->query(
 $contador = $stmtContador->fetch();
 
 $stmtDestacadas = $pdo->query(
-    "SELECT n.slug, n.nombre_comercial, n.descripcion, n.verificado,
+    "SELECT n.slug, n.nombre_comercial, n.descripcion, n.verificado, n.logo,
             dist.nombre AS distrito, dep.nombre AS departamento
      FROM une_negocios n
      LEFT JOIN une_distritos dist ON dist.id = n.distrito_id
@@ -115,6 +115,9 @@ require __DIR__ . '/../includes/header.php';
   <div class="tarjetas-negocios">
     <?php foreach ($destacadas as $negocio): ?>
       <a href="/negocio/<?= e($negocio['slug']) ?>" class="tarjeta-negocio">
+        <?php if ($negocio['logo']): ?>
+          <img src="/uploads/logos/<?= e($negocio['logo']) ?>" alt="" class="tarjeta-negocio__logo" width="56" height="56" loading="lazy">
+        <?php endif; ?>
         <?php if ($negocio['verificado']): ?>
           <span class="insignia insignia--verificada">Verificada por UNE Sports</span>
         <?php else: ?>
