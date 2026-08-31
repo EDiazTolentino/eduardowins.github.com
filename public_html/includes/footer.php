@@ -63,6 +63,6 @@
   </a>
 <?php endif; ?>
 
-<script src="/assets/js/app.js" defer></script>
+<script src="/assets/js/app.js?v=<?= @filemtime(RUTA_BASE . '/assets/js/app.js') ?: '1' ?>" defer></script>
 </body>
 </html>
