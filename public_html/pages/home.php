@@ -5,7 +5,9 @@
  */
 
 $stmtContador = $pdo->query(
-    "SELECT COUNT(*) AS total, COUNT(DISTINCT distrito_id) AS distritos
+    "SELECT COUNT(*) AS total,
+            COUNT(DISTINCT distrito_id) AS distritos,
+            COUNT(DISTINCT CASE WHEN departamento_id != " . (int) DEPARTAMENTO_SIN_DEFINIR_ID . " THEN departamento_id END) AS regiones
      FROM une_negocios WHERE estado = 'publicado'"
 );
 $contador = $stmtContador->fetch();
@@ -64,10 +66,20 @@ require __DIR__ . '/../includes/header.php';
       <button type="submit" class="boton boton--primario">Buscar</button>
     </form>
 
-    <p class="hero__contador">
-      <strong><?= (int) $contador['total'] ?></strong> academias registradas en
-      <strong><?= (int) $contador['distritos'] ?></strong> distritos del Perú
-    </p>
+    <div class="contador-impacto">
+      <div class="contador-impacto__item">
+        <span class="contador-impacto__numero" data-contador="<?= (int) $contador['total'] ?>">0</span>
+        <span class="contador-impacto__etiqueta">Academias registradas</span>
+      </div>
+      <div class="contador-impacto__item">
+        <span class="contador-impacto__numero" data-contador="<?= (int) $contador['regiones'] ?>">0</span>
+        <span class="contador-impacto__etiqueta">Regiones del Perú</span>
+      </div>
+      <div class="contador-impacto__item">
+        <span class="contador-impacto__numero" data-contador="<?= (int) $contador['distritos'] ?>">0</span>
+        <span class="contador-impacto__etiqueta">Distritos del Perú</span>
+      </div>
+    </div>
     <a href="/registrar" class="boton boton--secundario">Registra tu academia gratis</a>
   </div>
 </section>

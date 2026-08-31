@@ -15,6 +15,24 @@
     });
   }
 
+  // Contador animado de impacto (inicio: academias/regiones/distritos)
+  document.querySelectorAll('[data-contador]').forEach(function (el) {
+    var meta = parseInt(el.getAttribute('data-contador'), 10) || 0;
+    var duracion = 1200;
+    var inicio = null;
+    function paso(marca) {
+      if (!inicio) inicio = marca;
+      var progreso = Math.min((marca - inicio) / duracion, 1);
+      el.textContent = Math.floor(progreso * meta);
+      if (progreso < 1) {
+        requestAnimationFrame(paso);
+      } else {
+        el.textContent = meta;
+      }
+    }
+    requestAnimationFrame(paso);
+  });
+
   // Botón compartir (registrar.php y negocio.php)
   function activarCompartir(id) {
     var boton = document.getElementById(id);
