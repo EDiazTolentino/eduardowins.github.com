@@ -293,6 +293,9 @@ textarea { resize: vertical; }
 .ficha-negocio__ubicacion { color: var(--gris); }
 .ficha-negocio__seccion { margin: 2rem 0; padding-top: 1.5rem; border-top: 1px solid var(--borde); }
 .acciones-contacto { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.ficha-negocio__redes { display: flex; align-items: center; gap: .9rem; margin-top: .75rem; }
+.ficha-negocio__redes a { color: var(--azul); display: inline-flex; align-items: center; }
+.ficha-negocio__redes a:hover { color: var(--naranja); }
 
 .tabla-horarios { width: 100%; border-collapse: collapse; }
 .tabla-horarios th, .tabla-horarios td { text-align: left; padding: .5em .75em; border-bottom: 1px solid var(--borde); }

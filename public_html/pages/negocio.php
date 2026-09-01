@@ -132,6 +132,12 @@ if ($negocio['latitud'] && $negocio['longitud']) {
 if ($horariosSchema) {
     $datosEstructurados['openingHoursSpecification'] = $horariosSchema;
 }
+$sameAs = array_values(array_filter([
+    $negocio['web'], $negocio['facebook'], $negocio['instagram'], $negocio['tiktok'], $negocio['youtube'],
+]));
+if ($sameAs) {
+    $datosEstructurados['sameAs'] = $sameAs;
+}
 $datosEstructurados = array_filter($datosEstructurados, static fn ($v) => $v !== null);
 $datosEstructurados['address'] = array_filter($datosEstructurados['address'], static fn ($v) => $v !== null);
 
@@ -199,6 +205,17 @@ $migasPan = [
       </div>
     <?php endif; ?>
 
+    <?php
+      $modalidadTexto = ['presencial' => 'Presencial', 'virtual' => 'Virtual', 'mixta' => 'Presencial y virtual'][$negocio['modalidad']] ?? null;
+      $generoTexto = ['mixto' => 'Mixto (niños y niñas)', 'femenino' => 'Solo niñas', 'masculino' => 'Solo niños'][$negocio['atiende_genero']] ?? null;
+    ?>
+    <?php if ($modalidadTexto || $generoTexto): ?>
+      <div class="etiquetas">
+        <?php if ($modalidadTexto): ?><span class="etiqueta"><?= e($modalidadTexto) ?></span><?php endif; ?>
+        <?php if ($generoTexto): ?><span class="etiqueta"><?= e($generoTexto) ?></span><?php endif; ?>
+      </div>
+    <?php endif; ?>
+
     <?php if ($negocio['rango_precio']): ?>
       <p class="rango-precio" aria-label="Rango de precio">
         <?= str_repeat('S/ ', (int) $negocio['rango_precio']) ?><span class="rango-precio__resto"><?= str_repeat('· ', 4 - (int) $negocio['rango_precio']) ?></span>
@@ -210,8 +227,32 @@ $migasPan = [
         <a href="tel:+51<?= e($negocio['telefono_publico']) ?>" class="boton boton--primario" data-evento="clic_telefono" data-negocio="<?= (int) $negocio['id'] ?>">Llamar</a>
         <a href="<?= e(enlaceWhatsApp($telefonoWhatsApp, $mensajeWhatsApp)) ?>" target="_blank" rel="noopener" class="boton boton--secundario" data-evento="clic_whatsapp" data-negocio="<?= (int) $negocio['id'] ?>">WhatsApp</a>
       <?php endif; ?>
+      <?php if ($negocio['email_publico']): ?>
+        <a href="mailto:<?= e($negocio['email_publico']) ?>" class="boton boton--texto">Escribir por correo</a>
+      <?php endif; ?>
       <button type="button" class="boton boton--texto" id="boton-compartir-ficha" data-negocio="<?= (int) $negocio['id'] ?>" data-url="<?= e(SITE_URL . '/negocio/' . $negocio['slug']) ?>">Compartir</button>
     </div>
+
+    <?php if ($negocio['telefono_publico_2']): ?>
+      <p class="texto-ayuda">También puedes llamar al <a href="tel:+51<?= e($negocio['telefono_publico_2']) ?>"><?= e($negocio['telefono_publico_2']) ?></a>.</p>
+    <?php endif; ?>
+
+    <?php
+      $redesNegocio = array_filter([
+          'facebook' => $negocio['facebook'],
+          'instagram' => $negocio['instagram'],
+          'tiktok' => $negocio['tiktok'],
+          'youtube' => $negocio['youtube'],
+      ]);
+    ?>
+    <?php if ($negocio['web'] || $redesNegocio): ?>
+      <div class="ficha-negocio__redes">
+        <?php if ($negocio['web']): ?><a href="<?= e($negocio['web']) ?>" target="_blank" rel="noopener noreferrer">Sitio web</a><?php endif; ?>
+        <?php foreach ($redesNegocio as $red => $url): ?>
+          <a href="<?= e($url) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= e(ucfirst($red)) ?>"><?= iconoRedSocial($red) ?></a>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
   </header>
 
   <?php if (!empty($negocio['descripcion'])): ?>
@@ -246,6 +287,10 @@ $migasPan = [
         $negocio['protocolo_salvaguarda'] ? 'Protocolo de salvaguarda infantil' : null,
         $negocio['personal_certificado'] ? 'Personal certificado' : null,
         $negocio['clase_prueba_gratis'] ? 'Clase de prueba gratis' : null,
+        $negocio['ofrece_beca'] ? 'Ofrece becas o descuentos' : null,
+        $negocio['requiere_examen_medico'] ? 'Requiere examen médico' : null,
+        $negocio['tiene_matricula'] ? 'Requiere pago de matrícula' : null,
+        $negocio['afiliacion_federacion'] ? 'Afiliado a: ' . $negocio['afiliacion_federacion'] : null,
     ]);
   ?>
   <?php if ($distintivos): ?>
