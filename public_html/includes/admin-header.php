@@ -26,6 +26,7 @@ $tituloPagina = $tituloPagina ?? 'Panel — ' . SITE_NAME;
     <a href="/admin/sugerencias.php">Sugerencias</a>
     <a href="/admin/articulos.php">Blog</a>
     <a href="/admin/equipo.php">Equipo</a>
+    <a href="/admin/eventos.php">Eventos</a>
     <?php if (adminEsAdministrador()): ?><a href="/admin/importar.php">Importar CSV</a><?php endif; ?>
     <a href="/admin/dashboard.php">Inicio</a>
   </nav>

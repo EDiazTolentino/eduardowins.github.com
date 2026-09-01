@@ -17,7 +17,7 @@ $pdo = BaseDatos::obtener();
 $urls = [];
 $hoy = date('Y-m-d');
 
-foreach (['/', '/buscar', '/registrar', '/sugerir', '/blog', '/servicios', '/nosotros', '/contacto', '/legal-privacidad', '/legal-terminos'] as $ruta) {
+foreach (['/', '/buscar', '/registrar', '/sugerir', '/blog', '/eventos', '/servicios', '/nosotros', '/contacto', '/legal-privacidad', '/legal-terminos'] as $ruta) {
     $urls[] = ['loc' => SITE_URL . $ruta, 'lastmod' => $hoy, 'prioridad' => $ruta === '/' ? '1.0' : '0.7'];
 }
 

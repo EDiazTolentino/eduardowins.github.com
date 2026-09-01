@@ -29,6 +29,7 @@ $rutasEstaticas = [
     '/buscar' => 'pages/buscar.php',
     '/sugerir' => 'pages/sugerir.php',
     '/blog' => 'pages/blog.php',
+    '/eventos' => 'pages/eventos.php',
     '/servicios' => 'pages/servicios.php',
     '/nosotros' => 'pages/nosotros.php',
     '/contacto' => 'pages/contacto.php',

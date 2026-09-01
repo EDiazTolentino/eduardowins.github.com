@@ -35,6 +35,17 @@ $stmtRegiones = $pdo->query(
 );
 $regiones = $stmtRegiones->fetchAll();
 
+$stmtEventos = $pdo->query(
+    "SELECT ambito, titulo, flyer, fecha_evento,
+            (SELECT nombre FROM une_departamentos WHERE id = e.departamento_id) AS departamento
+     FROM une_eventos_deportivos e
+     WHERE publicado = 1 AND (fecha_evento IS NULL OR fecha_evento >= CURDATE())
+     ORDER BY ambito, fecha_evento IS NULL, fecha_evento ASC"
+);
+$todosEventos = $stmtEventos->fetchAll();
+$eventosNacionales = array_slice(array_filter($todosEventos, static fn ($e) => $e['ambito'] === 'nacional'), 0, 3);
+$eventosInternacionales = array_slice(array_filter($todosEventos, static fn ($e) => $e['ambito'] === 'internacional'), 0, 3);
+
 $tituloPagina = SITE_NAME . ' — Directorio Nacional de Deporte Formativo';
 require __DIR__ . '/../includes/header.php';
 ?>
@@ -83,6 +94,47 @@ require __DIR__ . '/../includes/header.php';
     <a href="/registrar" class="boton boton--secundario">Registra tu academia gratis</a>
   </div>
 </section>
+
+<?php if ($eventosNacionales || $eventosInternacionales): ?>
+<section class="contenedor seccion-eventos-inicio">
+  <div class="seccion-eventos-inicio__encabezado">
+    <h2>Eventos deportivos</h2>
+    <a href="/eventos">Ver todos</a>
+  </div>
+  <p class="texto-ayuda">Eventos organizados por terceros, difundidos por <?= e(SITE_NAME) ?>.</p>
+
+  <?php if ($eventosNacionales): ?>
+    <h3>Nacionales</h3>
+    <div class="grid-eventos grid-eventos--compacto">
+      <?php foreach ($eventosNacionales as $ev): ?>
+        <a href="/eventos?ambito=nacional" class="tarjeta-evento tarjeta-evento--compacta">
+          <?php if ($ev['flyer']): ?><img src="/uploads/galeria/<?= e($ev['flyer']) ?>" alt="" loading="lazy" width="200" height="140"><?php endif; ?>
+          <div class="tarjeta-evento__cuerpo">
+            <h4><?= e($ev['titulo']) ?></h4>
+            <?php if ($ev['fecha_evento']): ?><time datetime="<?= e($ev['fecha_evento']) ?>" class="texto-ayuda"><?= e(date('d/m/Y', strtotime($ev['fecha_evento']))) ?></time><?php endif; ?>
+            <?php if ($ev['departamento']): ?><p class="texto-ayuda"><?= e($ev['departamento']) ?></p><?php endif; ?>
+          </div>
+        </a>
+      <?php endforeach; ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if ($eventosInternacionales): ?>
+    <h3>Internacionales</h3>
+    <div class="grid-eventos grid-eventos--compacto">
+      <?php foreach ($eventosInternacionales as $ev): ?>
+        <a href="/eventos?ambito=internacional" class="tarjeta-evento tarjeta-evento--compacta">
+          <?php if ($ev['flyer']): ?><img src="/uploads/galeria/<?= e($ev['flyer']) ?>" alt="" loading="lazy" width="200" height="140"><?php endif; ?>
+          <div class="tarjeta-evento__cuerpo">
+            <h4><?= e($ev['titulo']) ?></h4>
+            <?php if ($ev['fecha_evento']): ?><time datetime="<?= e($ev['fecha_evento']) ?>" class="texto-ayuda"><?= e(date('d/m/Y', strtotime($ev['fecha_evento']))) ?></time><?php endif; ?>
+          </div>
+        </a>
+      <?php endforeach; ?>
+    </div>
+  <?php endif; ?>
+</section>
+<?php endif; ?>
 
 <?php if ($deportesInicio): ?>
 <!-- Oculta a propósito mientras se prioriza que las academias suban su información;

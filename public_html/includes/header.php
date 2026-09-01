@@ -84,6 +84,7 @@ foreach ([
       <a href="/buscar">Buscar</a>
       <a href="/registrar">Registrar</a>
       <a href="/blog">Blog</a>
+      <a href="/eventos">Eventos</a>
       <a href="/servicios">Servicios</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/contacto">Contacto</a>

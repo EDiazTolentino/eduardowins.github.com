@@ -499,6 +499,25 @@ fieldset:disabled { opacity: .7; }
 .tarjeta-articulo p, .tarjeta-articulo time { margin: 0 1rem .75em; display: block; }
 .tarjeta-articulo .etiqueta { margin: .75rem 1rem 0; }
 
+/* Eventos deportivos (pages/eventos.php y bloque de inicio) */
+.grid-eventos { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+@media (min-width: 768px) { .grid-eventos { grid-template-columns: repeat(3, 1fr); } }
+.tarjeta-evento { display: block; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra); background: var(--blanco); }
+.tarjeta-evento img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.tarjeta-evento__cuerpo { padding: 1rem; }
+.tarjeta-evento__cuerpo h2, .tarjeta-evento__cuerpo h4 { margin: .3em 0; }
+.tarjeta-evento__cuerpo .boton { margin-top: .75em; }
+
+.seccion-eventos-inicio { padding: 1.5rem 0; }
+.seccion-eventos-inicio__encabezado { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.seccion-eventos-inicio h3 { margin-top: 1.25em; }
+.grid-eventos--compacto { grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 480px) { .grid-eventos--compacto { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid-eventos--compacto { grid-template-columns: repeat(3, 1fr); } }
+.tarjeta-evento--compacta { text-decoration: none; color: var(--carbon); }
+.tarjeta-evento--compacta img { height: 120px; }
+.tarjeta-evento--compacta .tarjeta-evento__cuerpo { padding: .75rem; }
+
 .articulo { padding-top: 1rem; }
 .articulo img { border-radius: var(--radio); margin: 1rem 0; width: 100%; object-fit: cover; max-height: 420px; }
 .articulo__contenido h2 { margin-top: 1.5em; }
