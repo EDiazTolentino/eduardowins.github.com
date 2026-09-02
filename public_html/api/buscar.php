@@ -53,13 +53,23 @@ if ($verificado) { $condiciones[] = 'n.verificado = 1'; }
 if ($localPropio) { $condiciones[] = 'n.local_propio = 1'; }
 if ($pruebaGratis) { $condiciones[] = 'n.clase_prueba_gratis = 1'; }
 if ($q !== '') {
-    $condiciones[] = 'n.nombre_comercial LIKE :q';
-    $params[':q'] = '%' . $q . '%';
+    $condiciones[] = '(n.nombre_comercial LIKE :q1 OR dist.nombre LIKE :q2 OR dep.nombre LIKE :q3
+        OR EXISTS (
+            SELECT 1 FROM une_negocio_deportes nd2
+            JOIN une_deportes d2 ON d2.id = nd2.deporte_id
+            WHERE nd2.negocio_id = n.id AND d2.nombre LIKE :q4
+        ))';
+    $params[':q1'] = '%' . $q . '%';
+    $params[':q2'] = '%' . $q . '%';
+    $params[':q3'] = '%' . $q . '%';
+    $params[':q4'] = '%' . $q . '%';
 }
 
 $stmt = $pdo->prepare(
     'SELECT n.slug, n.nombre_comercial, n.verificado, n.latitud, n.longitud
      FROM une_negocios n
+     LEFT JOIN une_departamentos dep ON dep.id = n.departamento_id
+     LEFT JOIN une_distritos dist ON dist.id = n.distrito_id
      WHERE ' . implode(' AND ', $condiciones) . '
      LIMIT 500'
 );
