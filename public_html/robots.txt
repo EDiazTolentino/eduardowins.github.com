@@ -4,4 +4,4 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /uploads/
 
-Sitemap: https://unesportsperu.pe/sitemap.php
+Sitemap: https://unesports.com/sitemap.php

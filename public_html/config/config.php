@@ -20,9 +20,9 @@ define('DB_CHARSET', 'utf8mb4');
 // Sitio
 // ---------------------------------------------------------------------
 define('SITE_NAME', 'UNE Sports Perú');
-define('SITE_URL', 'https://unesportsperu.pe'); // sin slash final
-define('SITE_EMAIL_CONTACTO', 'contacto@unesportsperu.pe');
-define('SITE_EMAIL_ADMIN', 'registro@unesportsperu.pe'); // recibe avisos de nuevos leads
+define('SITE_URL', 'https://unesports.com'); // sin slash final
+define('SITE_EMAIL_CONTACTO', 'contacto@unesports.com');
+define('SITE_EMAIL_ADMIN', 'registro@unesports.com'); // recibe avisos de nuevos leads
 define('WHATSAPP_PREFIJO_PAIS', '51');
 
 // Redes sociales de UNE Sports Perú (no las de cada academia).
